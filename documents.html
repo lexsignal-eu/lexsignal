@@ -247,7 +247,7 @@ function present(idx){
  if(!state)return;
  const row=state.records[idx]||{};
  state.selected=idx;
- const allUrls=urlsIn([row.url||'',row.summary||'',state.content].join('\n'));
+ const allUrls=urlsIn([row.url||'',row.summary||'',state.records.length>1?'':state.content].join('\n'));
  const src=sourceAllowed(row.url)?row.url:allUrls[0]||'';
  const title=row.title||state.subject||state.filename.replace(/\.[^.]+$/,'').replace(/[_-]/g,' ').slice(0,150);
  const summary=(row.summary||state.content).replace(/\s+/g,' ').slice(0,420);
