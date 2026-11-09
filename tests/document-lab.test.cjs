@@ -6,7 +6,7 @@ const {test}=require('node:test');
 const root=path.join(__dirname,'..');
 const html=fs.readFileSync(path.join(root,'documents.html'),'utf8');
 const script=html.match(/<script>([\s\S]*?)<\/script>/)[1];
-const prelaunch=script.split("el('file').addEventListener")[0];
+const prelaunch=script.split("el('file').addEventListener")[0].replace(/^\s*\(function\(\)\s*\{/,"");
 
 function ctx(){
  const sandbox=vm.createContext({URL,Date,TextDecoder,atob,console});
