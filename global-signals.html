@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102538">
+<meta name="description" content="Explore AI policy, legislation and governance milestones on LexSignal's interactive Global Signals world map.">
+<title>Global Signals — LexSignal interactive map</title>
+<link rel="icon" type="image/webp" href="brand/lexsignal-sphere-approved.webp">
+<style>
+:root{--navy:#102538;--teal:#117f76;--paper:#f4f7f8;--text:#17344a;--muted:#63798c;--line:#dce6e9}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--text);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer}a{color:#1b638e}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #27a7ac;outline-offset:3px}
+.wrap{width:min(1290px,calc(100% - 44px));margin:auto}
+nav{display:flex;align-items:center;justify-content:space-between;min-height:75px;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;color:#153148;font-size:22px;letter-spacing:-.7px;font-weight:800;text-decoration:none}.brand img{width:42px;height:42px;object-fit:cover;border-radius:50%;background:#fff}
+.links{display:flex;gap:25px;align-items:center;font-size:13px;font-weight:720}.links a{color:#526879;text-decoration:none}.links a:hover,.links a[aria-current=page]{color:#0c8176}
+.hero{background:linear-gradient(120deg,#102538,#183e50);color:#fff;padding:50px 0 55px}
+.eyebrow{font-size:11px;letter-spacing:1.8px;color:#8fcfc2;font-weight:850;text-transform:uppercase}
+.hero h1{font-size:clamp(38px,4.4vw,60px);line-height:1.1;letter-spacing:-2px;margin:9px 0 16px}
+.hero p{color:#ccdae4;max-width:790px;font-size:16px;line-height:1.7;margin:0}
+.main{padding:27px 0 72px}
+.toolbar{background:#fff;border:1px solid var(--line);border-radius:13px;padding:14px 17px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:15px}
+.tabs,.filters{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.tab,.filter{background:#edf3f4;border:1px solid transparent;color:#526b79;border-radius:8px;padding:9px 13px;font-weight:740;font-size:12px}
+.tab[aria-pressed=true],.filter[aria-pressed=true]{background:#102d3d;color:#fff}
+.filter[aria-pressed=true]{background:#167d70}
+.search{border:1px solid #cad8df;border-radius:8px;background:#fff;padding:9px 12px;font-size:13px;width:min(205px,100%)}
+select{border:1px solid #cad8df;border-radius:8px;background:#fff;color:#2d4c60;padding:9px 11px;font-size:13px;max-width:135px}
+.content{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:15px;align-items:start}
+.map-frame{border:1px solid #cbdde1;background:#dcebec;border-radius:15px;overflow:hidden;position:relative;box-shadow:0 9px 25px #112e480e}
+.map-svg{display:block;width:100%;height:auto;aspect-ratio:2/1;min-height:400px;touch-action:none;cursor:grab;user-select:none}
+.map-svg.dragging{cursor:grabbing}
+.graticule{stroke:#b4cbcf;stroke-width:1;fill:none;opacity:.45}
+.map-land{fill:#f8faf9;stroke:#c1d1d4;stroke-width:1.05;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.map-pin{cursor:pointer;outline:none}.map-pin .pulse{fill:#fff;opacity:.7}
+.map-pin .base{fill:#107d75;stroke:#fff;stroke-width:2.6}
+.map-pin.summit .base{fill:#2b678f}.map-pin.agreement .base{fill:#0e8277}.map-pin.law .base{fill:#b27f42}
+.map-pin.hub .base{fill:#324e7c}
+.map-pin.selected .base,.map-pin:hover .base,.map-pin:focus .base{stroke:#fff;stroke-width:4;filter:drop-shadow(0 3px 6px #0b314f77)}
+.map-pin.selected .pulse{opacity:.95}
+.map-label{font-size:11px;fill:#597986;font-weight:800;letter-spacing:.5px;pointer-events:none}
+.map-top{position:absolute;top:14px;left:15px;display:flex;gap:8px;pointer-events:none;align-items:center}
+.map-status{background:#ffffffee;color:#27465a;box-shadow:0 2px 9px #13394d12;padding:7px 11px;border-radius:7px;font-size:11px;font-weight:770}
+.map-controls{position:absolute;right:14px;top:14px;display:grid;gap:5px}
+.map-controls button{background:#fff;color:#17384d;border:1px solid #d5e3e5;border-radius:7px;width:36px;height:36px;font-size:21px;box-shadow:0 2px 7px #16314911}
+.map-controls button[title="Reset view"]{font-size:15px}
+.map-caption{position:absolute;left:15px;bottom:11px;color:#426778;font-size:10px;background:#edf4f5d9;border-radius:4px;padding:4px 7px}
+.tooltip{display:none;position:absolute;z-index:5;pointer-events:none;background:#102b3f;color:#fff;max-width:235px;border-radius:9px;padding:10px 12px;box-shadow:0 10px 30px #10253655;font-size:12px;line-height:1.35}
+.tooltip.visible{display:block}.tooltip strong{display:block;font-size:12px;margin:0 0 4px}.tooltip small{color:#a4d5d0}
+.panel{background:#fff;border:1px solid var(--line);box-shadow:0 9px 26px #112e480d;border-radius:14px;overflow:hidden;min-height:490px}
+.photo{height:190px;background:linear-gradient(145deg,#10283b,#326071);position:relative;display:flex;align-items:center;justify-content:center}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo:after{content:"";position:absolute;inset:52% 0 0;background:linear-gradient(transparent,#102a3b66);pointer-events:none}
+.photo-fallback{display:none;font-size:56px;color:#d2eaeb}
+.photo.noimage .photo-fallback{display:block}
+.photo-credit{font-size:10px;color:#8493a3;line-height:1.4;margin-top:10px}
+.photo-credit a{color:#657b8f}
+.panel-body{padding:22px 23px 25px}
+.panel-topline{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:#e5f3ee;border-radius:5px;padding:5px 8px;color:#187c6d;font-weight:850;font-size:10px;letter-spacing:.5px;text-transform:uppercase}
+.panel-time{font-size:11px;color:#77899a;font-weight:750}
+.panel h2{font-size:22px;line-height:1.29;letter-spacing:-.55px;margin:12px 0 9px}
+.place{font-size:12px;color:#0c796d;font-weight:760;margin-bottom:12px}
+.panel p{color:#5c7183;font-size:13px;line-height:1.65;margin:0 0 14px}
+.meta{background:#f1f6f7;border-radius:8px;padding:10px 12px;color:#587082;font-size:11px;line-height:1.5;margin:12px 0}
+.source-link{display:inline-block;background:#102f43;color:#fff;text-decoration:none;border-radius:8px;font-size:13px;font-weight:760;padding:11px 14px;margin-top:5px}
+.source-link:hover{background:#225372}
+.latest{border-top:1px solid #e2e9ea;margin-top:14px;padding-top:12px}
+.latest a{display:block;font-size:12px;line-height:1.5;padding:8px 0;border-bottom:1px solid #e6edee;text-decoration:none}
+.latest a:last-child{border:0}
+.result-list{margin-top:19px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:19px 20px}
+.result-top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:14px}
+.result-top h2{font-size:19px;letter-spacing:-.45px;margin:0}.result-top small{color:#687d8d}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.event-card{border:1px solid #dfe7e9;border-radius:10px;background:#fafcfc;text-align:left;padding:13px;min-height:107px;display:flex;flex-direction:column;gap:5px;color:#1c394e;transition:border-color .15s,transform .15s}
+.event-card:hover{border-color:#14877e;transform:translateY(-1px)}
+.event-card.selected{border-color:#178a7f;background:#eef8f4}
+.event-card .top{font-size:10px;letter-spacing:.4px;font-weight:850;text-transform:uppercase;color:#0c8172}
+.event-card strong{font-size:13px;line-height:1.35}
+.event-card small{color:#788b97;font-size:11px;margin-top:auto}
+.empty{padding:25px;color:#708596;font-size:13px}
+.footnote{font-size:12px;color:#738596;line-height:1.6;margin-top:20px;max-width:1060px}
+footer{background:#102b3e;padding:25px 0;color:#b6c8d1;font-size:12px}footer a{color:#e4f4f3}
+@media(max-width:1110px){.content{grid-template-columns:minmax(0,1fr) 310px}.cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:850px){.content{grid-template-columns:1fr}.panel{display:grid;grid-template-columns:34% 1fr;min-height:unset}.photo{height:100%;min-height:285px}.photo-credit{grid-column:2;margin-top:0}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.wrap{width:calc(100% - 26px)}nav{min-height:65px}.brand{font-size:19px}.brand img{width:36px;height:36px}.links{gap:9px;font-size:11px}.links a:nth-child(1){display:none}.hero{padding:37px 0 42px}.hero p{font-size:14px}.toolbar{padding:12px}.search{width:100%}.filters{width:100%}.map-svg{min-height:325px}.map-frame{border-radius:10px}.panel{display:block}.photo{height:190px;min-height:unset}.cards{grid-template-columns:1fr 1fr}.event-card{min-height:115px}.map-top{top:11px;left:11px}.map-status{font-size:10px}.map-controls{right:9px;top:9px}}
+@media(max-width:410px){.cards{grid-template-columns:1fr}.event-card{min-height:85px}}
+</style>
+</head>
+<body>
+<header class="wrap"><nav>
+ <a class="brand" href="index.html"><img src="brand/lexsignal-sphere-approved.webp" alt="">LexSignal</a>
+ <div class="links"><a href="index.html">Home</a><a href="workspace.html">Workspace</a><a href="documents.html">Documents</a><a href="global-signals.html" aria-current="page">Global Signals</a></div>
+</nav></header>
+<section class="hero"><div class="wrap"><div class="eyebrow">Global Signals · Explore the world of AI governance</div>
+ <h1>Ideas become policy.<br>Somewhere in the world.</h1>
+ <p>Explore where major AI governance milestones, international agreements and summits took place. Move over a pin for a preview, select it to read the context, and follow the original source.</p>
+</div></section>
+<main class="wrap main">
+ <div class="toolbar">
+  <div class="tabs" aria-label="Map data mode"><button class="tab" id="mode-events" aria-pressed="true">Selected milestones</button><button class="tab" id="mode-hubs" aria-pressed="false">Latest regulator updates</button></div>
+  <div class="filters">
+   <button class="filter" data-kind="all" aria-pressed="true">All</button>
+   <button class="filter" data-kind="law" aria-pressed="false">Law &amp; policy</button>
+   <button class="filter" data-kind="agreement" aria-pressed="false">Agreements</button>
+   <button class="filter" data-kind="summit" aria-pressed="false">Summits</button>
+   <select id="year" aria-label="Filter by year"><option value="all">All years</option><option>2026</option><option>2025</option><option>2024</option><option>2023</option></select>
+   <input id="search" class="search" type="search" placeholder="Search a city or event" aria-label="Search places and events">
+  </div>
+ </div>
+ <div class="content">
+  <div class="map-frame" id="map-frame">
+   <svg class="map-svg" id="world-map" viewBox="0 0 1200 600" role="img" aria-label="Interactive world map of selected AI policy events">
+    <rect width="1200" height="600" fill="#dfeced"></rect>
+    <g id="graticule"></g><g id="land"></g><g id="pins"></g>
+   </svg>
+   <div class="map-top"><span class="map-status" id="map-status">Loading curated locations…</span></div>
+   <div class="map-controls" role="group" aria-label="Map zoom controls">
+    <button id="zoom-in" type="button" aria-label="Zoom in" title="Zoom in">+</button>
+    <button id="zoom-out" type="button" aria-label="Zoom out" title="Zoom out">−</button>
+    <button id="zoom-reset" type="button" aria-label="Reset map view" title="Reset view">⌖</button>
+   </div>
+   <div class="map-caption">Map geometry: Natural Earth (public domain) · Drag to pan · Scroll to zoom</div>
+   <div class="tooltip" id="tooltip" aria-hidden="true"></div>
+  </div>
+  <aside class="panel" id="info-panel" aria-live="polite">
+    <div class="photo noimage" id="photo"><span class="photo-fallback" id="photo-fallback">◈</span><img id="photo-img" alt="" hidden></div>
+    <div class="panel-body">
+      <div class="panel-topline"><span class="badge" id="event-kind">Global Signals</span><time class="panel-time" id="event-date" translate="no"></time></div>
+      <h2 id="event-title">Select a pin to discover an event</h2>
+      <div class="place" id="event-place">Official-source research map</div>
+      <p id="event-summary">Explore curated locations and find out where important AI governance milestones happened.</p>
+      <div class="meta" id="location-note">Pins distinguish a venue, city and institutional headquarters. A pin does not always identify where a legal requirement applies.</div>
+      <a class="source-link" id="event-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Read the original source ↗</a>
+      <div class="latest" id="latest-records" hidden></div>
+      <div class="photo-credit" id="photo-credit"></div>
+    </div>
+  </aside>
+ </div>
+ <section class="result-list" aria-label="Visible map events">
+   <div class="result-top"><h2>Explore the signals</h2><small id="results-count"></small></div>
+   <div class="cards" id="event-cards"></div>
+ </section>
+ <p class="footnote"><strong>Coverage note:</strong> The milestone map is an editorial selection of verified historical events, not a live global news feed. Photos illustrate venues or cities and are not necessarily taken on the event date. In the regulator-updates view, markers indicate the institution’s location rather than the physical place of publication or legal effect. Source citations and image credits are provided for each item. No location data or map keys are sent to a paid mapping service.</p>
+</main>
+<footer><div class="wrap">LexSignal · Research preview · <a href="https://www.naturalearthdata.com/about/terms-of-use/" target="_blank" rel="noopener noreferrer">Map data: Natural Earth</a> · <a href="index.html">Back to overview</a></div></footer>
+<script>
+(function(){
+'use strict';
+const SVG='http://www.w3.org/2000/svg';
+const WIDTH=1200,HEIGHT=600;
+const svg=document.getElementById('world-map');
+const rect=document.getElementById('map-frame');
+const gPins=document.getElementById('pins'),gLand=document.getElementById('land');
+const tip=document.getElementById('tooltip');
+const mapState={x:0,y:0,w:WIDTH,h:HEIGHT};
+let mode='events',selectedId=null,curated=[],hubs=[],latestSnapshot=null,visible=[],activeKind='all';
+const authorityCoords={
+ 'ESMA':{lat:48.860,lon:2.313,city:'Paris',country:'France',name:'European Securities and Markets Authority'},
+ 'EDPB':{lat:50.8425,lon:4.367,city:'Brussels',country:'Belgium',name:'European Data Protection Board'},
+ 'European Commission':{lat:50.8449,lon:4.383,city:'Brussels',country:'Belgium',name:'European Commission'},
+ 'Central Bank of Ireland':{lat:53.3497,lon:-6.2449,city:'Dublin',country:'Ireland',name:'Central Bank of Ireland'}
+};
+function $(id){return document.getElementById(id);}
+function node(tag,attrs={}){
+ const item=document.createElementNS(SVG,tag);
+ for(const [k,v] of Object.entries(attrs))item.setAttribute(k,String(v));
+ return item;
+}
+function project(lon,lat){
+ return [((lon+180)/360)*WIDTH,((80-Math.max(-70,Math.min(80,lat)))/150)*HEIGHT];
+}
+function drawGraticule(){
+ const g=$('graticule');g.textContent='';
+ for(let lon=-150;lon<=150;lon+=30){const a=project(lon,80),b=project(lon,-70);g.append(node('line',{x1:a[0],y1:a[1],x2:b[0],y2:b[1],class:'graticule'}));}
+ for(let lat=-60;lat<=60;lat+=30){const y=project(0,lat)[1];g.append(node('line',{x1:0,y1:y,x2:WIDTH,y2:y,class:'graticule'}));}
+}
+function ringPath(coords){
+ let d='',prev=null,started=false;
+ for(const pair of coords){
+  const lon=pair[0],lat=pair[1];
+  if(!Number.isFinite(lon)||!Number.isFinite(lat))continue;
+  const [x,y]=project(lon,lat);
+  if(!started||prev!==null&&Math.abs(lon-prev)>180){d+=' M'+x.toFixed(2)+' '+y.toFixed(2);started=true;}
+  else d+=' L'+x.toFixed(2)+' '+y.toFixed(2);
+  prev=lon;
+ }
+ return d+' Z';
+}
+async function loadLand(){
+ try{
+  const response=await fetch('geo/ne_110m_land.geojson',{cache:'force-cache'});
+  if(!response.ok)throw Error('Map geometry unavailable');
+  const geo=await response.json();
+  if(!Array.isArray(geo.features))throw Error('Unexpected map geometry');
+  const fragment=document.createDocumentFragment();
+  for(const feature of geo.features){
+   const shape=feature.geometry;
+   if(!shape)continue;
+   const polys=shape.type==='MultiPolygon'?shape.coordinates:shape.type==='Polygon'?[shape.coordinates]:[];
+   for(const poly of polys){
+    // Land boundaries, not political borders. Outer rings only at this scale.
+    const path=ringPath(poly[0]);
+    if(path.length>8)fragment.append(node('path',{d:path,class:'map-land'}));
+   }
+  }
+  gLand.replaceChildren(fragment);
+ }catch(error){$('map-status').textContent='Land outlines unavailable · Pins remain usable';}
+}
+function clamp(v,a,b){return Math.min(b,Math.max(a,v));}
+function setCamera(x,y,w,h){
+ w=clamp(w,WIDTH/4,WIDTH);h=w*(HEIGHT/WIDTH);
+ x=clamp(x,0,WIDTH-w);y=clamp(y,0,HEIGHT-h);
+ Object.assign(mapState,{x,y,w,h});svg.setAttribute('viewBox',[x,y,w,h].join(' '));
+}
+function zoom(ratio,u=.5,v=.5){
+ const {x,y,w,h}=mapState;const newW=clamp(w/ratio,WIDTH/4,WIDTH),newH=newW*HEIGHT/WIDTH;
+ setCamera(x+u*w-u*newW,y+v*h-v*newH,newW,newH);
+}
+$('zoom-in').addEventListener('click',()=>zoom(1.5));
+$('zoom-out').addEventListener('click',()=>zoom(1/1.5));
+$('zoom-reset').addEventListener('click',()=>setCamera(0,0,WIDTH,HEIGHT));
+svg.addEventListener('wheel',ev=>{
+ ev.preventDefault();
+ const box=svg.getBoundingClientRect(),u=clamp((ev.clientX-box.left)/box.width,0,1),v=clamp((ev.clientY-box.top)/box.height,0,1);
+ zoom(ev.deltaY<0?1.22:1/1.22,u,v);
+},{passive:false});
+let drag=null;
+svg.addEventListener('pointerdown',ev=>{if(ev.target.closest('.map-pin'))return;drag={x:ev.clientX,y:ev.clientY,cx:mapState.x,cy:mapState.y};svg.classList.add('dragging');svg.setPointerCapture(ev.pointerId);});
+svg.addEventListener('pointermove',ev=>{
+ if(!drag)return;
+ const box=svg.getBoundingClientRect(),dx=ev.clientX-drag.x,dy=ev.clientY-drag.y;
+ setCamera(drag.cx-dx/box.width*mapState.w,drag.cy-dy/box.height*mapState.h,mapState.w,mapState.h);
+});
+function endDrag(){drag=null;svg.classList.remove('dragging');}
+svg.addEventListener('pointerup',endDrag);svg.addEventListener('pointercancel',endDrag);
+function visibleRows(){
+ const q=$('search').value.trim().toLowerCase(),year=$('year').value;
+ const list=mode==='events'?curated:hubs;
+ return list.filter(e=>(mode==='hubs'||(activeKind==='all'||e.category===activeKind))&&(mode==='hubs'||year==='all'||e.date.slice(0,4)===year)&&(!q||[e.title,e.city,e.country,e.summary,e.place].join(' ').toLowerCase().includes(q))).sort((a,b)=>b.date.localeCompare(a.date));
+}
+function formatDate(iso){
+ if(!iso)return 'Date unavailable';
+ const date=new Date(iso+'T12:00:00Z');
+ return Number.isNaN(date.getTime())?iso:new Intl.DateTimeFormat('en-GB',{day:'2-digit',month:'short',year:'numeric',timeZone:'UTC'}).format(date);
+}
+function showTip(ev,e){
+ tip.replaceChildren();
+ const h=document.createElement('strong');h.textContent=e.title;
+ const small=document.createElement('small');small.textContent=e.city+' · '+formatDate(e.date);
+ tip.append(h,small);tip.classList.add('visible');
+ const b=rect.getBoundingClientRect();
+ const x=clamp(ev.clientX-b.left+13,8,b.width-230),y=clamp(ev.clientY-b.top-64,5,b.height-75);
+ tip.style.left=x+'px';tip.style.top=y+'px';
+}
+function hideTip(){tip.classList.remove('visible');}
+function drawPins(){
+ gPins.textContent='';
+ for(const e of visible){
+  const [x,y]=project(e.lon,e.lat);
+  const pin=node('g',{class:'map-pin '+(mode==='hubs'?'hub':e.category)+(e.id===selectedId?' selected':''),transform:'translate('+x.toFixed(1)+' '+y.toFixed(1)+')',tabindex:'0',role:'button','aria-label':e.city+': '+e.title});
+  pin.append(node('circle',{class:'pulse',r:14}),node('circle',{class:'base',r:8}));
+  const glow=node('circle',{r:21,fill:'transparent'});pin.append(glow);
+  const label=node('title');label.textContent=e.city+': '+e.title;pin.append(label);
+  pin.addEventListener('mouseenter',ev=>{showTip(ev,e);select(e.id,false);});
+  pin.addEventListener('mousemove',ev=>showTip(ev,e));
+  pin.addEventListener('mouseleave',hideTip);
+  pin.addEventListener('focus',()=>{select(e.id,false);const b=rect.getBoundingClientRect();showTip({clientX:b.left+50,clientY:b.top+90},e);});
+  pin.addEventListener('blur',hideTip);
+  pin.addEventListener('click',()=>select(e.id,true));
+  pin.addEventListener('keydown',ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();select(e.id,true);}});
+  gPins.append(pin);
+ }
+}
+function select(id,redraw=true){
+ const e=visible.find(x=>x.id===id);
+ if(!e)return;
+ selectedId=id;
+ $('event-kind').textContent=mode==='hubs'?'Regulator feed':e.category==='law'?'Law & policy':e.category==='agreement'?'International agreement':'AI summit';
+ $('event-date').textContent=mode==='hubs'?'Snapshot '+formatDate(e.date):formatDate(e.date);
+ $('event-date').dateTime=e.date;
+ $('event-title').textContent=e.title;
+ $('event-place').textContent=e.place+' · '+e.city+', '+e.country;
+ $('event-summary').textContent=e.summary;
+ $('location-note').textContent=mode==='hubs'?
+   'Publisher hub: this marker shows the institution location, not where each law takes effect or the event happened. See original publications.' :
+   e.locationType==='institution_location'?'Institutional location — the source documents a policy announcement, not a vote or new law enacted at the pin.' :
+   e.locationType==='city_of_event'?'City-level location — the pin indicates the host city, not an exact room or building.' :
+   'The pin shows the known venue or institution associated with this event. Legal effects may extend well beyond this location.';
+ const link=$('event-link');link.hidden=!e.source;link.href=e.source||'#';
+ const photo=$('photo'),img=$('photo-img');img.hidden=!e.image;photo.classList.toggle('noimage',!e.image);
+ if(e.image){
+   img.onerror=()=>{img.hidden=true;photo.classList.add('noimage');};
+   img.onload=()=>{img.hidden=false;photo.classList.remove('noimage');};
+   img.src=e.image;img.alt='Illustration of '+e.place+', '+e.city+' (not necessarily taken on the event date)';
+ }
+ $('photo-fallback').textContent=mode==='hubs'?'◈':'✧';
+ const credits=$('photo-credit');credits.textContent='';
+ if(e.imagePage){
+   credits.append('Illustrative photo: ');
+   const a=document.createElement('a');a.textContent=e.imageCredit||'Wikimedia Commons';a.href=e.imagePage;a.target='_blank';a.rel='noopener noreferrer';credits.append(a);
+   credits.append(' · Venue photo, not an event photograph.');
+ }
+ const latest=$('latest-records');latest.replaceChildren();
+ if(mode==='hubs'){
+   latest.hidden=false;
+   const heading=document.createElement('strong');heading.textContent='Latest published items';latest.append(heading);
+   for(const row of e.recent||[]){
+     const a=document.createElement('a');a.href=row.sourceUrl;a.target='_blank';a.rel='noopener noreferrer';
+     a.textContent=formatDate(row.publishedOn)+' · '+row.title;latest.append(a);
+   }
+ }else latest.hidden=true;
+ if(redraw){drawPins();renderList();}
+ else{
+   for(const pin of gPins.children)pin.classList.toggle('selected',pin.getAttribute('aria-label')===e.city+': '+e.title);
+   document.querySelectorAll('.event-card').forEach(btn=>btn.classList.toggle('selected',btn.dataset.id===id));
+ }
+}
+function renderList(){
+ const root=$('event-cards');root.replaceChildren();
+ $('results-count').textContent=visible.length+(mode==='events'?' selected events':' institutions');
+ if(!visible.length){const p=document.createElement('p');p.className='empty';p.textContent='No events match these filters.';root.append(p);return;}
+ for(const e of visible){
+  const btn=document.createElement('button');btn.type='button';btn.className='event-card'+(e.id===selectedId?' selected':'');btn.dataset.id=e.id;
+  const a=document.createElement('span');a.className='top';a.textContent=e.city+' · '+e.country;
+  const b=document.createElement('strong');b.textContent=e.title;
+  const c=document.createElement('small');c.textContent=formatDate(e.date);
+  btn.append(a,b,c);
+  btn.addEventListener('click',()=>{select(e.id,true);const [x,y]=project(e.lon,e.lat);if(mapState.w===WIDTH)zoom(1.5,x/WIDTH,y/HEIGHT);});
+  root.append(btn);
+ }
+}
+function refresh(){
+ visible=visibleRows();
+ if(!visible.some(e=>e.id===selectedId))selectedId=visible[0]?.id||null;
+ drawPins();renderList();
+ if(selectedId)select(selectedId,false);
+ $('map-status').textContent=mode==='events'?visible.length+' verified historical milestones':visible.length+' regulatory publisher hubs';
+}
+function setMode(which){
+ mode=which;
+ $('mode-events').setAttribute('aria-pressed',String(mode==='events'));
+ $('mode-hubs').setAttribute('aria-pressed',String(mode==='hubs'));
+ document.querySelectorAll('.filter').forEach(el=>el.disabled=mode==='hubs');
+ $('year').disabled=mode==='hubs';
+ $('search').placeholder=mode==='events'?'Search a city or event':'Search an authority or city';
+ selectedId=null;hideTip();setCamera(0,0,WIDTH,HEIGHT);
+ refresh();
+}
+$('mode-events').addEventListener('click',()=>setMode('events'));
+$('mode-hubs').addEventListener('click',()=>setMode('hubs'));
+document.querySelectorAll('.filter').forEach(button=>button.addEventListener('click',()=>{
+ activeKind=button.dataset.kind;document.querySelectorAll('.filter').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));refresh();
+}));
+$('year').addEventListener('change',refresh);$('search').addEventListener('input',refresh);
+async function loadEvents(){
+ try{
+ const response=await fetch('data/global_signals.json',{cache:'force-cache'});if(!response.ok)throw Error('HTTP '+response.status);
+ const doc=await response.json();
+ if(doc.schema!=='lexsignal-global-events-v1'||!Array.isArray(doc.events))throw Error('Unsupported events format');
+ curated=doc.events.filter(e=>Number.isFinite(e.lat)&&Number.isFinite(e.lon)&&/^20\d\d-\d\d-\d\d$/.test(e.date)&&/^https:\/\//.test(e.source));
+ refresh();
+ }catch(e){$('map-status').textContent='Could not load curated events';$('results-count').textContent='No event data';}
+}
+async function loadLatest(){
+ try{
+ const response=await fetch('api/v1/updates.json',{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);
+ const doc=await response.json();
+ if(doc.schema!=='lexsignal-readonly-feed-v1'||!Array.isArray(doc.items))throw Error('Unexpected feed');
+ latestSnapshot=doc.snapshotGeneratedAt;
+ hubs=Object.entries(authorityCoords).map(([authority,loc])=>{
+  const rows=doc.items.filter(e=>e.authority===authority);
+  const newest=rows[0]||{};
+  return {id:'hub-'+authority,category:'hub',date:(newest.publishedOn||doc.snapshotGeneratedAt||'2026-11-09').slice(0,10),title:authority+' · '+rows.length+' recent updates',city:loc.city,country:loc.country,lat:loc.lat,lon:loc.lon,place:loc.name+' (institution location)',locationType:'institution_location',summary:'LexSignal has collected '+rows.length+' recent, unreviewed official-source publications associated with '+authority+'. Automatic classifications may be wrong; verify each original publication before relying on it.',source:rows[0]?.sourceUrl||'https://lexsignal-eu.github.io/lexsignal/agent-access.html',recent:rows.slice(0,5)};
+ }).filter(x=>x.recent.length);
+ if(mode==='hubs')refresh();
+ }catch(e){hubs=[];if(mode==='hubs'){$('map-status').textContent='Latest feed temporarily unavailable';refresh();}}
+}
+drawGraticule();setCamera(0,0,WIDTH,HEIGHT);
+Promise.all([loadEvents(),loadLand(),loadLatest()]);
+})();
+</script>
+</body></html>

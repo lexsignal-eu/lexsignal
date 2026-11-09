@@ -54,3 +54,8 @@ The dashboard's primary purpose is now to support the cycle **source → assess 
 
 ## Product experience v0.6
 The root page is now a human-first product overview, and the prior application moved to workspace.html. A new documents.html Document Lab processes TXT, MD, CSV, JSON, saved EML and HTML in-browser (2 MB limit); users can explicitly save short, unreviewed sourced records to the workspace. Uploaded file contents are not transmitted or stored by LexSignal. Live Gmail/Outlook connections, shared accounts, PDF/DOCX parsing and payments are not yet deployed. A separate secure backend and provider configuration are required. See docs/PRODUCT_INFRASTRUCTURE.md. The approved sphere mark is unchanged.
+
+
+## Global Signals — interactive map (v0.7)
+
+`/global-signals.html` displays eight source-backed historical AI policy milestones with hover previews, event photos and credits, date/type/search filters, pan and zoom. It uses the public-domain Natural Earth 1:110m land basemap bundled in `geo/ne_110m_land.geojson`. `data/global_signals.json` contains the curated event locations and primary source links, accessible to people and agents. A separate "Latest regulator updates" layer groups the existing read-only RSS feed at publisher office locations; it **does not geolocate the legal impact or assert the physical place of publication**. No paid map API, server credentials or map tile requests. Later work can integrate editor-approved geocoding for individual events.

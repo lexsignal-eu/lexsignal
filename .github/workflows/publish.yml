@@ -53,11 +53,14 @@ jobs:
       - name: Prepare site
         run: |
           mkdir -p _site/data
-          cp index.html landing.html workspace.html documents.html agent-access.html llms.txt _site/
+          cp index.html landing.html workspace.html documents.html global-signals.html agent-access.html llms.txt _site/
+          mkdir -p _site/geo
+          cp geo/ne_110m_land.geojson _site/geo/
           cp -R brand _site/
           python build_agent_feed.py --input data/regulatory_snapshot.json --out _site/api/v1
           if [ -f data/regulatory_snapshot.json ]; then
             cp data/regulatory_snapshot.json _site/data/
+            cp data/global_signals.json _site/data/
           fi
       - name: Configure Pages
         uses: actions/configure-pages@v5
