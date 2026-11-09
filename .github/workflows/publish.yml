@@ -1,0 +1,58 @@
+name: Refresh and publish LexSignal
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '17 7 * * 1-5'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  refresh-and-publish:
+    runs-on: ubuntu-latest
+    environment: github-pages
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch official updates
+        run: python update_feeds.py
+        continue-on-error: true
+      - name: Commit latest snapshot
+        shell: bash
+        run: |
+          if [ -f data/regulatory_snapshot.json ]; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add data/regulatory_snapshot.json
+            if ! git diff --cached --quiet; then
+              git commit -m 'Refresh official-source RSS snapshot'
+              git push
+            fi
+          fi
+      - name: Prepare site
+        run: |
+          mkdir -p _site/data
+          cp index.html landing.html _site/
+          if [ -f data/regulatory_snapshot.json ]; then
+            cp data/regulatory_snapshot.json _site/data/
+          fi
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - name: Deploy to Pages
+        uses: actions/deploy-pages@v4
