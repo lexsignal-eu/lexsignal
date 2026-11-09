@@ -1,13 +1,13 @@
 {
   "schema": "lexsignal-snapshot-v1",
-  "generatedAt": "2026-11-09T18:04:43+00:00",
+  "generatedAt": "2026-11-09T18:08:29+00:00",
   "disclaimer": "RSS-derived, automatically classified, not fact-checked or legal advice.",
   "sources": [
     {
       "authority": "ESMA",
       "url": "https://www.esma.europa.eu/rss.xml",
       "status": "ok",
-      "matched": 0
+      "matched": 10
     },
     {
       "authority": "EDPB",
@@ -29,6 +29,30 @@
     }
   ],
   "records": [
+    {
+      "id": "rss-cdea0a7b3a56ec1e",
+      "date": "2026-11-09",
+      "authority": "ESMA",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "EU seeks nominations for stakeholder group on tokenisation standards in finance",
+      "summary": "EU seeks nominations for stakeholder group on tokenisation standards in finance 09 November 2026 Digital Finance and Innovation The European Central Bank (ECB), together with the European Commission and the European Securities and Markets Authority (ESMA), is calling upon wholesale financial industry stakeholders to express their interest in joining the European Tokenisation Standards Group (ETSG). The group will bring together industry stakeholders to develop commo",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.esma.europa.eu/press-news/esma-news/eu-seeks-nominations-stakeholder-group-tokenisation-standards-finance",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true,
+      "signalTier": "background",
+      "eventType": "general news",
+      "triageMethod": "headline rules; not human-reviewed"
+    },
     {
       "id": "rss-0d136b3a0d2ea763",
       "date": "2026-11-06",
@@ -198,6 +222,54 @@
       "triageMethod": "headline rules; not human-reviewed"
     },
     {
+      "id": "rss-d0e6abaddc331ff7",
+      "date": "2026-10-29",
+      "authority": "ESMA",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "ESMA publishes latest edition of its newsletter",
+      "summary": "ESMA publishes latest edition of its newsletter 29 October 2026 ESMA newsletter The European Securities and Markets Authority (ESMA), the EU’s financial markets regulator and supervisor, has published today the latest edition of its Spotlight on Markets newsletter , covering key activities and publications from September and October 2026. This edition opens with the appointment of Carlo Comporti as ESMA’s next Chair . His appointment was confirmed by the Council of ",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.esma.europa.eu/press-news/esma-news/esma-publishes-latest-edition-its-newsletter-45",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true,
+      "signalTier": "background",
+      "eventType": "general news",
+      "triageMethod": "headline rules; not human-reviewed"
+    },
+    {
+      "id": "rss-41b9f3e885cd52ff",
+      "date": "2026-10-29",
+      "authority": "ESMA",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "ESMA proposes simpler EU Taxonomy reporting",
+      "summary": "ESMA proposes simpler EU Taxonomy reporting 29 October 2026 Issuer disclosure Sustainable finance The European Securities and Markets Authority (ESMA), the EU’s financial markets regulator and supervisor, has published its Final Report providing technical advice to the European Commission on simplifying key performance indicators under the Taxonomy Disclosures Delegated Act. ESMA recommends narrowing the mandatory operating expenditure (OpEx) KPI to non-capitalised ",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.esma.europa.eu/press-news/esma-news/esma-proposes-simpler-eu-taxonomy-reporting",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true,
+      "signalTier": "background",
+      "eventType": "general news",
+      "triageMethod": "headline rules; not human-reviewed"
+    },
+    {
       "id": "rss-af940e4dfb7a8f46",
       "date": "2026-10-23",
       "authority": "Central Bank of Ireland",
@@ -318,6 +390,30 @@
       "triageMethod": "headline rules; not human-reviewed"
     },
     {
+      "id": "rss-9dcddea650b368e9",
+      "date": "2026-10-22",
+      "authority": "ESMA",
+      "category": "Financial regulation",
+      "kind": "guidance",
+      "title": "ESMA streamlines several Q&As as part of simplification efforts",
+      "summary": "ESMA streamlines several Q&As as part of simplification efforts 22 October 2026 Market Abuse MiFID - Secondary Markets Short Selling Simplification and Burden Reduction The European Securities and Markets Authority (ESMA), the EU regulator and supervisor, has updated its Questions and Answers (Q&As) on market structure under MiFID II , the Market Abuse Regulation (MAR) and the Short Selling Regulation (SSR) , removing outdated, duplicative and no longer relevant gui",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.esma.europa.eu/press-news/esma-news/esma-streamlines-several-qas-part-simplification-efforts",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true,
+      "signalTier": "high",
+      "eventType": "guidance",
+      "triageMethod": "headline rules; not human-reviewed"
+    },
+    {
       "id": "rss-3aabac404abba31d",
       "date": "2026-10-22",
       "authority": "Central Bank of Ireland",
@@ -387,6 +483,30 @@
       "needsReview": true,
       "signalTier": "background",
       "eventType": "speech",
+      "triageMethod": "headline rules; not human-reviewed"
+    },
+    {
+      "id": "rss-ba3b760bfae75eb7",
+      "date": "2026-10-20",
+      "authority": "ESMA",
+      "category": "Financial regulation",
+      "kind": "guidance",
+      "title": "ESMA specifies requirements to facilitate safe use of post-trade risk reduction services",
+      "summary": "ESMA specifies requirements to facilitate safe use of post-trade risk reduction services 20 October 2026 Guidelines and Technical standards Post Trading The European Securities and Markets Authority (ESMA), the EU’s financial markets regulator and supervisor, has outlined the conditions that providers and users of post-trade risk reduction (PTRR) services need to meet for certain OTC derivative transactions to be exempt from the clearing obligation under EMIR 3. The",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.esma.europa.eu/press-news/esma-news/esma-specifies-requirements-facilitate-safe-use-post-trade-risk-reduction",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true,
+      "signalTier": "background",
+      "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed"
     },
     {
@@ -462,6 +582,78 @@
       "triageMethod": "headline rules; not human-reviewed"
     },
     {
+      "id": "rss-886971b1845c2745",
+      "date": "2026-10-16",
+      "authority": "ESMA",
+      "category": "Financial regulation",
+      "kind": "guidance",
+      "title": "New Q&As available",
+      "summary": "New Q&As available 16 October 2026 CCP Digital Finance and Innovation The European Securities and Markets Authority (ESMA), the EU's securities markets regulator, has published the following question and answer: European crowdfunding service providers for business Crowdfunding service providers that charge registration, membership, or other access fees (\"investment club\" crowdfunding platforms) (2950) Markets in Crypto-Assets Regulation (MiCA) Use by CASPs of paymen",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.esma.europa.eu/press-news/esma-news/new-qas-available-27",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true,
+      "signalTier": "high",
+      "eventType": "guidance",
+      "triageMethod": "headline rules; not human-reviewed"
+    },
+    {
+      "id": "rss-72a68f0aa246f4ef",
+      "date": "2026-10-16",
+      "authority": "ESMA",
+      "category": "Financial regulation",
+      "kind": "guidance",
+      "title": "ESMA finalises the review of guidelines on the delay in disclosure of inside information",
+      "summary": "ESMA finalises the review of guidelines on the delay in disclosure of inside information 16 October 2026 Guidelines and Technical standards Market Abuse Market Integrity Simplification and Burden Reduction The European Securities and Markets Authority (ESMA), the EU’s financial markets regulator and supervisor, has updated and streamlined its Market Abuse Regulation (MAR) guidelines on the delay in the disclosure of inside information , completing the revised regula",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.esma.europa.eu/press-news/esma-news/esma-finalises-review-guidelines-delay-disclosure-inside-information",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true,
+      "signalTier": "high",
+      "eventType": "guidance",
+      "triageMethod": "headline rules; not human-reviewed"
+    },
+    {
+      "id": "rss-4da32eefa700fd2a",
+      "date": "2026-10-16",
+      "authority": "ESMA",
+      "category": "Financial regulation",
+      "kind": "guidance",
+      "title": "One year to go for T+1 settlement: the regulatory framework is complete, now let’s make it happen",
+      "summary": "One year to go for T+1 settlement: the regulatory framework is complete, now let’s make it happen 16 October 2026 Guidelines and Technical standards Post Trading Press Releases The European Union (EU) will switch to T+1 settlement on 11 October 2027. Ahead of the transition, the European Securities and Markets Authority (ESMA), the EU’s financial markets regulator and supervisor, calls on market participants to finalise technical preparations, assess readiness acros",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.esma.europa.eu/press-news/esma-news/one-year-go-t1-settlement-regulatory-framework-complete-now-lets-make-it",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true,
+      "signalTier": "background",
+      "eventType": "general news",
+      "triageMethod": "headline rules; not human-reviewed"
+    },
+    {
       "id": "rss-2dd6a19e3c0bc8f1",
       "date": "2026-10-16",
       "authority": "Central Bank of Ireland",
@@ -483,6 +675,54 @@
       "needsReview": true,
       "signalTier": "monitor",
       "eventType": "firm warning",
+      "triageMethod": "headline rules; not human-reviewed"
+    },
+    {
+      "id": "rss-9b0934c7c919aa26",
+      "date": "2026-10-15",
+      "authority": "ESMA",
+      "category": "Financial regulation",
+      "kind": "enforcement",
+      "title": "ESMA's third Sanctions Report highlights the need for greater convergence in enforcement",
+      "summary": "ESMA's third Sanctions Report highlights the need for greater convergence in enforcement 15 October 2026 Market Abuse Supervisory convergence Transparency The European Securities and Markets Authority (ESMA), the EU's financial markets regulator and supervisor, published today its consolidated report on sanctions and measures imposed across the European Economic Area (EEA) in 2025, enhancing the transparency of sanctions data reported under EU financial acts within ",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.esma.europa.eu/press-news/esma-news/esmas-third-sanctions-report-highlights-need-greater-convergence-enforcement",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true,
+      "signalTier": "background",
+      "eventType": "general news",
+      "triageMethod": "headline rules; not human-reviewed"
+    },
+    {
+      "id": "rss-649d6a22d0d18c1f",
+      "date": "2026-10-15",
+      "authority": "ESMA",
+      "category": "Financial regulation",
+      "kind": "guidance",
+      "title": "ESMA updates its manual on transparency with new guidance for OTC derivatives and tick-size regime",
+      "summary": "ESMA updates its manual on transparency with new guidance for OTC derivatives and tick-size regime 15 October 2026 Trading The European Securities and Markets Authority (ESMA), the EU regulator and supervisor, has updated its manual on transparency to provide further guidance on the identification of over-the-counter (OTC) derivatives subject to transparency requirements and to enhance supervisory convergence on the application of the tick-size regime. The update al",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.esma.europa.eu/press-news/esma-news/esma-updates-its-manual-transparency-new-guidance-otc-derivatives-and-tick",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true,
+      "signalTier": "high",
+      "eventType": "guidance",
       "triageMethod": "headline rules; not human-reviewed"
     },
     {
