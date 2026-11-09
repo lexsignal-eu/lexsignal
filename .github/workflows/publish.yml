@@ -33,12 +33,19 @@ jobs:
         shell: bash
         run: |
           if [ -f data/regulatory_snapshot.json ]; then
+            # Rebase only the generated snapshot on the current default branch.
+            # This also makes reruns of older workflows safe.
+            cp data/regulatory_snapshot.json /tmp/lexsignal-regulatory-snapshot.json
+            git fetch origin main
+            git reset --hard origin/main
+            mkdir -p data
+            cp /tmp/lexsignal-regulatory-snapshot.json data/regulatory_snapshot.json
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
             git add data/regulatory_snapshot.json
             if ! git diff --cached --quiet; then
               git commit -m 'Refresh official-source RSS snapshot'
-              git push
+              git push origin HEAD:main
             fi
           fi
       - name: Prepare site
