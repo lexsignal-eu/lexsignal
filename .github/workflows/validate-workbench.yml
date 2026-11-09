@@ -7,6 +7,9 @@ on:
       - 'landing.html'
       - 'workspace.html'
       - 'documents.html'
+      - 'global-signals.html'
+      - 'data/global_signals.json'
+      - 'geo/ne_110m_land.geojson'
       - 'tests/**'
       - '.github/workflows/validate-workbench.yml'
   workflow_dispatch:
