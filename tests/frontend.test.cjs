@@ -6,7 +6,7 @@ const assert=require('node:assert/strict');
 const {test}=require('node:test');
 
 const root=path.join(__dirname,'..');
-const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const html=fs.readFileSync(path.join(root,'workspace.html'),'utf8');
 const script=html.match(/<script>\s*([\s\S]*?)<\/script>/)[1];
 const prelaunch=script.split("document.getElementById('profile').value=state.profile;sync();updateSnapshotStatus();autoloadSnapshot();")[0];
 function context(){
@@ -60,7 +60,17 @@ test('review decision and action register fields are present in code and export'
 });
 test('the presentation shows a real ESMA example and uses approved logo',()=>{
   const landing=fs.readFileSync(path.join(root,'landing.html'),'utf8');
-  assert.match(landing,/id="case-example"/);
+  assert.match(landing,/id="example"/);
   assert.match(landing,/one-year-go-t1-settlement/);
   assert.match(landing,/lexsignal-sphere-approved\.webp/);
+  assert.match(landing,/Open workspace/);
+  assert.match(landing,/documents\.html/);
+});
+
+test('imported document entries stay out of briefs until reviewed',()=>{
+  const ctx=context();
+  vm.runInContext("state.profile='fin'; state.custom=[{id:'custom-file-test',sourceType:'manual_file',sectors:['fin'],signalTier:'monitor',date:'2026-11-09'}];",ctx);
+  assert.equal(vm.runInContext("isBriefIncluded(state.custom[0])",ctx),false);
+  vm.runInContext("state.reviewed.push('custom-file-test')",ctx);
+  assert.equal(vm.runInContext("isBriefIncluded(state.custom[0])",ctx),true);
 });

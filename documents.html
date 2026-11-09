@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102538">
+<meta name="description" content="LexSignal Document Lab: review text, CSV, JSON and saved emails locally before turning them into sourced regulatory research entries.">
+<title>Document Lab — LexSignal</title>
+<link rel="icon" href="brand/lexsignal-sphere-approved.webp" type="image/webp">
+<style>
+:root{--navy:#102538;--ink:#1a354a;--muted:#607689;--line:#d9e4e9;--teal:#087a70;--paper:#f4f7f8}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);font:15px/1.56 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink)}button,input,textarea,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}
+a{color:#155e91}a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #2ea6ae;outline-offset:2px}
+.wrap{width:min(1150px,calc(100% - 42px));margin:auto}
+nav{height:74px;display:flex;justify-content:space-between;align-items:center;gap:18px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:21px;letter-spacing:-.7px;text-decoration:none;color:var(--ink)}.brand img{width:42px;height:42px;border-radius:50%;background:white}
+.menu{display:flex;gap:25px;font-size:13px;font-weight:750}.menu a{color:#526a7f;text-decoration:none}
+.menu a[aria-current=page]{color:#087a70}
+.hero{background:#112b40;color:#fff;padding:57px 0 62px}
+.eyebrow{font-size:11px;font-weight:850;letter-spacing:1.5px;color:#a3ddd3;text-transform:uppercase}
+h1{font-size:clamp(38px,4.5vw,55px);letter-spacing:-1.7px;line-height:1.13;margin:14px 0}
+.hero p{max-width:690px;color:#c9d9e5;font-size:16px;margin:0}
+.notice{display:flex;align-items:flex-start;gap:11px;margin-top:24px;color:#d1e2ec;font-size:12px;max-width:800px}
+.notice strong{color:#fff}
+.workspace{display:grid;grid-template-columns:.85fr 1.15fr;gap:19px;padding:27px 0 70px;align-items:start}
+.card{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:0 4px 15px #0c29490a;overflow:hidden}
+.section{padding:24px 27px;border-bottom:1px solid #e4ebef}.section:last-child{border:0}
+.section h2{font-size:21px;letter-spacing:-.5px;margin:0 0 7px}.sub{margin:0;color:var(--muted);font-size:13px}
+.drop{display:block;margin-top:18px;border:2px dashed #bbcfda;background:#f6fafb;border-radius:13px;padding:36px 20px;text-align:center;cursor:pointer;transition:background .15s,border-color .15s}
+.drop:hover,.drop.over{background:#e6f4f1;border-color:#087a70}
+.drop-icon{font-size:30px;display:block;color:#0b766d}
+.drop strong{font-size:16px;display:block;margin-top:8px}
+.drop small{display:block;color:#728697;font-size:12px;margin-top:7px}
+.drop input{display:none}
+.button{background:#102b41;color:white;border:1px solid #102b41;border-radius:9px;font-weight:750;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:11px 16px;font-size:13px}
+.button:hover{background:#224960}
+.button.secondary{background:white;color:#24425b;border-color:#cddce5}
+.button.secondary:hover{background:#f2f7f8}
+.button.compact{padding:7px 10px}
+.file-note{margin:12px 0 0;font-size:12px;color:#698092}
+.info-list{display:grid;gap:10px;margin:16px 0 0}
+.info-row{display:flex;justify-content:space-between;gap:15px;font-size:13px}
+.info-row b{font-weight:700}.info-row span{color:#647889;text-align:right}
+.mail-box{background:#f5f8fa;border:1px solid #e2e9ee;border-radius:10px;padding:17px;margin-top:12px}
+.mail-box b{font-size:14px}.mail-box p{color:#6c7f8e;font-size:12px;margin:6px 0 0}
+.mail-status{display:inline-block;background:#ecf2f5;border-radius:5px;padding:4px 7px;font-size:11px;color:#536c7c;margin:7px 0}
+.extracted{padding:24px 27px}
+.placeholder{border:1px dashed #cbd8df;border-radius:10px;padding:44px 25px;text-align:center;color:#748594}
+.placeholder strong{display:block;color:#335064;margin-bottom:9px;font-size:17px}
+.results{display:none}.results.active{display:block}
+.result-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:15px}
+.result-head h2{font-size:22px;letter-spacing:-.5px;margin:0}
+.pill{font-size:11px;background:#e6f5ef;color:#0b7263;padding:5px 9px;border-radius:20px;font-weight:800}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{padding:13px;border:1px solid #e1e9ec;border-radius:9px}
+.stat b{font-size:22px;display:block;line-height:1.1}.stat span{font-size:11px;color:#758797}
+.source-links{display:grid;gap:8px;margin:14px 0}
+.source-links a{display:block;overflow-wrap:anywhere;font-size:12px}
+.field{display:grid;gap:6px;font-size:12px;color:#4f687a;font-weight:750;margin-top:13px}
+.field input,.field textarea,.field select{width:100%;background:white;border:1px solid #cad9e3;border-radius:8px;color:#203c53;padding:10px 11px;font-size:14px;font-weight:400}
+.field textarea{resize:vertical;min-height:79px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
+.tags label{border-radius:7px;padding:7px 10px;background:#edf4f5;font-size:12px;color:#315267}
+.tags input{accent-color:#0b8679;vertical-align:middle}
+.preview{white-space:pre-wrap;overflow-wrap:anywhere;max-height:205px;overflow:auto;font:12px/1.6 ui-monospace,Consolas,monospace;border-radius:9px;background:#f6f8fa;border:1px solid #e1e7eb;padding:14px;color:#42586a}
+.help{font-size:12px;color:#6b7e8e;margin:11px 0}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+.warn{background:#fff6e8;border:1px solid #efdeb9;color:#86602c;border-radius:9px;padding:12px 14px;font-size:12px;margin:13px 0}
+.success{background:#e8f6ef;border:1px solid #bfe1d3;color:#1f7655;border-radius:9px;padding:12px 14px;font-size:13px;margin:13px 0;display:none}
+.how{color:#5f7281;font-size:13px;padding-left:20px}
+.how li{margin:9px 0}
+small.note{color:#73899b}
+footer{padding:24px 0;border-top:1px solid #dce6e9;color:#6f8291;font-size:12px}
+@media(max-width:820px){.workspace{grid-template-columns:1fr}.hero{padding:42px 0}.menu{gap:10px}}
+@media(max-width:530px){.wrap{width:calc(100% - 28px)}.menu a:not([aria-current=page]){display:none}.cols,.stats{grid-template-columns:1fr}.section,.extracted{padding:19px}.drop{padding:23px 12px}}
+</style>
+</head>
+<body>
+<header class="wrap"><nav>
+<a class="brand" href="index.html"><img src="brand/lexsignal-sphere-approved.webp" alt="">LexSignal</a>
+<div class="menu"><a href="index.html">Home</a><a href="workspace.html">Research workspace</a><a href="documents.html" aria-current="page">Documents</a><a href="agent-access.html">For developers</a></div>
+</nav></header>
+<section class="hero"><div class="wrap">
+<div class="eyebrow">Document Lab · Research preview</div>
+<h1>Bring a document.<br>Build a research record.</h1>
+<p>Inspect saved emails, notes and structured regulatory data. Find official-source links, check relevant topics and carry a selected finding into your research workspace.</p>
+<div class="notice"><span aria-hidden="true">◉</span><span><strong>Your file stays in this browser.</strong> This tool processes selected files locally; it does not send their contents to LexSignal's servers. Saving a research entry is a separate, deliberate step and stores a short record in this browser.</span></div>
+</div></section>
+<main class="wrap workspace">
+<div>
+<div class="card">
+  <div class="section"><h2>1. Choose a file</h2><p class="sub">Begin with something you already have — a saved email, exported CSV or a text note.</p>
+    <label class="drop" id="dropzone"><input id="file" type="file" accept=".txt,.md,.csv,.json,.eml,.html,text/plain,text/csv,application/json,message/rfc822" aria-label="Choose a document">
+      <span class="drop-icon" aria-hidden="true">▤</span><strong>Choose a file or drag it here</strong><small>TXT · MD · CSV · JSON · EML · HTML, up to 2 MB</small>
+    </label>
+    <p class="file-note" id="file-status">Nothing selected. No file will download automatically.</p>
+  </div>
+  <div class="section" id="mail"><h2>Connect an email source</h2><p class="sub">Account-level syncing will need OAuth consent, a protected backend and per-user permissions.</p>
+    <div class="mail-box"><b>Saved Outlook or Gmail message</b><span class="mail-status">Works now · manual import</span><p>Save a message as an .eml file and choose it above. Simple text bodies and headers can be reviewed; complex MIME attachments may require a different importer.</p></div>
+    <div class="mail-box"><b>Gmail &amp; Microsoft 365</b><span class="mail-status">Not connected</span><p>Live mailbox access, automatic monitoring and sending are not enabled. No email permissions have been requested.</p></div>
+  </div>
+  <div class="section"><h2>How the tool works</h2><ol class="how"><li>Read the file locally in your browser.</li><li>Review extracted text, official links and suggested topics.</li><li>Correct the fields yourself and optionally save a sourced record.</li></ol>
+    <p class="sub">PDF and Word extraction, secure shared storage and live email syncing require additional infrastructure and are not yet supported here.</p>
+  </div>
+</div>
+</div>
+<div class="card extracted">
+  <div id="initial" class="placeholder"><strong>No document loaded yet</strong>After you select a supported file, its text and potential source links will appear here. You can review everything before saving anything.</div>
+  <div id="results" class="results">
+    <div class="result-head"><h2>2. Review what was found</h2><span class="pill">Local processing</span></div>
+    <div class="stats">
+      <div class="stat"><b id="count-rows">—</b><span>Items detected</span></div>
+      <div class="stat"><b id="count-sources">—</b><span>Official links</span></div>
+      <div class="stat"><b id="count-topics">—</b><span>Topic matches</span></div>
+    </div>
+    <div id="notice" class="warn" hidden></div>
+    <label class="field" id="record-choice-box" hidden>Selected record from file
+      <select id="record-choice"></select>
+    </label>
+    <label class="field">Extracted text (preview)
+      <div id="preview" class="preview" role="region" aria-label="Extracted text"></div>
+    </label>
+    <div class="field"><span>Official-source links detected</span><div id="source-links" class="source-links"></div></div>
+    <div class="field"><span>Recognised subject areas</span><div id="topics" class="tags"></div></div>
+    <div style="margin-top:24px;border-top:1px solid #e4eaef;padding-top:18px">
+      <div class="result-head"><h2>3. Create a research record</h2><span class="pill">Reviewer-controlled</span></div>
+      <p class="sub">Please verify the original publication. Extracted content may be incomplete or inaccurate; nothing is treated as reviewed automatically.</p>
+      <form id="record-form" autocomplete="off">
+        <label class="field">Research title <input id="title" name="title" maxlength="180" required placeholder="Regulatory publication or question"></label>
+        <div class="cols">
+          <label class="field">Authority <input id="authority" name="authority" maxlength="80" required placeholder="e.g. ESMA"></label>
+          <label class="field">Publication date <input type="date" id="date" name="date" required></label>
+        </div>
+        <label class="field">Official publication URL <input type="url" id="source" name="source" required placeholder="https://www.esma.europa.eu/..."></label>
+        <div class="cols">
+          <label class="field">Topic <input id="category" name="category" maxlength="90" placeholder="e.g. MiCA"></label>
+          <label class="field">Type <select id="type" name="type"><option value="news">Publication / news</option><option value="guidance">Guidance</option><option value="consultation">Consultation</option><option value="deadline">Milestone / deadline</option><option value="enforcement">Enforcement</option></select></label>
+        </div>
+        <label class="field">What the document says <textarea id="summary" name="summary" maxlength="500" required placeholder="A factual summary, preferably verified against the original source"></textarea></label>
+        <label class="field">Potential relevance <textarea id="impact" name="impact" maxlength="500" placeholder="Describe what still needs to be assessed"></textarea></label>
+        <div class="field"><span>Relevant research areas</span><div class="tags"><label><input name="sector" type="checkbox" value="fin" checked> Financial regulation</label><label><input name="sector" type="checkbox" value="privacy"> Privacy</label><label><input name="sector" type="checkbox" value="ai"> AI policy</label></div></div>
+        <p class="help">This entry will be marked unreviewed in the workspace until you explicitly check its source. The uploaded document itself is not stored.</p>
+        <div class="actions">
+          <button class="button" id="save" type="submit">Save to research workspace →</button>
+          <button class="button secondary" type="button" id="export">Download extracted notes</button>
+          <button class="button secondary" type="button" id="clear">Clear file</button>
+        </div>
+        <div class="success" id="success" role="status"></div>
+      </form>
+    </div>
+  </div>
+</div>
+</main>
+<footer><div class="wrap">LexSignal · Experimental document processing · No automatic legal conclusions or mailbox integration</div></footer>
+<script>
+(function(){
+'use strict';
+const MAX=2_000_000;
+const allowed=['txt','md','csv','json','eml','html'];
+const topicDefs=[
+  ['MiCA',/\bmica\b|crypto.asset|e.money token|asset.reference token/i],
+  ['GDPR',/\bgdpr\b|data protection|personal data|privacy/i],
+  ['DORA',/\bdora\b|digital operational resilience/i],
+  ['AI Act',/\bai act\b|artificial intelligence act|high.risk ai/i],
+  ['AML',/\baml\b|anti.money laundering|financial crime|\bkyc\b/i],
+  ['EMIR',/\bemir\b|derivative|clearing obligation/i],
+  ['T+1',/\bt\+1\b|securities settlement/i]
+];
+const el=id=>document.getElementById(id);
+let state=null;
+function text(id,value){el(id).textContent=value;}
+function sourceAllowed(url){
+ try{const x=new URL(url);let h=x.hostname.toLowerCase();return x.protocol==='https:'&&!x.username&&!x.password&&(
+ h==='europa.eu'||h.endsWith('.europa.eu')||h==='centralbank.ie'||h.endsWith('.centralbank.ie')||
+ h==='dataprotection.ie'||h.endsWith('.dataprotection.ie')
+ );}catch(_){return false;}
+}
+function urlsIn(s){
+ const found=(String(s).match(/https:\/\/[^\s<>"'()[\]{}]+/gi)||[]).map(s=>s.replace(/[.,;:!?]+$/,''));
+ return Array.from(new Set(found)).filter(sourceAllowed).slice(0,15);
+}
+function dateFrom(s){
+ const iso=String(s).match(/\b20\d{2}-\d{2}-\d{2}\b/);
+ if(iso){const t=new Date(iso[0]+'T12:00:00Z');if(!Number.isNaN(t.getTime()))return iso[0];}
+ const rfc=String(s).match(/^Date:\s*(.+)$/mi);
+ if(rfc){const n=Date.parse(rfc[1]);if(!Number.isNaN(n))return new Date(n).toISOString().slice(0,10);}
+ return '';
+}
+function guessAuthority(u){
+ try{const h=new URL(u).hostname.toLowerCase();
+ if(h.includes('esma.'))return 'ESMA';
+ if(h.includes('edpb.'))return 'EDPB';
+ if(h.includes('centralbank.'))return 'Central Bank of Ireland';
+ if(h.includes('dataprotection.'))return 'Irish DPC';
+ if(h.includes('commission.')||h.startsWith('ec.europa.eu'))return 'European Commission';
+ if(h.includes('eur-lex.'))return 'EUR-Lex';
+ return 'Official EU source';}catch(_){return '';}
+}
+function parseCSV(content){
+ const rows=[],row=[];let cell='',inQuotes=false;
+ for(let i=0;i<content.length&&rows.length<201;i++){
+  const ch=content[i];
+  if(ch==='"'){if(inQuotes&&content[i+1]==='"'){cell+='"';i++;}else inQuotes=!inQuotes;}
+  else if(ch===','&&!inQuotes){row.push(cell);cell='';}
+  else if((ch==='\n'||ch==='\r')&&!inQuotes){if(ch==='\r'&&content[i+1]==='\n')i++;row.push(cell);if(row.some(v=>v.trim()))rows.push(row.slice());row.length=0;cell='';}
+  else cell+=ch;
+ }
+ if(cell||row.length){row.push(cell);rows.push(row);}
+ if(rows.length<2)return [];
+ const hdr=rows[0].map(v=>v.replace(/^\uFEFF/,'').trim().toLowerCase());
+ const get=(row,names)=>{for(const name of names){const ix=hdr.indexOf(name);if(ix>=0)return String(row[ix]||'').slice(0,1000);}return '';};
+ return rows.slice(1).map(row=>({
+  title:get(row,['title','name','headline','subject']),
+  summary:get(row,['summary','description','excerpt','body']),
+  url:get(row,['source','source url','sourceurl','primary source','url','link']),
+  date:get(row,['recorded date','date','publication date','publishedon','published date']),
+  authority:get(row,['authority','regulator','source authority']),
+  category:get(row,['category','topic','area'])
+ })).filter(x=>x.title||x.summary||x.url);
+}
+function emlBody(raw){
+ const header=raw.slice(0,Math.max(0,raw.search(/\r?\n\r?\n/)));
+ const subject=header.match(/^Subject:\s*(.+)$/mi)?.[1]?.trim()||'';
+ const emailDate=header.match(/^Date:\s*(.+)$/mi)?.[1]?.trim()||'';
+ const parts=raw.split(/(?:\r?\n){2}/);
+ let body=parts.slice(1).join('\n\n');
+ // Multipart plain-text extraction; do not claim complete MIME decoding.
+ const plain=raw.match(/Content-Type:\s*text\/plain[^\r\n]*\r?\n(?:[^\r\n]*\r?\n)*?\r?\n([\s\S]*?)(?=\r?\n--[^\r\n]+|$)/i);
+ if(plain)body=plain[1];
+ if(/Content-Transfer-Encoding:\s*quoted-printable/i.test(raw)){
+  body=body.replace(/=\r?\n/g,'').replace(/=([0-9A-Fa-f]{2})/g,(_,hex)=>String.fromCharCode(parseInt(hex,16)));
+ }else if(/Content-Transfer-Encoding:\s*base64/i.test(raw)){
+  try{body=new TextDecoder().decode(Uint8Array.from(atob(body.replace(/\s+/g,'')),c=>c.charCodeAt(0)));}
+  catch(_){body='This email uses a MIME encoding that the local importer could not decode.';}
+ }
+ return {subject,emailDate,body:body.slice(0,15000)};
+}
+function safeTextHtml(html){
+ const doc=new DOMParser().parseFromString(html,'text/html');
+ doc.querySelectorAll('script,style,iframe,object,svg,form').forEach(n=>n.remove());
+ return doc.body.textContent||'';
+}
+function reset(){
+ state=null;el('file').value='';el('initial').hidden=false;el('results').classList.remove('active');text('file-status','Nothing selected. No file will download automatically.');el('success').style.display='none';el('record-form').reset();
+}
+function present(idx){
+ if(!state)return;
+ const row=state.records[idx]||{};
+ state.selected=idx;
+ const allUrls=urlsIn([row.url||'',row.summary||'',state.content].join('\n'));
+ const src=sourceAllowed(row.url)?row.url:allUrls[0]||'';
+ const title=row.title||state.subject||state.filename.replace(/\.[^.]+$/,'').replace(/[_-]/g,' ').slice(0,150);
+ const summary=(row.summary||state.content).replace(/\s+/g,' ').slice(0,420);
+ const keywords=topicDefs.filter(([_,rx])=>rx.test((row.title||'')+' '+(row.summary||'')+' '+state.content.slice(0,12000))).map(x=>x[0]);
+ text('count-rows',String(state.records.length||1));
+ text('count-sources',String(allUrls.length));
+ text('count-topics',String(keywords.length));
+ text('preview',(state.records.length>1 ? (row.title||'')+'\n'+(row.summary||'') : state.content).slice(0,3000));
+ const sources=el('source-links');sources.textContent='';
+ if(!allUrls.length){const note=document.createElement('span');note.textContent='No recognised EU/Irish regulator link in this file. You can add a verified source URL manually.';note.className='sub';sources.append(note);}
+ else for(const u of allUrls){let a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener noreferrer';a.textContent=u;sources.append(a);}
+ const topicBox=el('topics');topicBox.textContent='';
+ if(!keywords.length)topicBox.textContent='No subject matched our keyword list.';
+ else for(const t of keywords){const span=document.createElement('span');span.textContent=t;span.className='mail-status';topicBox.append(span);}
+ el('record-choice-box').hidden=state.records.length<=1;
+ text('title',title);
+ el('title').value=title;
+ el('authority').value=row.authority||guessAuthority(src);
+ el('date').value=/^20\d\d-\d\d-\d\d$/.test(row.date||'')?row.date:dateFrom(state.content);
+ el('source').value=src;
+ el('category').value=row.category||keywords[0]||'Regulatory research';
+ el('summary').value=summary;
+ el('impact').value='';
+ el('type').value='news';
+ el('success').style.display='none';
+}
+async function load(file){
+ reset();
+ if(!file)return;
+ const ext=(file.name.split('.').pop()||'').toLowerCase();
+ if(!allowed.includes(ext)){text('file-status','Unsupported format. Choose TXT, MD, CSV, JSON, EML or HTML. PDF and DOCX are not yet supported.');return;}
+ if(file.size>MAX){text('file-status','This file exceeds the 2 MB local preview limit.');return;}
+ try{
+  const raw=await file.text();
+  let content=raw,records=[],subject='';
+  let caution='';
+  if(ext==='eml'){const e=emlBody(raw);content='Subject: '+e.subject+'\nDate: '+e.emailDate+'\n\n'+e.body;subject=e.subject;caution='Saved email mode: complex MIME structures and attachments may not be fully decoded.';}
+  else if(ext==='html')content=safeTextHtml(raw);
+  else if(ext==='csv'){records=parseCSV(raw);caution='CSV review: only the first 200 rows are considered. Confirm the mapped columns and sources.';}
+  else if(ext==='json'){const doc=JSON.parse(raw);const entries=Array.isArray(doc)?doc:Array.isArray(doc.records)?doc.records:Array.isArray(doc.items)?doc.items:[];records=entries.slice(0,200).map(x=>({title:String(x.title||''),summary:String(x.summary||x.excerpt||''),url:String(x.url||x.sourceUrl||''),date:String(x.date||x.publishedOn||''),authority:String(x.authority||''),category:String(x.category||x.topic||'')}));caution='JSON import: extracted a limited preview of up to 200 records, not an authenticated feed.';}
+  if(!records.length)records=[{title:subject,summary:content.slice(0,500),url:'',date:dateFrom(raw),authority:'',category:''}];
+  state={filename:file.name,content:content.slice(0,15000),records,selected:0,subject};
+  text('file-status',file.name+' · '+(file.size/1024).toFixed(1)+' KB · processed locally');
+  el('initial').hidden=true;el('results').classList.add('active');
+  const select=el('record-choice');select.textContent='';
+  records.forEach((r,i)=>{const option=document.createElement('option');option.value=String(i);option.textContent=String(i+1)+'. '+String(r.title||r.url||'Untitled record').slice(0,100);select.append(option);});
+  select.onchange=()=>present(Number(select.value));
+  el('notice').hidden=!caution;el('notice').textContent=caution;
+  present(0);
+ }catch(error){
+  text('file-status','Unable to interpret this file: '+String(error.message||'Invalid data').slice(0,130));
+ }
+}
+el('file').addEventListener('change',e=>load(e.target.files?.[0]));
+const drop=el('dropzone');
+drop.addEventListener('dragover',e=>{e.preventDefault();drop.classList.add('over');});
+drop.addEventListener('dragleave',()=>drop.classList.remove('over'));
+drop.addEventListener('drop',e=>{e.preventDefault();drop.classList.remove('over');load(e.dataTransfer?.files?.[0]);});
+el('clear').addEventListener('click',reset);
+el('record-form').addEventListener('submit',e=>{
+ e.preventDefault();if(!state)return;
+ const form=el('record-form');
+ const url=el('source').value.trim();
+ if(!sourceAllowed(url)){alert('Please use an official EU or Irish regulator HTTPS publication URL. Verify it before saving.');return;}
+ const date=el('date').value;
+ if(!/^\d{4}-\d\d-\d\d$/.test(date)){alert('A publication date is required.');return;}
+ const sectors=[...form.querySelectorAll('input[name=sector]:checked')].map(n=>n.value);
+ if(!sectors.length){alert('Select at least one area.');return;}
+ const record={
+  id:'custom-file-'+Date.now().toString(36),date,authority:el('authority').value.trim(),
+  category:el('category').value.trim()||'Research',kind:el('type').value,
+  title:el('title').value.trim(),summary:el('summary').value.trim(),
+  impact:el('impact').value.trim()||'Applicability and legal status require review.',
+  actions:['Check original publication and legal status.','Assess relevance and record a follow-up action.'],
+  url,sectors,priority:'medium',sourceType:'manual_file',needsReview:true,
+  importedFrom:state.filename.slice(0,100)
+ };
+ if(!record.title||!record.authority||!record.summary)return;
+ try{
+  const key='lexsignal.v02';const stored=JSON.parse(localStorage.getItem(key)||'{}');
+  const custom=Array.isArray(stored.custom)?stored.custom:[];
+  if(custom.some(x=>x.url===record.url&&x.title===record.title)){alert('This source and title already appear in your local research entries.');return;}
+  custom.push(record);
+  stored.custom=custom.slice(-150);
+  localStorage.setItem(key,JSON.stringify(stored));
+  const success=el('success');success.style.display='block';success.textContent='Research entry saved in this browser. Open the workspace to check the source and decide whether to include it in a brief.';
+  success.scrollIntoView({behavior:'smooth',block:'nearest'});
+ }catch(_){alert('Could not save locally. Check private browsing or available storage.');}
+});
+el('export').addEventListener('click',()=>{
+ if(!state)return;
+ const report=[
+  'LEXSIGNAL — DOCUMENT REVIEW NOTES','File: '+state.filename,
+  'Extracted: '+new Date().toISOString(),'',
+  'Selected title: '+el('title').value,
+  'Official source: '+el('source').value,'Publication date: '+el('date').value,
+  'Authority: '+el('authority').value,'',
+  'Extracted preview:',state.content.slice(0,6000),
+  '','Reviewer note: this is an unverified local extraction.'
+ ].join('\n');
+ const b=new Blob([report],{type:'text/plain;charset=utf-8'});
+ const a=document.createElement('a');const u=URL.createObjectURL(b);
+ a.href=u;a.download='lexsignal-document-notes.txt';a.click();setTimeout(()=>URL.revokeObjectURL(u),1500);
+});
+})();
+</script>
+</body>
+</html>

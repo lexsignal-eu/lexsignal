@@ -5,6 +5,8 @@ on:
     paths:
       - 'index.html'
       - 'landing.html'
+      - 'workspace.html'
+      - 'documents.html'
       - 'tests/**'
       - '.github/workflows/validate-workbench.yml'
   workflow_dispatch:
@@ -20,4 +22,4 @@ jobs:
       - name: Unit tests (Python)
         run: python -m unittest discover -s tests -p 'test_*.py'
       - name: Dashboard JS and integration tests (Node)
-        run: node --test tests/frontend.test.cjs
+        run: node --test tests/*.test.cjs
