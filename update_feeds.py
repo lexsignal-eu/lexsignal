@@ -144,6 +144,17 @@ def main():
                 xml=reply.read(2_000_001)
             if len(xml)>2_000_000: raise ValueError("Feed >2 MB")
             recs=parse(xml,name,now)
+            if name=="ESMA" and not recs:
+                try:
+                    root=ET.fromstring(xml)
+                    samples=root.findall(".//item") or root.findall(".//"+ATOM+"entry")
+                    print("ESMA debug:", "root",root.tag, "items",len(samples))
+                    for sample in samples[:2]:
+                        print("ESMA sample:",clean(node(sample,"title",ATOM+"title"),120),
+                              "date",node(sample,"pubDate",DC+"date",ATOM+"published",ATOM+"updated"),
+                              "link",node(sample,"link")[:120])
+                except Exception as diagnostic_error:
+                    print("ESMA diagnostic error:",type(diagnostic_error).__name__)
             successes+=1
             for rec in recs: result[rec["id"]]=rec
             statuses.append({"authority":name,"url":url,"status":"ok","matched":len(recs)})
