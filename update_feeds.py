@@ -61,6 +61,15 @@ def iso(value):
     except (ValueError,TypeError): return None
 
 
+def extract_esma_date(text):
+    """Parse the English date embedded in ESMA's description field."""
+    m=re.search(r"\b(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+(20\d{2})\b",text[:230],re.I)
+    if not m: return None
+    try:
+        return datetime.strptime(" ".join(m.groups()),"%d %B %Y").date().isoformat()
+    except ValueError:
+        return None
+
 def classify_signal(title, summary, authority):
     """First-pass headline triage; not legal or human editorial review."""
     t=title.lower()
@@ -105,6 +114,8 @@ def parse(xml,authority,now):
             link=node(item,"link")
             date=iso(node(item,"pubDate",DC+"date","date"))
             summary=clean(node(item,"description","{http://purl.org/rss/1.0/modules/content/}encoded"),470)
+            if authority=="ESMA" and not date:
+                date=extract_esma_date(summary)
         if not title or not date or not official(link) or not(first<=date<=last):
             continue
         terms=(title+" "+summary).lower()
@@ -144,18 +155,6 @@ def main():
                 xml=reply.read(2_000_001)
             if len(xml)>2_000_000: raise ValueError("Feed >2 MB")
             recs=parse(xml,name,now)
-            if name=="ESMA" and not recs:
-                try:
-                    root=ET.fromstring(xml)
-                    samples=root.findall(".//item") or root.findall(".//"+ATOM+"entry")
-                    print("ESMA debug:", "root",root.tag, "items",len(samples))
-                    for sample in samples[:2]:
-                        print("ESMA sample:",clean(node(sample,"title",ATOM+"title"),120),
-                              "date",node(sample,"pubDate",DC+"date",ATOM+"published",ATOM+"updated"),
-                              "link",node(sample,"link")[:120])
-                        print("ESMA fields:", [(child.tag,clean("".join(child.itertext()),85)) for child in sample][:14])
-                except Exception as diagnostic_error:
-                    print("ESMA diagnostic error:",type(diagnostic_error).__name__)
             successes+=1
             for rec in recs: result[rec["id"]]=rec
             statuses.append({"authority":name,"url":url,"status":"ok","matched":len(recs)})
