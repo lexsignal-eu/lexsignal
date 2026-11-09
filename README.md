@@ -34,3 +34,6 @@ The public website includes stable read-only JSON exports suitable for server-si
 - `/llms.txt` and `/agent-access.html`: human and machine guidance.
 
 These files are generated as part of each GitHub Pages publication by `build_agent_feed.py` from the existing RSS snapshot. No dynamic query API, MCP server, API key, analytics-based SLA or automated verification is claimed. See `docs/AGENT_ACCESS.md`. The approved spherical brand logo is unchanged.
+
+## RSS resilience and provenance
+The collector keeps up to 250 previously seen publications for 150 days after publication, including when a source temporarily fails. Every entry reports collectionState (observed/cached), firstSeenAt and lastObservedAt. A cached entry is not proof that its source still lists it. Agent status exports expose per-source cache counts and fetch failures. If all four sources fail, the previous snapshot is left unchanged, including its timestamp; no empty success is manufactured. Such snapshots still require checking against the official source before citation.

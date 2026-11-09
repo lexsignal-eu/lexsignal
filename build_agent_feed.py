@@ -74,6 +74,9 @@ def normalise(record):
         "reviewStatus": "unreviewed",
         "relevanceMethod": "automated_keyword_screening",
         "applicabilityAssessment": "not_performed",
+        "collectionState": record.get("collectionState") if record.get("collectionState") in {"observed","cached"} else "unknown",
+        "firstSeenAt": record.get("firstSeenAt") if isinstance(record.get("firstSeenAt"),str) else None,
+        "lastObservedAt": record.get("lastObservedAt") if isinstance(record.get("lastObservedAt"),str) else None,
     }
 
 def build_documents(snapshot):
@@ -97,8 +100,9 @@ def build_documents(snapshot):
     entries = sorted(rec_by_id.values(),
                      key=lambda x: (x["publishedOn"], x["id"]), reverse=True)[:MAX_ITEMS]
     warning = ("Automatically extracted from official RSS feeds; publication dates and "
-               "classifications are not independently verified. Not a complete legal "
-               "or regulatory inventory. Not client-specific legal advice.")
+               "classifications are not independently verified. Cached entries may "
+               "no longer be present in the current feed. Not a complete inventory "
+               "or client-specific legal advice.")
     meta = {
         "name": "LexSignal regulatory signal feed",
         "version": "1.0",
@@ -107,6 +111,8 @@ def build_documents(snapshot):
         "snapshotGeneratedAt": generated,
         "refreshTarget": "Weekdays around 07:17 UTC; scheduled jobs may be delayed",
         "recordCount": len(entries),
+        "cachedRecordCount": sum(x["collectionState"]=="cached" for x in entries),
+        "failedSourceCount": sum(s.get("status")=="error" for s in snapshot.get("sources",[])),
         "warning": warning,
         "homepage": BASE,
         "documentation": BASE + "agent-access.html",
@@ -114,7 +120,9 @@ def build_documents(snapshot):
         "sources": [
             {"authority": str(s.get("authority", ""))[:80],
              "status": str(s.get("status", "unknown"))[:30],
-             "matched": s.get("matched") if isinstance(s.get("matched"), int) else None}
+             "matched": s.get("matched") if isinstance(s.get("matched"), int) else None,
+             "cachedRecordCount": s.get("cachedRecordCount") if isinstance(s.get("cachedRecordCount"),int) else None,
+             "observedRecordCount": s.get("observedRecordCount") if isinstance(s.get("observedRecordCount"),int) else None}
             for s in snapshot.get("sources", []) if isinstance(s, dict)
         ],
     }
