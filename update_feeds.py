@@ -142,36 +142,102 @@ def parse(xml,authority,now):
         })
     return records
 
+
+MAX_HISTORY_DAYS = 150
+MAX_SNAPSHOT_ITEMS = 250
+
+def load_previous_snapshot(path):
+    """Return validated prior entries; never use the previous snapshot as a new observation."""
+    if not path.exists():
+        return {}
+    try:
+        doc=json.loads(path.read_text(encoding="utf-8"))
+        if doc.get("schema") != "lexsignal-snapshot-v1" or not isinstance(doc.get("records"),list):
+            return {}
+        result={}
+        for row in doc["records"]:
+            if not isinstance(row,dict): continue
+            rid=row.get("id")
+            if not isinstance(rid,str) or not re.fullmatch(r"rss-[0-9a-f]{16}",rid):
+                continue
+            if row.get("authority") not in {name for name,_ in SOURCES}: continue
+            if not isinstance(row.get("date"),str): continue
+            if not official(row.get("url","")): continue
+            result[rid]=row
+        return result
+    except (ValueError,TypeError,OSError):
+        return {}
+
+def merge_observations(current,previous,now,statuses):
+    """Keep missing previously observed items for at most 150 days since publication."""
+    moment=now.isoformat(timespec="seconds")
+    start=(now-timedelta(days=MAX_HISTORY_DAYS)).date().isoformat()
+    end=(now+timedelta(days=1)).date().isoformat()
+    merged={}
+    for rid,record in previous.items():
+        if not(start<=record.get("date","")<=end):
+            continue
+        if not isinstance(record.get("title"),str):
+            continue
+        row=dict(record)
+        row["collectionState"]="cached"
+        row["firstSeenAt"]=record.get("firstSeenAt") or record.get("lastObservedAt") or record.get("date")
+        row["lastObservedAt"]=record.get("lastObservedAt") or record.get("firstSeenAt")
+        merged[rid]=row
+    for rid,record in current.items():
+        if not(start<=record.get("date","")<=end):
+            continue
+        row=dict(record)
+        row["firstSeenAt"]=previous.get(rid,{}).get("firstSeenAt") or moment
+        row["lastObservedAt"]=moment
+        row["collectionState"]="observed"
+        merged[rid]=row
+    rows=sorted(merged.values(),key=lambda row:(row["date"],row["id"]),reverse=True)[:MAX_SNAPSHOT_ITEMS]
+    for status in statuses:
+        name=status["authority"]
+        status["cachedRecordCount"]=sum(x["authority"]==name and x["collectionState"]=="cached" for x in rows)
+        status["observedRecordCount"]=sum(x["authority"]==name and x["collectionState"]=="observed" for x in rows)
+    return rows
+
 def main():
     now=datetime.now(timezone.utc)
-    result={}
+    dest=Path("data/regulatory_snapshot.json")
+    previous=load_previous_snapshot(dest)
+    current={}
     statuses=[]
     successes=0
     for name,url in SOURCES:
         try:
-            req=urllib.request.Request(url,headers={"User-Agent":"LexSignal/0.3 research-preview aggregator","Accept":"application/rss+xml,application/atom+xml,text/xml,application/xml,*/*;q=0.5"})
+            req=urllib.request.Request(url,headers={
+                "User-Agent":"LexSignal/0.4 research-preview aggregator",
+                "Accept":"application/rss+xml,application/atom+xml,text/xml,application/xml,*/*;q=0.5"})
             with urllib.request.urlopen(req,timeout=20) as reply:
                 if reply.status!=200: raise ValueError("HTTP "+str(reply.status))
                 xml=reply.read(2_000_001)
             if len(xml)>2_000_000: raise ValueError("Feed >2 MB")
             recs=parse(xml,name,now)
             successes+=1
-            for rec in recs: result[rec["id"]]=rec
+            for item in recs: current[item["id"]]=item
             statuses.append({"authority":name,"url":url,"status":"ok","matched":len(recs)})
             print(name,"OK",len(recs))
-        except Exception as e:
-            statuses.append({"authority":name,"url":url,"status":"error","message":type(e).__name__+": "+str(e)[:180]})
-            print(name,"ERROR",type(e).__name__,str(e)[:180],file=sys.stderr)
+        except Exception as exc:
+            statuses.append({"authority":name,"url":url,"status":"error",
+                             "matched":0,"message":type(exc).__name__+": "+str(exc)[:180]})
+            print(name,"ERROR",type(exc).__name__,str(exc)[:180],file=sys.stderr)
     if successes==0:
-        print("No feeds succeeded; existing snapshot retained.",file=sys.stderr)
+        print("No feeds succeeded; retaining existing snapshot.",file=sys.stderr)
         return 1
+    rows=merge_observations(current,previous,now,statuses)
     doc={"schema":"lexsignal-snapshot-v1","generatedAt":now.isoformat(timespec="seconds"),
-         "disclaimer":"RSS-derived, automatically classified, not fact-checked or legal advice.",
-         "sources":statuses,"records":sorted(result.values(),key=lambda r:(r["date"],r["id"]),reverse=True)[:100]}
-    dest=Path("data/regulatory_snapshot.json")
+         "disclaimer":("Automatically classified RSS extracts, not human-reviewed. "
+                       "Cached records may no longer be in the latest RSS feed. "
+                       "See collectionState and lastObservedAt."),
+         "sources":statuses,"records":rows}
     dest.parent.mkdir(parents=True,exist_ok=True)
-    dest.write_text(json.dumps(doc,indent=2,ensure_ascii=False),encoding="utf-8")
-    print("Snapshot:",len(doc["records"]),"records")
+    dest.write_text(json.dumps(doc,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+    print("Snapshot:",len(rows),"records; cached:",
+          sum(r["collectionState"]=="cached" for r in rows),
+          "source failures:",len(SOURCES)-successes)
     return 0
 
 if __name__=="__main__": sys.exit(main())

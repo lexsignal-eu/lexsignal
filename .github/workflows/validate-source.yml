@@ -1,0 +1,26 @@
+name: Validate data reliability
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "update_feeds.py"
+      - "build_agent_feed.py"
+      - "tests/**"
+      - ".github/workflows/validate-source.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test RSS resilience and agent exports
+        run: python -m unittest discover -s tests -p 'test_*.py'
+      - name: Build machine-readable output from committed snapshot
+        run: python build_agent_feed.py --input data/regulatory_snapshot.json --out /tmp/lexsignal-agent-api
