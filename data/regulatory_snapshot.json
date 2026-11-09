@@ -1,0 +1,663 @@
+{
+  "schema": "lexsignal-snapshot-v1",
+  "generatedAt": "2026-11-09T17:29:06+00:00",
+  "disclaimer": "RSS-derived, automatically classified, not fact-checked or legal advice.",
+  "sources": [
+    {
+      "authority": "ESMA",
+      "url": "https://www.esma.europa.eu/rss.xml",
+      "status": "ok",
+      "matched": 0
+    },
+    {
+      "authority": "EDPB",
+      "url": "https://www.edpb.europa.eu/rss.xml_en",
+      "status": "ok",
+      "matched": 10
+    },
+    {
+      "authority": "European Commission",
+      "url": "https://commission.europa.eu/news/feed_en",
+      "status": "ok",
+      "matched": 1
+    },
+    {
+      "authority": "Central Bank of Ireland",
+      "url": "https://www.centralbank.ie/feeds/news-media-feed",
+      "status": "ok",
+      "matched": 19
+    }
+  ],
+  "records": [
+    {
+      "id": "rss-0d136b3a0d2ea763",
+      "date": "2026-11-06",
+      "authority": "European Commission",
+      "category": "Data protection",
+      "kind": "news",
+      "title": "TikTok: preliminary findings on harmful “rabbit hole” effect",
+      "summary": "The European Commission has preliminarily found TikTok in breach of the Digital Services Act (DSA) for the so-called ‘rabbit hole effect' of its recommender system.",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2361",
+      "sectors": [
+        "privacy"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-cf8fc26decbaeae9",
+      "date": "2026-11-05",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "WayLite Finance - Central Bank of Ireland Issues Warning on Unauthorised Firm",
+      "summary": "WayLite Finance - Central Bank of Ireland Issues Warning on Unauthorised Firm",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/waylite-finance---central-bank-of-ireland-issues-warning-on-unauthorised-firm",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-40b0360510588e66",
+      "date": "2026-11-05",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "Eurizon Investment (CLONE) - Central Bank of Ireland Issues Warning on Unauthorised Firm",
+      "summary": "Unauthorised Investment Firm/ Investment Business Firm",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/eurizon-investment-(clone)---central-bank-of-ireland-issues-warning-on-unauthorised-firm",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-a05f4d7ec2eb805c",
+      "date": "2026-11-04",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "Central Bank of Ireland finance strategy",
+      "summary": "The main objectives of the Central Bank’s current strategy are to make the Bank more resilient, responsive and forward-looking, allowing it to adapt to a challenging external environment and to assume new legislative responsibilities. Part of this strategy is also a commitment to manage core operating costs, which has led to the introduction of a multi-year programme targeting a €75 million reduction in the trajectory of the Bank’s projected expenditure to 2030. The",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/press-release-central-bank-of-ireland-finance-strategy-4-november-2026",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-cf02209f03e9ecc9",
+      "date": "2026-11-03",
+      "authority": "EDPB",
+      "category": "Data protection",
+      "kind": "news",
+      "title": "EDPB helps kids stay safe online",
+      "summary": "EDPB helps kids stay safe online ikerinar Tue, 03/11/2026 - 14:17",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.edpb.europa.eu/news/edpb-helps-kids-stay-safe-online_en",
+      "sectors": [
+        "privacy"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-e0a360164274e10a",
+      "date": "2026-11-02",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "Economic Transitions: Technology – Opening remarks from Governor Makhlouf at Financial System Conference",
+      "summary": "Introduction Good morning everyone. I am delighted to welcome you to our 5 th Financial System Conference. 1 Almost 7 years ago in my first speech as Governor, I spoke of the importance of economic resilience through the transitions shaping our world. 2 In that speech in Waterford, I focused on climate and technological change, the changing financial system and geo-economic fragmentation. And noted that external risks had heightened for both structural and cyclical ",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/speech-governor-makhlouf-financial-system-conference-2-november-2026",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-b5fb26de2cfc3dbc",
+      "date": "2026-11-02",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "Harnessing innovation benefits while managing risks – Central Bank of Ireland hosts fifth annual Financial Systems Conference",
+      "summary": "Central Bank of Ireland today (Monday 2 November) hosts its annual Financial System Conference at Croke Park in Dublin. It brings together c. 500 delegates including international and domestic policy experts, senior figures from the financial services industry, and stakeholders from across the financial ecosystem. Key themes will include navigating the changing geopolitical landscape and its implications for Ireland, strengthening European financial markets integrat",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/press-release-fifth-annual-financial-systems-conference-2-november-2026",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-af940e4dfb7a8f46",
+      "date": "2026-10-23",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "Moving the Dial on Customer Experience — Opening Remarks by Director of Horizontal Supervision, Patricia Dunne",
+      "summary": "Opening Remarks by Director of Horizontal Supervision, Patricia Dunne at \"Moving the Dial on Customer Experience\", a Central Bank of Ireland Seminar.",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/speech-remarks-by-patricia-dunne-at-central-bank-seminar-23-october-2026",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-eedbf88d4abeed26",
+      "date": "2026-10-22",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "CreditFlex - Central Bank of Ireland Issues Warning on Unauthorised Firm",
+      "summary": "Warning: Unauthorised Retail Credit Firm / Unauthorised High Cost Credit Provider Unauthorised Firm Name CreditFlex Website https://crediflex.ie/ Email address used info@crediflex.ie Phone number used +353 089 948 8694 Authorisation in Ireland CreditFlex is not authorised to provide credit services in Ireland. Notes: Any person wishing to contact the Central Bank with information regarding such firms / persons may telephone (01) 224 5800 or report an unauthorised fi",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/creditflex---central-bank-of-ireland-issues-warning-on-unauthorised-firm",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-c76daa8224f6288e",
+      "date": "2026-10-22",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "Brokevo - Central Bank of Ireland Issues Warning on Unauthorised Firm",
+      "summary": "Warning: Unauthorised Retail Credit Firm Unauthorised Firm Name Brokevo Website https://www.brokevo.com/ Email address used info@brokevo.com Phone number used +353 61 353254 Authorisation in Ireland Brokevo is not authorised to provide retail credit services in Ireland. Notes: Any person wishing to contact the Central Bank with information regarding such firms / persons may telephone (01) 224 5800 or report an unauthorised firm directly to the Central Bank . For mor",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/brokevo---central-bank-of-ireland-issues-warning-on-unauthorised-firm",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-b742c3b393a9006f",
+      "date": "2026-10-22",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "Strength through resilience, adaptability and trust – insurance for a stronger Europe - Speech by Deputy Governor McMunn at Insurance Ireland",
+      "summary": "Introduction Good morning and many thanks to Moyagh and the team in Insurance Ireland for the invitation to speak to you today. 1 The theme of this year’s Forum – a stronger Europe – is an important one, and is a question on the minds of policymakers, regulators and industry alike as Europe looks to meet its moment and respond to the challenging macro environment it is operating in. Navigating the shocks and the shifts we are facing. Adapting to structural challenge",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/speech-deputy-governor-mcmunn-insurance-ireland-22-october-2026",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-a48ea6403c9e411a",
+      "date": "2026-10-22",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "enforcement",
+      "title": "The Central Bank takes enforcement action against Coinbase Ireland",
+      "summary": "Central Bank of Ireland has fined Coinbase Ireland Limited €3,252,618 for breaching its safeguarding and outsourcing obligations under the Electronic Money Regulations 2011 (the EMR 2011) between 01 November 2020 and 19 August 2025. Today’s announcement follows the settlement reached between the Central Bank and Coinbase Ireland on 21 October 2026. Coinbase Ireland is an e-money institution and is part of the global Coinbase Group, which operates one of the world’s ",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/press-release-central-bank-takes-enforcement-action-against-coinbase-ireland-22-october-2026",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-3aabac404abba31d",
+      "date": "2026-10-22",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "JP Morgan Chase (CLONE) - Central Bank of Ireland Issues Warning on Unauthorised Firm",
+      "summary": "Warning: Unauthorised Banking Business Unauthorised Firm Name JP Morgan Chase (CLONE) Website www.morganchase.co.uk Email addresses used staff.member@morganchase.co.uk compliance@morganchase.co.uk Phone number used +353 1 200 3136 Authorisation in Ireland This firm is not authorised to provide banking business services or any other financial services in Ireland. This scam firm has cloned the details of the legitimate JP Morgan Chase, in order to add an air of legiti",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/jp-morgan-chase-(clone)---central-bank-of-ireland-issues-warning-on-unauthorised-firm",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-360dfab87109c95a",
+      "date": "2026-10-22",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "Public Statement: Irish Financial Services Appeals Tribunal decision",
+      "summary": "Today, the Irish Financial Services Appeals Tribunal (IFSAT) has published its decision in the appeal by Mr David Guinane of the Central Bank Inquiry Decision dated 23 April 2025 concerning permanent tsb plc (PTSB) and Mr David Guinane. The decision of IFSAT was to uphold Mr Guinane’s appeal and overturn the Inquiry Decision. The Central Bank established this statutory inquiry to investigate a potential contravention of Irish financial services legislation, arising ",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/press-release-public-statement-irish-financial-services-appeals-tribunal-decision-22-october-2026",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-35d451715cbacfdd",
+      "date": "2026-10-21",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "Building a Resilient Payment Ecosystem and Consumer Trust— Speech by Director Domhnall Cullinan at Payments and E-Money Industry Seminar",
+      "summary": "Introduction Good morning everyone, You are all very welcome here today to Central Bank of Ireland’s Payments and E-Money seminar - a forum where we can reflect together on the key developments, challenges and risks facing the payments ecosystem. I would like to say thank you to Tommy Hannafin and his team for organising today’s event and for inviting me to join you this morning. A special thanks also to all our panel members, including Federico Cabañas from the Ban",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/speech-domhnall-cullinan-payments-and-e-money-industry-seminar-21-october-2026",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-531b6e03c5a7c823",
+      "date": "2026-10-19",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "Central Bank of Ireland Publishes Annual NCID Private Motor Insurance Report and additional research on the factors driving the cost of motor insurance",
+      "summary": "Central Bank of Ireland has today (Tuesday 20 October) published its annual Private Motor Insurance Report of the National Claims Information Database (NCID). The report is accompanied by additional research , designed to help consumers understand the costs associated with insurance and what insurers use their premiums for. Both reports feed into the work of the Central Bank in supporting the Action Plan for Insurance reform. The reports look to continue to enhance ",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/central-bank-of-ireland-private-motor-insurance-report-20-october-2026",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-f8c8cf17636ba37b",
+      "date": "2026-10-16",
+      "authority": "EDPB",
+      "category": "Data protection",
+      "kind": "enforcement",
+      "title": "Norwegian DPA fines Xandr EUR 8 600 000 for unlawful processing of personal data",
+      "summary": "Norwegian DPA fines Xandr EUR 8 600 000 for unlawful processing of personal data ikerinar Fri, 16/10/2026 - 09:52",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.edpb.europa.eu/news/norwegian-dpa-fines-xandr-eur-8-600-000-for-unlawful-processing-of-personal-data_en",
+      "sectors": [
+        "privacy"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-e0763cc25aac61ec",
+      "date": "2026-10-16",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "Temp Insure Cover - Central Bank of Ireland Issues Warning on Unauthorised Firm",
+      "summary": "Warning: Unauthorised Insurance Intermediary Unauthorised Firm Name Temp Insure Cover Website https://tempinsurecover.ie/ Email address used admin@tempinsurecover.ie Phone number used +353 1800 929 241 Authorisation in Ireland This firm is not authorised to provide insurance intermediary/distribution services in Ireland. Additional information This Unauthorised Firm has cloned details of Central Bank authorised firms and has been seeking to pass itself off as connec",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/temp-insure-cover---central-bank-of-ireland-issues-warning-on-unauthorised-firm",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-2dd6a19e3c0bc8f1",
+      "date": "2026-10-16",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "We Go Insure - Central Bank of Ireland Issues Warning on Unauthorised Firm",
+      "summary": "Warning: Unauthorised Insurance Intermediary Unauthorised Firm Name We Go Insure Website https://wegoinsure.ie/ Email address(es) used admin@wegoinsure.co.uk emailreplies@wegoinsure.co.uk Phone number(s) used +353 1800 929 241 0203 576 6849 Authorisation in Ireland This firm is not authorised to provide insurance intermediary/distribution services in Ireland. Additional Information This Unauthorised Firm has cloned details of Central Bank authorised firms and has be",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/we-go-insure---central-bank-of-ireland-issues-warning-on-unauthorised-firm",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-18fc215c826a3d3d",
+      "date": "2026-10-15",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "Marilla Capital ICAV (CLONE) - Central Bank of Ireland Issues Warning on Unauthorised Firm",
+      "summary": "Marilla Capital ICAV (CLONE) - Central Bank of Ireland Issues Warning on Unauthorised Firm",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/marilla-capital-icav-(clone)---central-bank-of-ireland-issues-warning-on-unauthorised-firm",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-9e391ec60fa9e859",
+      "date": "2026-10-13",
+      "authority": "EDPB",
+      "category": "Data protection",
+      "kind": "news",
+      "title": "EDPB publishes statement on the data protection challenges of smart glasses",
+      "summary": "EDPB publishes statement on the data protection challenges of smart glasses ikerinar Tue, 13/10/2026 - 14:13",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.edpb.europa.eu/news/edpb-publishes-statement-on-the-data-protection-challenges-of-smart-glasses_en",
+      "sectors": [
+        "privacy"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-e3ea1676a7ee8c1c",
+      "date": "2026-10-09",
+      "authority": "EDPB",
+      "category": "Data protection",
+      "kind": "enforcement",
+      "title": "Italian DPA fines IQVIA EUR 7 000 000 for unlawful processing of patients’ health data",
+      "summary": "Italian DPA fines IQVIA EUR 7 000 000 for unlawful processing of patients’ health data ikerinar Fri, 09/10/2026 - 10:02",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.edpb.europa.eu/news/italian-dpa-fines-iqvia-eur-7-000-000-for-unlawful-processing-of-patients-health-data_en",
+      "sectors": [
+        "privacy"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-998f22906fc4a2b5",
+      "date": "2026-10-09",
+      "authority": "EDPB",
+      "category": "Data protection",
+      "kind": "enforcement",
+      "title": "Italian DPA fines BBVA EUR 5 508 000 for failing to respect a customer’s objection to direct marketing",
+      "summary": "Italian DPA fines BBVA EUR 5 508 000 for failing to respect a customer’s objection to direct marketing ikerinar Fri, 09/10/2026 - 09:49",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.edpb.europa.eu/news/italian-dpa-fines-bbva-eur-5-508-000-for-failing-to-respect-a-customers-objection-to-direct_en",
+      "sectors": [
+        "privacy"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-7f62de0dc5638f1b",
+      "date": "2026-10-09",
+      "authority": "EDPB",
+      "category": "Data protection",
+      "kind": "enforcement",
+      "title": "Italian DPA fines security company EUR 39 000 for violations concerning employees’ data",
+      "summary": "Italian DPA fines security company EUR 39 000 for violations concerning employees’ data ikerinar Fri, 09/10/2026 - 10:25",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.edpb.europa.eu/news/italian-dpa-fines-security-company-eur-39-000-for-violations-concerning-employees-data_en",
+      "sectors": [
+        "privacy"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-2babe5f4f9a93138",
+      "date": "2026-10-09",
+      "authority": "EDPB",
+      "category": "Data protection",
+      "kind": "enforcement",
+      "title": "Italian DPA fines Emirates EUR 180 000 for infringements concerning passengers’ health data",
+      "summary": "Italian DPA fines Emirates EUR 180 000 for infringements concerning passengers’ health data ikerinar Fri, 09/10/2026 - 09:26",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.edpb.europa.eu/news/italian-dpa-fines-emirates-eur-180-000-for-infringements-concerning-passengers-health-data_en",
+      "sectors": [
+        "privacy"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-8957cf74b3293060",
+      "date": "2026-10-08",
+      "authority": "EDPB",
+      "category": "Data protection",
+      "kind": "news",
+      "title": "Hellenic DPA decision on a data breach involving E.E.T.A.A. S.A. as processor for the Ministry of Social Cohesion and Family Affairs",
+      "summary": "Hellenic DPA decision on a data breach involving E.E.T.A.A. S.A. as processor for the Ministry of Social Cohesion and Family Affairs ikerinar Thu, 08/10/2026 - 16:36",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.edpb.europa.eu/news/hellenic-dpa-decision-on-a-data-breach-involving-eetaa-sa-as-processor-for-the-ministry-of_en",
+      "sectors": [
+        "privacy"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-4848865f94d41c0d",
+      "date": "2026-10-08",
+      "authority": "EDPB",
+      "category": "Data protection",
+      "kind": "enforcement",
+      "title": "Swedish DPA fines Miljödata i Karlskrona approximately EUR 160 000 for insufficient technical and organisational measures to ensure information security",
+      "summary": "Swedish DPA fines Miljödata i Karlskrona approximately EUR 160 000 for insufficient technical and organisational measures to ensure information security ikerinar Thu, 08/10/2026 - 17:22",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.edpb.europa.eu/news/swedish-dpa-fines-miljodata-i-karlskrona-approximately-eur-160-000-for-insufficient-technical_en",
+      "sectors": [
+        "privacy"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-c857baea10e9c37d",
+      "date": "2026-09-25",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "Central Bank of Ireland launches U2 commemorative coin, marking 50 years since the band formed",
+      "summary": "Central Bank of Ireland has today (Friday 25 September) launched a new €2 commemorative coin to celebrate U2, one of the world’s greatest bands, marking 50 years since their formation in 1976. The coin features an image of the four band members Adam Clayton, Bono, The Edge, and Larry Mullen Jr. It was designed by Shaughn McGrath. It was officially launched today by Vasileios Madouros (Deputy Governor, Monetary and Financial Stability) during an event held in the Lit",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/press-release-central-bank-of-ireland-launches-u2-commemorative-coin-25-september-2026",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-382274360e214ab2",
+      "date": "2026-09-21",
+      "authority": "EDPB",
+      "category": "Data protection",
+      "kind": "guidance",
+      "title": "EDPB harmonises fining methodology and adopts final DSA-GDPR guidelines",
+      "summary": "EDPB harmonises fining methodology and adopts final DSA-GDPR guidelines ikerinar Mon, 21/09/2026 - 11:42",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.edpb.europa.eu/news/edpb-harmonises-fining-methodology-and-adopts-final-dsa-gdpr-guidelines_en",
+      "sectors": [
+        "privacy"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    },
+    {
+      "id": "rss-ff2618a5ad9a5559",
+      "date": "2026-08-21",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "Raisin Savings Bank/ Raisin Ireland (CLONE) - Central Bank of Ireland Issues Warning on Unauthorised Firm",
+      "summary": "Updated on 08 October 2026 Warning: Unauthorised Banking Business Unauthorised Firm Name Raisin Savings Bank/ Raisin Ireland (Clone) Website www.raisin-ie.com Email address used apply@raisin-ie.com staff.member@raisin-ie.com Phone numbers used +353 1 575 9032 Authorisation in Ireland This firm is not authorised to provide banking business services or any other financial services in Ireland. This scam firm has cloned the details of the legitimate Raisin Bank AG, in o",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/raisin-savings-bank--raisin-ireland-(clone)---central-bank-of-ireland-issues-warning-on-unauthorised-firm",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true
+    }
+  ]
+}
