@@ -37,3 +37,16 @@ These files are generated as part of each GitHub Pages publication by `build_age
 
 ## RSS resilience and provenance
 The collector keeps up to 250 previously seen publications for 150 days after publication, including when a source temporarily fails. Every entry reports collectionState (observed/cached), firstSeenAt and lastObservedAt. A cached entry is not proof that its source still lists it. Agent status exports expose per-source cache counts and fetch failures. If all four sources fail, the previous snapshot is left unchanged, including its timestamp; no empty success is manufactured. Such snapshots still require checking against the official source before citation.
+
+## Research workbench update (v0.5)
+
+The dashboard's primary purpose is now to support the cycle **source → assess → reviewer decision → owner/action → briefing**.
+
+- Separate source publication dates from later implementation milestones in the selected research records.
+- Add a directly sourced ESMA case for the T+1 conversion and 7 December 2026 preparation requirements, plus an EMIR 3 PTRR final report **awaiting Commission endorsement**.
+- Open source-specific ESMA and Irish DPC publications instead of generic news indices for two curated examples.
+- Let reviewers override automated screening for a checked RSS publication. The exclusion safeguard for unreviewed RSS is unchanged, and user exclusion always overrides inclusion.
+- Track assessment status, responsible person, next step and internal due date in local browser storage; include these in CSV and draft briefing exports.
+- Add a documented customer-facing example to the overview.
+
+**Limits:** Review decisions, notes and action assignments are browser-local, not shared across devices or accounts. A manual review flag only records the user's action; it does not certify the legal correctness of the classification. Sourcing remains selective. Outreach is paused while the product is being strengthened.
