@@ -4,6 +4,7 @@
 
 ## For AI Agents
 - [Agent access guide](https://lexsignal-eu.github.io/lexsignal/agent-access.html): Data meanings, examples, cautions, limitations.
+- [Typed regulatory knowledge index (JSON)](https://lexsignal-eu.github.io/lexsignal/api/v1/knowledge.json): Versioned metadata for selected instruments, milestones and unreviewed RSS publications; explicit provenance only, no verified legal change detection.
 - [Data feed (JSON)](https://lexsignal-eu.github.io/lexsignal/api/v1/updates.json): All collected RSS items, each marked unreviewed.
 - [High signals (JSON)](https://lexsignal-eu.github.io/lexsignal/api/v1/signals.json): Heuristic shortlist; not editorial approval.
 - [Data status (JSON)](https://lexsignal-eu.github.io/lexsignal/api/v1/status.json): Source status, timestamp and freshness information.

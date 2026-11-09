@@ -58,6 +58,7 @@ jobs:
           cp geo/ne_110m_land.geojson _site/geo/
           cp -R brand _site/
           python build_agent_feed.py --input data/regulatory_snapshot.json --out _site/api/v1
+          python build_knowledge_index.py --out _site/api/v1/knowledge.json
           if [ -f data/regulatory_snapshot.json ]; then
             cp data/regulatory_snapshot.json _site/data/
             cp data/global_signals.json _site/data/
