@@ -38,7 +38,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #38adbb;outline-offset:3p
 .hint{font-size:12px;color:#aabed0;margin-top:19px}
 .showcase{position:relative;padding:10px 0 10px 12px}
 .showcase:before{content:"";position:absolute;inset:-80px -100px -80px 40px;border-radius:50%;background:radial-gradient(ellipse,#2e5b6696,transparent 70%);pointer-events:none}
-.preview{position:relative;border-radius:15px;background:#fff;color:#183148;box-shadow:0 24px 70px #05131e85;overflow:hidden;transform:rotate(1.2deg)}
+.preview{position:relative;border-radius:15px;background:#fff;color:#183148;box-shadow:0 24px 70px #05131e85;overflow:hidden;transform:none}
 .preview-top{background:#edf3f4;padding:15px 19px;display:flex;justify-content:space-between;gap:10px;color:#345264;font-size:12px;font-weight:800;letter-spacing:.2px}
 .preview-indicator{display:inline-flex;align-items:center;gap:7px;color:#23796d}
 .preview-indicator:before{content:"";width:7px;height:7px;border-radius:50%;background:#2ca58b}
@@ -135,9 +135,9 @@ footer a{color:#d7ecf4;text-decoration:none}
           <h3>EU moves towards T+1 securities settlement</h3>
           <p>One original source. Two distinct milestones. A practical route from reading to assessment.</p>
           <div class="preview-divider"></div>
-          <div class="preview-row"><span>Publication</span><span class="value">16 October 2026</span></div>
-          <div class="preview-row"><span>Preparation milestone</span><span class="value">7 December 2026</span></div>
-          <div class="preview-row"><span>Transition milestone</span><span class="value">11 October 2027</span></div>
+          <div class="preview-row"><span>Publication</span><time class="value" datetime="2026-10-16" translate="no">16.10.2026</time></div>
+          <div class="preview-row"><span>Preparation milestone</span><time class="value" datetime="2026-12-07" translate="no">07.12.2026</time></div>
+          <div class="preview-row"><span>Transition milestone</span><time class="value" datetime="2027-10-11" translate="no">11.10.2027</time></div>
           <div class="preview-row"><span>Review</span><span class="chip">Source check required</span></div>
         </div>
         <div class="preview-bottom">Source → Assess → Assign → Brief</div>
