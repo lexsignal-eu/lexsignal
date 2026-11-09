@@ -2,8 +2,8 @@
 
 Experimental public demonstration of a source-linked EU regulatory monitoring dashboard. Includes a browser-based briefing generator and an RSS collection pipeline.
 
-- Dashboard: [Open after Pages activation](https://yevhennaydenov-lab.github.io/lexsignal/)
-- Landing page: [Project overview](https://yevhennaydenov-lab.github.io/lexsignal/landing.html)
+- Dashboard: [Open after Pages activation](https://lexsignal-eu.github.io/lexsignal/)
+- Landing page: [Project overview](https://lexsignal-eu.github.io/lexsignal/landing.html)
 - Sources: ESMA, EDPB, European Commission and Central Bank of Ireland (official RSS endpoints).
 - Automated snapshot: `data/regulatory_snapshot.json` when feed collection succeeds.
 - Review: RSS entries are **unreviewed** until manually validated and are excluded from generated client briefs by default.
