@@ -12,6 +12,26 @@
 :root{--ink:#14263d;--muted:#607288;--blue:#2e62bb;--sky:#e9f0fb;--border:#dbe5ee;--green:#087c71;--bg:#f7f9fc;--white:#fff}
 *{box-sizing:border-box}body{margin:0;color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:var(--bg)}a{color:inherit} .wrap{max-width:1110px;margin:0 auto;padding:0 28px}header{background:var(--white);border-bottom:1px solid var(--border)}header .wrap{display:flex;align-items:center;justify-content:space-between;height:82px;gap:12px}.brand{font-size:23px;letter-spacing:-.8px;font-weight:800;text-decoration:none;display:flex;gap:11px;align-items:center}.brand-icon{width:39px;height:39px;display:block;flex:none;border-radius:50%;object-fit:cover}.label{font-size:12px;text-transform:uppercase;letter-spacing:1.2px;font-weight:800;color:var(--green)}.navlink{text-decoration:none;color:#365371;font-weight:650;font-size:14px}section{padding:70px 0}.hero{background:linear-gradient(118deg,#10263e 15%,#1d4570 100%);color:white;padding:100px 0 102px}.hero .wrap{display:grid;grid-template-columns:1fr .95fr;gap:50px;align-items:center}.hero .label{color:#8fe0d7}.hero h1{font-size:clamp(36px,4vw,58px);line-height:1.14;letter-spacing:-1.8px;margin:14px 0 20px}.hero p{color:#cfdef0;font-size:18px;max-width:580px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.button{padding:13px 18px;border-radius:9px;text-decoration:none;font-size:14px;font-weight:750;display:inline-flex;align-items:center;justify-content:center}.button.primary{background:white;color:#1b3d6b}.button.secondary{border:1px solid #97b0d0;color:#fff}.disclaimer{color:#bed0e4;font-size:12px;margin-top:22px}.preview{background:#fff;color:var(--ink);border:1px solid #658bad;border-radius:13px;box-shadow:0 25px 65px #061a3066;overflow:hidden;transform:rotate(1deg)}.preview-head{background:#eaf1fb;display:flex;align-items:center;justify-content:space-between;padding:18px;font-size:13px;font-weight:750}.preview-main{padding:21px}.pre-item{padding:16px;border:1px solid var(--border);margin-bottom:12px;border-radius:8px}.pre-item small{display:block;color:var(--muted);font-size:10px;letter-spacing:.6px;font-weight:750}.pre-item strong{display:block;margin-top:5px;font-size:14px}.pre-item p{margin:6px 0;color:var(--muted);font-size:12px}.tag{display:inline-block;margin-top:7px;padding:3px 8px;font-size:10px;font-weight:800;border-radius:5px;background:#e5f4f0;color:var(--green)}.section-h{max-width:720px;margin-bottom:30px}.section-h h2{font-size:34px;line-height:1.24;letter-spacing:-.8px;margin:9px 0 13px}.section-h p{color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{background:white;border:1px solid var(--border);border-radius:12px;padding:24px}.n{color:var(--green);font-weight:850;font-size:12px;letter-spacing:1px}.card h3{font-size:19px;line-height:1.35;margin:10px 0}.card p{color:var(--muted);margin-bottom:0;font-size:14px}.pane{display:grid;grid-template-columns:1fr 1fr;gap:18px}.note{background:white;border:1px solid var(--border);padding:30px;border-radius:14px}.note h3{margin:0 0 11px}.note p,.note li{color:var(--muted);font-size:14px}.note ul{margin:0;padding-left:22px}.banner{padding:55px 0;background:var(--sky)}.banner .wrap{display:flex;align-items:center;justify-content:space-between;gap:25px}.banner h2{font-size:28px;margin:0 0 8px;line-height:1.25}.banner p{margin:0;color:var(--muted)}.banner .button{background:#173956;color:white}footer{padding:31px 0;background:#132840;color:#aec5da;font-size:12px}footer .wrap{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
 @media(max-width:800px){.hero .wrap,.pane{grid-template-columns:1fr}.preview{transform:none}.cards{grid-template-columns:1fr}.banner .wrap{display:block}.banner .button{margin-top:20px}.hero{padding:66px 0}section{padding:50px 0}}
+
+/* Small editorial aside; intentionally separate from the product dashboard. */
+.curiosity-section{padding:20px 0 64px}
+.curiosity-card{display:grid;grid-template-columns:minmax(150px,.31fr) 1fr;overflow:hidden;border:1px solid #d5e0e9;border-radius:17px;background:#fff;box-shadow:0 12px 36px #1029410c}
+.curiosity-art{min-height:205px;padding:26px 28px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(140deg,#102940,#234768);color:#fff;position:relative;overflow:hidden}
+.curiosity-art:before,.curiosity-art:after{content:"";position:absolute;border:1px solid #b0c8e345;border-radius:50%;width:175px;height:175px;right:-65px;bottom:-75px;pointer-events:none}
+.curiosity-art:after{width:245px;height:245px;right:-100px;bottom:-110px}
+.curiosity-overline{font-size:11px;letter-spacing:1.6px;font-weight:750;text-transform:uppercase;color:#c1d7ed;position:relative;z-index:1}
+.curiosity-number{font-size:clamp(46px,6vw,78px);font-weight:650;letter-spacing:-3px;line-height:1.1;position:relative;z-index:1;max-width:180px}
+.curiosity-body{padding:28px 34px;display:flex;flex-direction:column;justify-content:center;gap:7px}
+.curiosity-kicker{font-size:11px;font-weight:800;color:var(--green);letter-spacing:1.15px;text-transform:uppercase}
+.curiosity-body h3{font-size:clamp(20px,2.2vw,25px);line-height:1.3;letter-spacing:-.5px;margin:0}
+.curiosity-body p{font-size:14px;color:var(--muted);line-height:1.65;margin:2px 0 5px;max-width:620px}
+.curiosity-bottom{display:flex;align-items:center;flex-wrap:wrap;gap:17px}
+.curiosity-bottom a{font-size:13px;font-weight:700;color:#245c92;text-decoration:none}
+.curiosity-bottom a:hover{text-decoration:underline}
+.curiosity-next{background:transparent;border:0;border-bottom:1px solid #b6c8d6;border-radius:0;padding:2px 0;color:#536f86;cursor:pointer;font:700 13px/1.5 inherit}
+.curiosity-next:hover{color:#102940;border-bottom-color:#102940}
+@media(max-width:620px){.curiosity-card{grid-template-columns:1fr}.curiosity-art{min-height:95px;padding:17px 23px;flex-direction:row;align-items:center}.curiosity-number{font-size:48px}.curiosity-body{padding:23px}}
+
 </style>
 </head>
 <body>
@@ -21,7 +41,71 @@
 <section id="how-it-works"><div class="wrap"><div class="section-h"><div class="label">THE WORKFLOW</div><h2>Designed around the work behind a regulatory briefing.</h2><p>The aim is to reduce time spent collecting and organising official publications while keeping professional judgment in the review process.</p></div><div class="cards"><div class="card"><div class="n">01 / COLLECT</div><h3>Bring source updates into one place</h3><p>Configure official EU and Irish regulatory feeds, store source links and avoid duplicates.</p></div><div class="card"><div class="n">02 / REVIEW</div><h3>Identify relevant developments</h3><p>Apply preliminary sector filters, read the original publication and flag what merits inclusion.</p></div><div class="card"><div class="n">03 / BRIEF</div><h3>Create a structured working draft</h3><p>Generate a source-linked outline with potential relevance and follow-up questions for human review.</p></div></div></div></section>
 <section id="agent-access" style="padding-top:22px;padding-bottom:35px"><div class="wrap"><div class="section-h"><div class="label">HUMAN + AGENT INTERFACE</div><h2>Readable by specialists. Structured for software and AI agents.</h2><p>LexSignal now provides static machine-readable regulatory feeds alongside the visual workspace. Each entry includes its original authority, publication date, source link and an explicit <strong>unreviewed</strong> status. Agents can read the dataset directly and verify the linked regulator publication.</p></div><div class="cards"><div class="card"><div class="n">01 / STRUCTURED JSON</div><h3>Read updates without parsing the interface</h3><p>Fetch a compact read-only JSON snapshot with stable fields and primary-source URLs.</p><a href="api/v1/updates.json">Open JSON feed →</a></div><div class="card"><div class="n">02 / MACHINE DISCOVERY</div><h3>Discover formats and field meanings</h3><p>OpenAPI, JSON-LD, and an optional llms.txt discovery file describe the public data surface.</p><a href="llms.txt">Read llms.txt →</a></div><div class="card"><div class="n">03 / SOURCE-BASED REVIEW</div><h3>Make uncertainty explicit</h3><p>Automated signal ranking is provisional. There is no live legal-advice API or verified regulatory classification.</p><a href="agent-access.html">Developer and agent guide →</a></div></div></div></section>
 <section style="padding-top:15px"><div class="wrap"><div class="pane"><div class="note"><h3>Who might use it?</h3><ul><li>Boutique compliance and regulatory consultancies</li><li>Financial services and fintech advisory teams</li><li>Small legal teams preparing regulatory client updates</li><li>Professional associations and research teams</li></ul></div><div class="note"><h3>Current boundaries</h3><p>The public research preview now has weekday scheduled collection, an interactive dashboard and static machine-readable feeds. Classification is preliminary. Every item requires source and applicability checks before external use. Client accounts, collaborative editorial review, live queries and a commercial support model have not been launched.</p><p>We are examining whether a narrowly scoped, reviewed briefing service would solve a sufficiently important problem for a specific customer segment.</p></div></div></div></section>
+<section class="curiosity-section" id="beyond-the-signal">
+<div class="wrap">
+  <div class="curiosity-card" aria-label="Beyond the Signal: a curated curiosity">
+    <div class="curiosity-art" aria-hidden="true"><span class="curiosity-overline">BEYOND THE SIGNAL</span><span class="curiosity-number" id="curiosity-number">€</span></div>
+    <div class="curiosity-body">
+      <div class="curiosity-kicker" id="curiosity-kicker">CURIOSITY · EUROPE</div>
+      <h3 id="curiosity-heading">The bridges on euro banknotes don't exist.</h3>
+      <p id="curiosity-description">The ECB intentionally shows imagined bridges rather than real landmarks. They stand for communication and cooperation across Europe.</p>
+      <div class="curiosity-bottom">
+        <a id="curiosity-source" href="https://www.ecb.europa.eu/euro/banknotes/current/design/html/index.en.html" target="_blank" rel="noopener noreferrer">Explore the original source ↗</a>
+        <button class="curiosity-next" type="button" id="curiosity-next">Another curiosity →</button>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
 <section class="banner"><div class="wrap"><div><h2>Evaluate the workflow with a public research preview.</h2><p>Explore filters, source records, review flags and draft client briefings. No login required.</p></div><a class="button" href="index.html">Open LexSignal demo →</a></div></section>
 </main><footer><div class="wrap"><span>LexSignal · public research preview</span><span>Not legal advice · no client data required for demonstration</span></div></footer>
+<script>
+(function () {
+  "use strict";
+  // Curated, evergreen facts checked against primary EU institutional sources.
+  // Rotates once per UTC day and can also be browsed manually; no network API.
+  const facts = [
+    {visual:"€",category:"DESIGN · EUROPE",title:"The bridges on euro banknotes don't exist.",
+      description:"The ECB intentionally uses imagined bridges rather than real landmarks. They symbolise communication and cooperation across Europe.",
+      url:"https://www.ecb.europa.eu/euro/banknotes/current/design/html/index.en.html"},
+    {visual:"24",category:"LANGUAGES · EUROPE",title:"The EU works in 24 official languages.",
+      description:"Those languages use three alphabets — Latin, Cyrillic and Greek. Linguistic diversity is part of the Union's institutional design.",
+      url:"https://translation.ec.europa.eu/languages-eu-why-multilingualism-matters/linguistic-diversity-eu_en"},
+    {visual:"2013",category:"LAW · DIGITAL",title:"The authentic EU Official Journal went digital.",
+      description:"Since 1 July 2013, the electronic edition has been legally authentic, with special arrangements for exceptional system disruptions.",
+      url:"https://eur-lex.europa.eu/content/help/oj/authenticity-eOJ.html?locale=en"},
+    {visual:"EN",category:"LANGUAGES · EU LAW",title:"English remained an EU official language after Brexit.",
+      description:"Its status is governed by the EU's language regulation; it also remains an official language in Ireland and Malta.",
+      url:"https://european-union.europa.eu/principles-countries-history/languages_en"},
+    {visual:"1952",category:"LEGAL HISTORY",title:"The Court of Justice began in 1952.",
+      description:"Its task is to ensure that EU law is interpreted consistently, including by answering questions referred by national courts.",
+      url:"https://curia.europa.eu/site/jcms/d2_5390/en/about-the-court-of-justice-of-the-eu"},
+    {visual:"2023",category:"PUBLICATIONS · EU LAW",title:"EU legal acts are now published individually.",
+      description:"Since October 2023, each act appears as its own authentic Official Journal publication rather than as part of a collected issue.",
+      url:"https://eur-lex.europa.eu/content/help/oj/about-oj.html?locale=en"}
+  ];
+  const nodes = {
+    visual:document.getElementById("curiosity-number"),
+    category:document.getElementById("curiosity-kicker"),
+    title:document.getElementById("curiosity-heading"),
+    text:document.getElementById("curiosity-description"),
+    source:document.getElementById("curiosity-source")
+  };
+  if (!Object.values(nodes).every(Boolean)) return;
+  let index=Math.floor(Date.now()/86400000)%facts.length;
+  function render(){
+    const fact=facts[index];
+    nodes.visual.textContent=fact.visual;
+    nodes.category.textContent=fact.category;
+    nodes.title.textContent=fact.title;
+    nodes.text.textContent=fact.description;
+    nodes.source.href=fact.url;
+  }
+  document.getElementById("curiosity-next")?.addEventListener("click",function(){
+    index=(index+1)%facts.length;render();
+  });
+  render();
+})();
+</script>
 </body>
 </html>
