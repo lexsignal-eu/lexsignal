@@ -10,6 +10,12 @@ on:
       - 'global-signals.html'
       - 'regulatory-library.html'
       - 'data/regulatory_library.json'
+      - 'data/source_registry.json'
+      - 'knowledge_index.py'
+      - 'build_knowledge_index.py'
+      - 'build_agent_feed.py'
+      - 'agent-access.html'
+      - 'llms.txt'
       - 'data/global_signals.json'
       - 'geo/ne_110m_land.geojson'
       - 'tests/**'
@@ -26,5 +32,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Unit tests (Python)
         run: python -m unittest discover -s tests -p 'test_*.py'
+      - name: Build and validate canonical knowledge export
+        run: python build_knowledge_index.py --out /tmp/lexsignal-knowledge.json
       - name: Dashboard JS and integration tests (Node)
         run: node --test tests/*.test.cjs

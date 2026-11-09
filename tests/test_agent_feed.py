@@ -48,6 +48,7 @@ class AgentFeedTests(unittest.TestCase):
         self.assertEqual(spec["openapi"],"3.1.2")
         self.assertIn("/api/v1/updates.json",spec["paths"])
         self.assertIn("/api/v1/status.json",spec["paths"])
+        self.assertIn("/api/v1/knowledge.json",spec["paths"])
 
     def test_duplicates_collapse(self):
         self.snapshot["records"].append(dict(self.record))

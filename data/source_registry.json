@@ -1,0 +1,38 @@
+{
+  "schema": "lexsignal-source-registry-v1",
+  "description": "Allowlisted primary-source RSS publishers currently monitored by LexSignal. This registry records collection endpoints and jurisdictions, not a completeness guarantee.",
+  "authorities": [
+    {
+      "id": "esma",
+      "name": "ESMA",
+      "jurisdiction": "EU",
+      "homepage": "https://www.esma.europa.eu/",
+      "rssEndpoint": "https://www.esma.europa.eu/rss.xml",
+      "topic": "securities and markets"
+    },
+    {
+      "id": "edpb",
+      "name": "EDPB",
+      "jurisdiction": "EU",
+      "homepage": "https://www.edpb.europa.eu/",
+      "rssEndpoint": "https://www.edpb.europa.eu/rss.xml_en",
+      "topic": "data protection"
+    },
+    {
+      "id": "european-commission",
+      "name": "European Commission",
+      "jurisdiction": "EU",
+      "homepage": "https://commission.europa.eu/",
+      "rssEndpoint": "https://commission.europa.eu/news/feed_en",
+      "topic": "European Commission policy"
+    },
+    {
+      "id": "central-bank-of-ireland",
+      "name": "Central Bank of Ireland",
+      "jurisdiction": "Ireland",
+      "homepage": "https://www.centralbank.ie/",
+      "rssEndpoint": "https://www.centralbank.ie/feeds/news-media-feed",
+      "topic": "financial regulation"
+    }
+  ]
+}

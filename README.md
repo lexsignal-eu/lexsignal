@@ -2,7 +2,8 @@
 
 Public research-preview demonstration of a source-linked EU regulatory monitoring dashboard. Includes a browser-based briefing generator and an RSS collection pipeline.
 
-- Dashboard: [Open after Pages activation](https://lexsignal-eu.github.io/lexsignal/)
+- Product homepage: [LexSignal](https://lexsignal-eu.github.io/lexsignal/)
+- Research workspace: [Open workspace](https://lexsignal-eu.github.io/lexsignal/workspace.html)
 - Landing page: [Project overview](https://lexsignal-eu.github.io/lexsignal/landing.html)
 - Sources: ESMA, EDPB, European Commission and Central Bank of Ireland (official RSS endpoints).
 - Automated snapshot: `data/regulatory_snapshot.json` when feed collection succeeds.
@@ -66,3 +67,10 @@ The root page is now a human-first product overview, and the prior application m
 `/regulatory-library.html` contains a small curated, primary-source-linked catalogue of 10 EU legal frameworks/initiatives and 17 significant application, transposition and transition milestones from `data/regulatory_library.json`. Content was researched against the European Commission, ESMA, EUR-Lex and the Central Bank of Ireland on 9 November 2026. The collection is selected, not exhaustive; a date is not automatically an obligation for a specific client. Distinctions include NIS2 national transposition (dated Irish Commission status), 2026 Digital Omnibus amendments to the AI Act, 2026/2027 Cyber Resilience Act phases and T+1 2026 operational vs 2027 transition dates.
 
 Use industry and text filters, bookmark laws locally, show past/upcoming milestones, and download an .ics calendar of the **visible upcoming** milestones. The page also shows six current unreviewed regulatory RSS headlines from the existing `api/v1/updates.json` when available. No login, calendar account permissions or outbound email are required; watchlists use browser-local storage and .ics is explicitly downloaded by the user. Review official source dates before acting.
+
+
+## P0 canonical knowledge index (first architecture tranche)
+
+The independent module `knowledge_index.py` validates and combines `data/source_registry.json`, `data/regulatory_library.json` and the existing official RSS snapshot. `build_knowledge_index.py` generates a static `/api/v1/knowledge.json` feed with typed authority, legal-instrument, milestone and publication records, explicit grounded relationships, stable metadata fingerprints and timestamp/review provenance. There is no provision-level legal-text parsing yet and no AI-inferred linking.
+
+Run: `python build_knowledge_index.py --out /tmp/knowledge.json`. Optionally compare two generated files with `--previous old.json --changes-out changes.json`; the resulting events describe **metadata differences only**, not real legal amendments or repeal. Python tests validate source domain allowlists, identity uniqueness, valid calendar dates, entity relations and source flags. See `docs/adr/001-knowledge-index.md` and `docs/ENGINEERING_PLAN.md` for the next system stages.
