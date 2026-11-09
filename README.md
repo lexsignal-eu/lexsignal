@@ -22,3 +22,15 @@ RSS items are automatically labelled high, monitor or background, and an indicat
 
 ## Approved visual identity
 The official website icon is the **original shaded blue sphere with curved signal bands** chosen during design review. The original raster design was cropped and resized without regenerating or redrawing it. It is distributed as `brand/lexsignal-sphere-approved.webp` and used as the website mark and favicon. Superseded flat golden-ratio vector artwork has been removed from the current source tree.
+
+
+## Human + Agent interface (v0.4)
+The public website includes stable read-only JSON exports suitable for server-side consumers and AI agents:
+- `/api/v1/updates.json`: full source-linked auto-collected RSS feed, all records unreviewed.
+- `/api/v1/signals.json`: heuristic high-tier items; *not editorial approval*.
+- `/api/v1/status.json`: latest snapshot timestamp, source collection status.
+- `/api/v1/feed.jsonld`: Schema.org DataFeed JSON-LD.
+- `/api/v1/openapi.json`: static OpenAPI 3.1.2 description.
+- `/llms.txt` and `/agent-access.html`: human and machine guidance.
+
+These files are generated as part of each GitHub Pages publication by `build_agent_feed.py` from the existing RSS snapshot. No dynamic query API, MCP server, API key, analytics-based SLA or automated verification is claimed. See `docs/AGENT_ACCESS.md`. The approved spherical brand logo is unchanged.

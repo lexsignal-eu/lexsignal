@@ -1,0 +1,18 @@
+# LexSignal
+
+> Independent experimental EU and Irish regulatory intelligence research preview. Machine-readable outputs are static, unreviewed official-source RSS extracts; they do not constitute verified legal advice or a comprehensive compliance feed.
+
+## For AI Agents
+- [Agent access guide](https://lexsignal-eu.github.io/lexsignal/agent-access.html): Data meanings, examples, cautions, limitations.
+- [Data feed (JSON)](https://lexsignal-eu.github.io/lexsignal/api/v1/updates.json): All collected RSS items, each marked unreviewed.
+- [High signals (JSON)](https://lexsignal-eu.github.io/lexsignal/api/v1/signals.json): Heuristic shortlist; not editorial approval.
+- [Data status (JSON)](https://lexsignal-eu.github.io/lexsignal/api/v1/status.json): Source status, timestamp and freshness information.
+- [Schema.org DataFeed (JSON-LD)](https://lexsignal-eu.github.io/lexsignal/api/v1/feed.jsonld): Structured feed representation.
+- [OpenAPI 3.1.2](https://lexsignal-eu.github.io/lexsignal/api/v1/openapi.json): Static HTTP GET endpoint description.
+
+## Human-facing Pages
+- [Dashboard](https://lexsignal-eu.github.io/lexsignal/): Interactive research preview.
+- [Product overview](https://lexsignal-eu.github.io/lexsignal/landing.html): Intended use, scope and limitations.
+
+## Important
+Classifications are automatically assigned. Read the original regulator source before citing a finding. No live query processing or MCP server is provided.

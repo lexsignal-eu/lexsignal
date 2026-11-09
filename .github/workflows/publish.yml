@@ -53,8 +53,9 @@ jobs:
       - name: Prepare site
         run: |
           mkdir -p _site/data
-          cp index.html landing.html _site/
+          cp index.html landing.html agent-access.html llms.txt _site/
           cp -R brand _site/
+          python build_agent_feed.py --input data/regulatory_snapshot.json --out _site/api/v1
           if [ -f data/regulatory_snapshot.json ]; then
             cp data/regulatory_snapshot.json _site/data/
           fi
