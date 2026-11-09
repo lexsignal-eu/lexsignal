@@ -53,7 +53,7 @@ jobs:
       - name: Prepare site
         run: |
           mkdir -p _site/data
-          cp index.html landing.html workspace.html documents.html global-signals.html agent-access.html llms.txt _site/
+          cp index.html landing.html workspace.html documents.html global-signals.html regulatory-library.html agent-access.html llms.txt _site/
           mkdir -p _site/geo
           cp geo/ne_110m_land.geojson _site/geo/
           cp -R brand _site/
@@ -61,6 +61,7 @@ jobs:
           if [ -f data/regulatory_snapshot.json ]; then
             cp data/regulatory_snapshot.json _site/data/
             cp data/global_signals.json _site/data/
+            cp data/regulatory_library.json _site/data/
           fi
       - name: Configure Pages
         uses: actions/configure-pages@v5

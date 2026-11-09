@@ -59,3 +59,10 @@ The root page is now a human-first product overview, and the prior application m
 ## Global Signals — interactive map (v0.7)
 
 `/global-signals.html` displays eight source-backed historical AI policy milestones with hover previews, event photos and credits, date/type/search filters, pan and zoom. It uses the public-domain Natural Earth 1:110m land basemap bundled in `geo/ne_110m_land.geojson`. `data/global_signals.json` contains the curated event locations and primary source links, accessible to people and agents. A separate "Latest regulator updates" layer groups the existing read-only RSS feed at publisher office locations; it **does not geolocate the legal impact or assert the physical place of publication**. No paid map API, server credentials or map tile requests. Later work can integrate editor-approved geocoding for individual events.
+
+
+## Regulatory Library & Calendar (v0.8)
+
+`/regulatory-library.html` contains a small curated, primary-source-linked catalogue of 10 EU legal frameworks/initiatives and 17 significant application, transposition and transition milestones from `data/regulatory_library.json`. Content was researched against the European Commission, ESMA, EUR-Lex and the Central Bank of Ireland on 9 November 2026. The collection is selected, not exhaustive; a date is not automatically an obligation for a specific client. Distinctions include NIS2 national transposition (dated Irish Commission status), 2026 Digital Omnibus amendments to the AI Act, 2026/2027 Cyber Resilience Act phases and T+1 2026 operational vs 2027 transition dates.
+
+Use industry and text filters, bookmark laws locally, show past/upcoming milestones, and download an .ics calendar of the **visible upcoming** milestones. The page also shows six current unreviewed regulatory RSS headlines from the existing `api/v1/updates.json` when available. No login, calendar account permissions or outbound email are required; watchlists use browser-local storage and .ics is explicitly downloaded by the user. Review official source dates before acting.

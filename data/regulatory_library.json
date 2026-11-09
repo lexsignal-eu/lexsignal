@@ -1,0 +1,378 @@
+{
+  "schema": "lexsignal-regulatory-library-v1",
+  "curatedAt": "2026-11-09",
+  "summary": "Selected EU laws and significant regulatory milestones; sources verified against official EU and Irish authority pages on 9 November 2026. Not comprehensive or real-time legal status. Dates shown are regulatory application, transition or transposition milestones, not automatically client-specific deadlines.",
+  "acts": [
+    {
+      "id": "ai-act",
+      "short": "AI Act",
+      "title": "EU Artificial Intelligence Act",
+      "citation": "Regulation (EU) 2024/1689, as amended",
+      "type": "Regulation",
+      "sectors": [
+        "ai",
+        "tech",
+        "privacy"
+      ],
+      "topics": [
+        "AI governance",
+        "Transparency",
+        "High-risk systems"
+      ],
+      "summary": "Sets a risk-based EU framework for AI systems and general-purpose AI models, including transparency, prohibited practices and obligations for high-risk uses.",
+      "check": "Map your role (provider, deployer or other operator); identify covered uses and which application dates apply. The AI Omnibus amended the original timetable.",
+      "source": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+      "guide": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/eu-ai-act-implementation-timeline",
+      "updated": "2026-07-27"
+    },
+    {
+      "id": "ai-omnibus",
+      "short": "AI Omnibus",
+      "title": "2026 amendments to the EU AI Act",
+      "citation": "Regulation (EU) 2026/1744",
+      "type": "Amending regulation",
+      "sectors": [
+        "ai",
+        "tech",
+        "privacy"
+      ],
+      "topics": [
+        "AI Act amendments",
+        "Transitional provisions"
+      ],
+      "summary": "Amends the AI Act implementation framework, including staggered high-risk application dates and certain transparency transitions. Read alongside the consolidated AI Act.",
+      "check": "Use the amended application dates, not the unamended 2024 calendar. Determine the specific AI Act provisions that govern your product.",
+      "source": "https://eur-lex.europa.eu/eli/reg/2026/1744/oj",
+      "guide": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+      "updated": "2026-07-27"
+    },
+    {
+      "id": "dora",
+      "short": "DORA",
+      "title": "Digital Operational Resilience Act",
+      "citation": "Regulation (EU) 2022/2554",
+      "type": "Regulation",
+      "sectors": [
+        "finance",
+        "cyber"
+      ],
+      "topics": [
+        "ICT risk",
+        "Incident reporting",
+        "Third-party risk"
+      ],
+      "summary": "Establishes harmonised ICT risk-management, incident-reporting, resilience-testing and ICT third-party risk requirements for a broad set of financial entities.",
+      "check": "Check whether your financial entity is within scope and review the Central Bank of Ireland's DORA reporting and ICT third-party guidance.",
+      "source": "https://eur-lex.europa.eu/eli/reg/2022/2554/oj",
+      "guide": "https://www.centralbank.ie/regulation/digital-operational-resilience-act-dora",
+      "updated": "2025-01-17"
+    },
+    {
+      "id": "mica",
+      "short": "MiCA",
+      "title": "Markets in Crypto-Assets Regulation",
+      "citation": "Regulation (EU) 2023/1114",
+      "type": "Regulation",
+      "sectors": [
+        "finance",
+        "tech"
+      ],
+      "topics": [
+        "Crypto-assets",
+        "CASPs",
+        "Stablecoins"
+      ],
+      "summary": "Introduces EU requirements for crypto-asset service providers and issuers, with earlier application for asset-referenced and e-money token provisions.",
+      "check": "Determine whether activities involve regulated crypto-asset services, ARTs or EMTs, and distinguish the relevant titles and national transitional arrangements.",
+      "source": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj",
+      "guide": "https://www.esma.europa.eu/publications-and-data/interactive-single-rulebook/mica/article-149-entry-force-and-application",
+      "updated": "2024-12-30"
+    },
+    {
+      "id": "cra",
+      "short": "Cyber Resilience Act",
+      "title": "Cyber Resilience Act",
+      "citation": "Regulation (EU) 2024/2847",
+      "type": "Regulation",
+      "sectors": [
+        "tech",
+        "cyber"
+      ],
+      "topics": [
+        "Software security",
+        "Vulnerability reporting",
+        "Digital products"
+      ],
+      "summary": "Introduces horizontal cybersecurity requirements for hardware and software products with digital elements, with earlier reporting duties and later main product rules.",
+      "check": "Assess whether a product or component is covered and whether vulnerability/incident reporting applies. Distinguish the 2026 reporting start from 2027 product obligations.",
+      "source": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj",
+      "guide": "https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act",
+      "updated": "2026-09-11"
+    },
+    {
+      "id": "data-act",
+      "short": "Data Act",
+      "title": "EU Data Act",
+      "citation": "Regulation (EU) 2023/2854",
+      "type": "Regulation",
+      "sectors": [
+        "tech",
+        "privacy"
+      ],
+      "topics": [
+        "Connected devices",
+        "Data access",
+        "Cloud switching"
+      ],
+      "summary": "Sets EU rules on access to and use of data generated by connected products and related services, as well as certain data-sharing and cloud-switching provisions.",
+      "check": "Identify connected products, data holders, users or cloud services in scope; consider applicable chapter-specific transition arrangements.",
+      "source": "https://eur-lex.europa.eu/eli/reg/2023/2854/oj",
+      "guide": "https://digital-strategy.ec.europa.eu/en/policies/data-act",
+      "updated": "2025-09-12"
+    },
+    {
+      "id": "nis2",
+      "short": "NIS2",
+      "title": "Directive on cybersecurity across the Union",
+      "citation": "Directive (EU) 2022/2555",
+      "type": "Directive",
+      "sectors": [
+        "cyber",
+        "finance",
+        "tech"
+      ],
+      "topics": [
+        "Critical sectors",
+        "Cyber risk",
+        "Incident reporting"
+      ],
+      "summary": "Sets cybersecurity risk-management and reporting requirements for entities in covered sectors, with national implementation required. EU transposition deadlines and actual national law are distinct.",
+      "check": "Determine sector, size and national competent authority. For Ireland, review the current Irish transposition status before assuming EU text applies in the same way as a regulation.",
+      "source": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj",
+      "guide": "https://digital-strategy.ec.europa.eu/en/policies/nis2-directive",
+      "updated": "2026-07-08",
+      "special": "As of 8 July 2026, the European Commission reported that Ireland had not notified full NIS2 transposition and referred the matter to the CJEU. This note is dated and is not a real-time transposition check.",
+      "specialSource": "https://digital-strategy.ec.europa.eu/en/news/commission-refers-ireland-spain-france-and-netherlands-court-justice-failing-transpose-rules"
+    },
+    {
+      "id": "dsa",
+      "short": "Digital Services Act",
+      "title": "Digital Services Act",
+      "citation": "Regulation (EU) 2022/2065",
+      "type": "Regulation",
+      "sectors": [
+        "tech",
+        "privacy"
+      ],
+      "topics": [
+        "Online platforms",
+        "Intermediary services",
+        "Content moderation"
+      ],
+      "summary": "Establishes harmonised responsibilities for online intermediary services, including transparency and processes relating to illegal content, with differentiated obligations by service type.",
+      "check": "Classify the online service and confirm which DSA obligations and possible national enforcement arrangements apply.",
+      "source": "https://eur-lex.europa.eu/eli/reg/2022/2065/oj",
+      "guide": "https://www.gov.ie/en/department-of-enterprise-tourism-and-employment/policy-information/digital-services-act-dsa/",
+      "updated": "2024-02-17"
+    },
+    {
+      "id": "gdpr",
+      "short": "GDPR",
+      "title": "General Data Protection Regulation",
+      "citation": "Regulation (EU) 2016/679",
+      "type": "Regulation",
+      "sectors": [
+        "privacy",
+        "ai",
+        "finance",
+        "tech",
+        "cyber"
+      ],
+      "topics": [
+        "Personal data",
+        "Processing",
+        "Data subject rights"
+      ],
+      "summary": "Provides an EU-wide legal framework for processing personal data, including lawfulness, transparency, individual rights, accountability and security obligations.",
+      "check": "Identify whether you are a controller or processor, which data and purposes are involved, and the relevant lawful basis and obligations.",
+      "source": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+      "guide": "https://commission.europa.eu/law/law-topic/data-protection/legal-framework-eu-data-protection_en",
+      "updated": "2018-05-25"
+    },
+    {
+      "id": "t1",
+      "short": "EU T+1",
+      "title": "EU securities settlement moves to T+1",
+      "citation": "CSDR settlement-cycle initiative · ESMA guidance",
+      "type": "Regulatory milestone",
+      "sectors": [
+        "finance"
+      ],
+      "topics": [
+        "Securities settlement",
+        "Allocations",
+        "Confirmations"
+      ],
+      "summary": "The EU is moving to settlement one business day after trading. ESMA identifies operational preparation requirements before the transition date.",
+      "check": "For relevant investment firms, review ESMA standardised allocation and confirmation messaging requirements and plan testing ahead of T+1.",
+      "source": "https://www.esma.europa.eu/press-news/esma-news/one-year-go-t1-settlement-regulatory-framework-complete-now-lets-make-it",
+      "guide": "https://www.esma.europa.eu/press-news/esma-news/esma-calls-firms-finalise-preparations-ahead-t1-settlement-deadlines",
+      "updated": "2026-10-16"
+    }
+  ],
+  "milestones": [
+    {
+      "id": "gdpr-apply",
+      "act": "gdpr",
+      "date": "2018-05-25",
+      "title": "GDPR begins to apply",
+      "kind": "Application",
+      "scope": "General application date for the GDPR.",
+      "url": "https://commission.europa.eu/law/law-topic/data-protection/legal-framework-eu-data-protection_en"
+    },
+    {
+      "id": "dsa-full",
+      "act": "dsa",
+      "date": "2024-02-17",
+      "title": "Digital Services Act applies generally",
+      "kind": "Application",
+      "scope": "Full general application across EU member states, with certain earlier duties.",
+      "url": "https://www.gov.ie/en/department-of-enterprise-tourism-and-employment/policy-information/digital-services-act-dsa/"
+    },
+    {
+      "id": "mica-tokens",
+      "act": "mica",
+      "date": "2024-06-30",
+      "title": "MiCA Titles III and IV apply",
+      "kind": "Application",
+      "scope": "Earlier application for asset-referenced and e-money token rules.",
+      "url": "https://www.esma.europa.eu/publications-and-data/interactive-single-rulebook/mica/article-149-entry-force-and-application"
+    },
+    {
+      "id": "nis2-trans",
+      "act": "nis2",
+      "date": "2024-10-17",
+      "title": "Deadline for national NIS2 transposition",
+      "kind": "Transposition deadline",
+      "scope": "EU deadline for Member States, not proof of full implementation by each country.",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/nis2-directive"
+    },
+    {
+      "id": "mica-general",
+      "act": "mica",
+      "date": "2024-12-30",
+      "title": "MiCA applies generally",
+      "kind": "Application",
+      "scope": "General application date; transitional provisions can depend on national law and activity.",
+      "url": "https://www.esma.europa.eu/publications-and-data/interactive-single-rulebook/mica/article-149-entry-force-and-application"
+    },
+    {
+      "id": "dora-apply",
+      "act": "dora",
+      "date": "2025-01-17",
+      "title": "DORA applies",
+      "kind": "Application",
+      "scope": "In-scope financial entities must meet the applicable ICT risk and related requirements.",
+      "url": "https://www.centralbank.ie/regulation/digital-operational-resilience-act-dora"
+    },
+    {
+      "id": "ai-prohibitions",
+      "act": "ai-act",
+      "date": "2025-02-02",
+      "title": "AI Act bans and AI literacy provisions apply",
+      "kind": "Application",
+      "scope": "First tranche of AI Act requirements.",
+      "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/eu-ai-act-implementation-timeline"
+    },
+    {
+      "id": "ai-gpai",
+      "act": "ai-act",
+      "date": "2025-08-02",
+      "title": "General-purpose AI model rules begin",
+      "kind": "Application",
+      "scope": "GPAI and governance provisions, subject to applicable transition rules.",
+      "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/eu-ai-act-implementation-timeline"
+    },
+    {
+      "id": "data-act-app",
+      "act": "data-act",
+      "date": "2025-09-12",
+      "title": "Data Act starts applying",
+      "kind": "Application",
+      "scope": "General application date; check chapter-specific and transitional provisions.",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/data-act"
+    },
+    {
+      "id": "ai-transparency",
+      "act": "ai-act",
+      "date": "2026-08-02",
+      "title": "AI Act transparency rules and most other provisions apply",
+      "kind": "Application",
+      "scope": "Includes relevant Article 50 transparency provisions; amended dates apply to some other obligations.",
+      "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/eu-ai-act-implementation-timeline"
+    },
+    {
+      "id": "cra-report",
+      "act": "cra",
+      "date": "2026-09-11",
+      "title": "Cyber Resilience Act reporting duties begin",
+      "kind": "Application",
+      "scope": "Manufacturers must report certain actively exploited vulnerabilities and severe incidents.",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/cra-reporting"
+    },
+    {
+      "id": "ai-transition",
+      "act": "ai-omnibus",
+      "date": "2026-12-02",
+      "title": "AI Act additional prohibitions and synthetic-content transition",
+      "kind": "Application",
+      "scope": "Specific new prohibitions and transition under Article 50(2) for certain pre-existing systems.",
+      "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/eu-ai-act-implementation-timeline"
+    },
+    {
+      "id": "t1-alloc",
+      "act": "t1",
+      "date": "2026-12-07",
+      "title": "T+1 allocation and confirmation requirements",
+      "kind": "Operational requirement",
+      "scope": "ESMA highlights mandatory standardised electronic and machine-readable communication for relevant workflows.",
+      "url": "https://www.esma.europa.eu/press-news/esma-news/one-year-go-t1-settlement-regulatory-framework-complete-now-lets-make-it"
+    },
+    {
+      "id": "t1-switch",
+      "act": "t1",
+      "date": "2027-10-11",
+      "title": "EU securities settlement transitions to T+1",
+      "kind": "Transition",
+      "scope": "EU settlement-cycle transition for relevant securities transactions.",
+      "url": "https://www.esma.europa.eu/press-news/esma-news/one-year-go-t1-settlement-regulatory-framework-complete-now-lets-make-it"
+    },
+    {
+      "id": "ai-high-risk",
+      "act": "ai-act",
+      "date": "2027-12-02",
+      "title": "AI Act Annex III high-risk requirements apply",
+      "kind": "Application",
+      "scope": "High-risk AI uses listed in Annex III; consult the amended law for transitional details.",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"
+    },
+    {
+      "id": "cra-main",
+      "act": "cra",
+      "date": "2027-12-11",
+      "title": "Cyber Resilience Act main requirements apply",
+      "kind": "Application",
+      "scope": "Main product security requirements for covered products with digital elements.",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act"
+    },
+    {
+      "id": "ai-product-high-risk",
+      "act": "ai-act",
+      "date": "2028-08-02",
+      "title": "AI Act Annex I product-linked high-risk rules apply",
+      "kind": "Application",
+      "scope": "High-risk systems embedded in specified regulated products; consult the amended law.",
+      "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/eu-ai-act-implementation-timeline"
+    }
+  ]
+}

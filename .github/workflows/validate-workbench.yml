@@ -8,6 +8,8 @@ on:
       - 'workspace.html'
       - 'documents.html'
       - 'global-signals.html'
+      - 'regulatory-library.html'
+      - 'data/regulatory_library.json'
       - 'data/global_signals.json'
       - 'geo/ne_110m_land.geojson'
       - 'tests/**'
