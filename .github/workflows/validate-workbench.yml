@@ -1,0 +1,23 @@
+name: Validate research workbench
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'landing.html'
+      - 'tests/**'
+      - '.github/workflows/validate-workbench.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unit tests (Python)
+        run: python -m unittest discover -s tests -p 'test_*.py'
+      - name: Dashboard JS and integration tests (Node)
+        run: node --test tests/frontend.test.cjs
