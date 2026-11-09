@@ -1,0 +1,40 @@
+name: Deploy LexSignal public site
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'landing.html'
+      - 'favicon.svg'
+      - 'brand/**'
+      - '.github/workflows/deploy-site.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy-site:
+    runs-on: ubuntu-latest
+    environment: github-pages
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare public site
+        run: |
+          mkdir -p _site/data
+          cp index.html landing.html favicon.svg _site/
+          cp -R brand _site/
+          if [ -f data/regulatory_snapshot.json ]; then
+            cp data/regulatory_snapshot.json _site/data/
+          fi
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - uses: actions/deploy-pages@v4
