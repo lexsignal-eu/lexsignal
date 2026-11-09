@@ -19,3 +19,7 @@ Scheduled updates run at approximately 07:17 UTC on weekdays. GitHub may delay s
 
 ## Signal triage (v0.3)
 RSS items are automatically labelled high, monitor or background, and an indicative event type is assigned from headline patterns. The Priority signals view shows high-priority matches by default; All updates shows every collected record. These classifications are **unverified**. Client briefs omit unreviewed RSS items and background news.
+
+## Brand identity
+
+The LexSignal sphere mark is an original vector-based concept built from concentric signal bands whose successive radii follow the golden ratio φ = (1 + √5)/2. Assets are located in `brand/`, and the website/browser favicon use these SVG versions. For mark geometry and usage see `brand/BRAND_GUIDE.md`. The mark has not yet been cleared as a registered trademark.
