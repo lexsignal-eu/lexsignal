@@ -1,145 +1,188 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LexSignal | Clearer regulatory change intelligence</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#112538">
+<meta name="description" content="LexSignal helps research teams monitor EU and Irish regulatory developments, verify sources and create traceable working briefs.">
+<title>LexSignal — Make sense of regulatory change</title>
 <link rel="icon" type="image/webp" href="brand/lexsignal-sphere-approved.webp">
-<meta name="theme-color" content="#10233c">
-<link rel="alternate" type="application/json" href="api/v1/updates.json" title="LexSignal official-source machine-readable feed">
-<meta name="description" content="Source-linked EU and Irish regulatory intelligence research preview, with human and machine-readable views.">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"LexSignal regulatory signal feed — experimental unreviewed extracts","description":"Unreviewed, automatically classified EU and Irish regulator RSS excerpts. Not legal advice.","url":"https://lexsignal-eu.github.io/lexsignal/agent-access.html","distribution":[{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://lexsignal-eu.github.io/lexsignal/api/v1/updates.json"}]}</script>
+<link rel="alternate" type="application/json" href="api/v1/updates.json" title="LexSignal machine-readable source feed">
 <style>
-:root{--ink:#14263d;--muted:#607288;--blue:#2e62bb;--sky:#e9f0fb;--border:#dbe5ee;--green:#087c71;--bg:#f7f9fc;--white:#fff}
-*{box-sizing:border-box}body{margin:0;color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:var(--bg)}a{color:inherit} .wrap{max-width:1110px;margin:0 auto;padding:0 28px}header{background:var(--white);border-bottom:1px solid var(--border)}header .wrap{display:flex;align-items:center;justify-content:space-between;height:82px;gap:12px}.brand{font-size:23px;letter-spacing:-.8px;font-weight:800;text-decoration:none;display:flex;gap:11px;align-items:center}.brand-icon{width:39px;height:39px;display:block;flex:none;border-radius:50%;object-fit:cover}.label{font-size:12px;text-transform:uppercase;letter-spacing:1.2px;font-weight:800;color:var(--green)}.navlink{text-decoration:none;color:#365371;font-weight:650;font-size:14px}section{padding:70px 0}.hero{background:linear-gradient(118deg,#10263e 15%,#1d4570 100%);color:white;padding:100px 0 102px}.hero .wrap{display:grid;grid-template-columns:1fr .95fr;gap:50px;align-items:center}.hero .label{color:#8fe0d7}.hero h1{font-size:clamp(36px,4vw,58px);line-height:1.14;letter-spacing:-1.8px;margin:14px 0 20px}.hero p{color:#cfdef0;font-size:18px;max-width:580px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.button{padding:13px 18px;border-radius:9px;text-decoration:none;font-size:14px;font-weight:750;display:inline-flex;align-items:center;justify-content:center}.button.primary{background:white;color:#1b3d6b}.button.secondary{border:1px solid #97b0d0;color:#fff}.disclaimer{color:#bed0e4;font-size:12px;margin-top:22px}.preview{background:#fff;color:var(--ink);border:1px solid #658bad;border-radius:13px;box-shadow:0 25px 65px #061a3066;overflow:hidden;transform:rotate(1deg)}.preview-head{background:#eaf1fb;display:flex;align-items:center;justify-content:space-between;padding:18px;font-size:13px;font-weight:750}.preview-main{padding:21px}.pre-item{padding:16px;border:1px solid var(--border);margin-bottom:12px;border-radius:8px}.pre-item small{display:block;color:var(--muted);font-size:10px;letter-spacing:.6px;font-weight:750}.pre-item strong{display:block;margin-top:5px;font-size:14px}.pre-item p{margin:6px 0;color:var(--muted);font-size:12px}.tag{display:inline-block;margin-top:7px;padding:3px 8px;font-size:10px;font-weight:800;border-radius:5px;background:#e5f4f0;color:var(--green)}.section-h{max-width:720px;margin-bottom:30px}.section-h h2{font-size:34px;line-height:1.24;letter-spacing:-.8px;margin:9px 0 13px}.section-h p{color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{background:white;border:1px solid var(--border);border-radius:12px;padding:24px}.n{color:var(--green);font-weight:850;font-size:12px;letter-spacing:1px}.card h3{font-size:19px;line-height:1.35;margin:10px 0}.card p{color:var(--muted);margin-bottom:0;font-size:14px}.pane{display:grid;grid-template-columns:1fr 1fr;gap:18px}.note{background:white;border:1px solid var(--border);padding:30px;border-radius:14px}.note h3{margin:0 0 11px}.note p,.note li{color:var(--muted);font-size:14px}.note ul{margin:0;padding-left:22px}.banner{padding:55px 0;background:var(--sky)}.banner .wrap{display:flex;align-items:center;justify-content:space-between;gap:25px}.banner h2{font-size:28px;margin:0 0 8px;line-height:1.25}.banner p{margin:0;color:var(--muted)}.banner .button{background:#173956;color:white}footer{padding:31px 0;background:#132840;color:#aec5da;font-size:12px}footer .wrap{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
-@media(max-width:800px){.hero .wrap,.pane{grid-template-columns:1fr}.preview{transform:none}.cards{grid-template-columns:1fr}.banner .wrap{display:block}.banner .button{margin-top:20px}.hero{padding:66px 0}section{padding:50px 0}}
-
-/* Small editorial aside; intentionally separate from the product dashboard. */
-.curiosity-section{padding:20px 0 64px}
-.curiosity-card{display:grid;grid-template-columns:minmax(150px,.31fr) 1fr;overflow:hidden;border:1px solid #d5e0e9;border-radius:17px;background:#fff;box-shadow:0 12px 36px #1029410c}
-.curiosity-art{min-height:205px;padding:26px 28px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(140deg,#102940,#234768);color:#fff;position:relative;overflow:hidden}
-.curiosity-art:before,.curiosity-art:after{content:"";position:absolute;border:1px solid #b0c8e345;border-radius:50%;width:175px;height:175px;right:-65px;bottom:-75px;pointer-events:none}
-.curiosity-art:after{width:245px;height:245px;right:-100px;bottom:-110px}
-.curiosity-overline{font-size:11px;letter-spacing:1.6px;font-weight:750;text-transform:uppercase;color:#c1d7ed;position:relative;z-index:1}
-.curiosity-number{font-size:clamp(46px,6vw,78px);font-weight:650;letter-spacing:-3px;line-height:1.1;position:relative;z-index:1;max-width:180px}
-.curiosity-body{padding:28px 34px;display:flex;flex-direction:column;justify-content:center;gap:7px}
-.curiosity-kicker{font-size:11px;font-weight:800;color:var(--green);letter-spacing:1.15px;text-transform:uppercase}
-.curiosity-body h3{font-size:clamp(20px,2.2vw,25px);line-height:1.3;letter-spacing:-.5px;margin:0}
-.curiosity-body p{font-size:14px;color:var(--muted);line-height:1.65;margin:2px 0 5px;max-width:620px}
-.curiosity-bottom{display:flex;align-items:center;flex-wrap:wrap;gap:17px}
-.curiosity-bottom a{font-size:13px;font-weight:700;color:#245c92;text-decoration:none}
-.curiosity-bottom a:hover{text-decoration:underline}
-.curiosity-next{background:transparent;border:0;border-bottom:1px solid #b6c8d6;border-radius:0;padding:2px 0;color:#536f86;cursor:pointer;font-size:13px;font-weight:700;font-family:inherit;line-height:1.5}
-.curiosity-next:hover{color:#102940;border-bottom-color:#102940}
-@media(max-width:620px){.curiosity-card{grid-template-columns:1fr}.curiosity-art{min-height:95px;padding:17px 23px;flex-direction:row;align-items:center}.curiosity-number{font-size:48px}.curiosity-body{padding:23px}}
-
-
-.example-case{padding:57px 0;background:#fff}
-.case-shell{border:1px solid #d4e1ec;border-radius:15px;overflow:hidden;display:grid;grid-template-columns:.83fr 1.17fr;box-shadow:0 15px 38px #122b4712}
-.case-left{padding:30px;background:#102940;color:#fff}
-.case-left .label{color:#97d7d0}
-.case-left h3{font-size:26px;line-height:1.3;margin:12px 0 15px;letter-spacing:-.6px}
-.case-left p{font-size:14px;color:#ccdcf0;line-height:1.7}
-.case-left a{font-size:14px;color:#b7d5fa;font-weight:700}
-.case-right{padding:30px 34px}
-.case-step{display:grid;grid-template-columns:84px 1fr;gap:12px;border-bottom:1px solid #e7edf3;padding:13px 0}
-.case-step:first-child{padding-top:0}
-.case-step:last-child{border-bottom:0}
-.case-step strong{color:#087c71;font-size:12px;text-transform:uppercase;letter-spacing:.65px}
-.case-step p{font-size:14px;color:#4e6073;margin:0}
-.case-action{display:inline-block;margin-top:15px;font-size:14px;font-weight:750;text-decoration:none;color:#245d9b}
-@media(max-width:740px){.case-shell{grid-template-columns:1fr}.case-left,.case-right{padding:24px}}
-
+:root{--navy:#102538;--ink:#183148;--muted:#617385;--accent:#117d79;--accent-light:#d4f0ea;--paper:#f6f8f8;--line:#dae4e8;--gold:#c19b62;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Arial,sans-serif;background:var(--paper);color:var(--ink)}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid #38adbb;outline-offset:3px}
+.container{width:min(1160px,calc(100% - 52px));margin:0 auto}
+.topbar{height:80px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:inline-flex;align-items:center;gap:13px;color:var(--navy);font-size:23px;font-weight:780;letter-spacing:-.9px;text-decoration:none}
+.brand img{width:43px;height:43px;border-radius:50%;object-fit:cover;background:white}
+.menu{display:flex;align-items:center;gap:27px;font-size:13px;color:#52677a;font-weight:700}
+.menu a{text-decoration:none}
+.menu a:hover{color:#08756c}
+.menu .nav-action{background:var(--navy);color:white;padding:11px 17px;border-radius:9px}
+.menu .nav-action:hover{background:#214661;color:white}
+.hero{background:#102538;color:white;overflow:hidden}
+.hero-inner{min-height:565px;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;padding:73px 0 80px}
+.eyebrow{font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:#a5dad2;font-weight:800}
+.hero h1{font-size:clamp(43px,5.1vw,70px);line-height:1.08;letter-spacing:-3px;max-width:640px;margin:18px 0 22px;font-weight:720}
+.hero .lede{font-size:18px;line-height:1.72;color:#cbd9e5;max-width:555px;margin:0}
+.hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:29px}
+.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-weight:750;font-size:14px;min-height:47px;padding:11px 19px;border-radius:9px;border:1px solid transparent}
+.btn.light{background:#fff;color:#17324c}
+.btn.light:hover{background:#e9f3f3}
+.btn.outline{color:#fff;border-color:#7993a6}
+.btn.outline:hover{background:#213e53}
+.hint{font-size:12px;color:#aabed0;margin-top:19px}
+.showcase{position:relative;padding:10px 0 10px 12px}
+.showcase:before{content:"";position:absolute;inset:-80px -100px -80px 40px;border-radius:50%;background:radial-gradient(ellipse,#2e5b6696,transparent 70%);pointer-events:none}
+.preview{position:relative;border-radius:15px;background:#fff;color:#183148;box-shadow:0 24px 70px #05131e85;overflow:hidden;transform:rotate(1.2deg)}
+.preview-top{background:#edf3f4;padding:15px 19px;display:flex;justify-content:space-between;gap:10px;color:#345264;font-size:12px;font-weight:800;letter-spacing:.2px}
+.preview-indicator{display:inline-flex;align-items:center;gap:7px;color:#23796d}
+.preview-indicator:before{content:"";width:7px;height:7px;border-radius:50%;background:#2ca58b}
+.preview-content{padding:26px}
+.preview-label{font-size:11px;letter-spacing:1px;color:#758699;font-weight:800}
+.preview h3{font-size:20px;letter-spacing:-.5px;line-height:1.34;margin:10px 0}
+.preview p{font-size:13px;line-height:1.65;color:#617385;margin:0 0 18px}
+.preview-divider{height:1px;background:#e3eaee;margin:18px 0}
+.preview-row{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:12px;margin:13px 0}
+.preview-row span:first-child{color:#6b7c8c}
+.value{font-weight:780;color:#20384a;text-align:right}
+.chip{display:inline-block;background:#e5f5ef;color:#1b7465;font-size:11px;font-weight:800;border-radius:7px;padding:5px 9px}
+.preview-bottom{background:#f0f6f6;border-top:1px solid #e1eceb;padding:14px 25px;color:#2b716a;font-size:12px;font-weight:750}
+.band{background:white;border-bottom:1px solid var(--line)}
+.band .container{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:18px 0;font-size:12px}
+.band strong{color:#284157}
+.band span{color:#768697}
+.section{padding:82px 0}
+.section-head{max-width:740px;margin-bottom:31px}
+.tag{font-size:11px;color:#0f8179;letter-spacing:1.5px;font-weight:850;text-transform:uppercase}
+.section-head h2{font-size:clamp(29px,3.2vw,41px);line-height:1.21;letter-spacing:-1.2px;margin:10px 0 13px;color:#132d43}
+.section-head p{font-size:16px;color:#627687;margin:0}
+.four{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.step{background:#fff;border:1px solid #dce6e8;border-radius:13px;padding:25px 22px;min-height:237px}
+.step-num{display:block;color:#0f8179;font-size:12px;font-weight:850;letter-spacing:1.5px;margin-bottom:30px}
+.step h3{font-size:19px;line-height:1.3;letter-spacing:-.4px;margin:0 0 9px}
+.step p{color:#687989;font-size:13px;margin:0;line-height:1.7}
+.tools{background:#ecf2f1}
+.tool-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}
+.tool-card{background:#fff;border:1px solid #dbe5e4;border-radius:14px;padding:25px 27px;display:flex;flex-direction:column;min-height:215px}
+.tool-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.tool-symbol{width:44px;height:44px;border:1px solid #d6e4e7;background:#f0f7f5;border-radius:11px;display:grid;place-items:center;font-size:22px;color:#1b7771}
+.tool-status{font-size:11px;background:#e8f5f1;color:#11705d;font-weight:750;padding:5px 9px;border-radius:50px}
+.tool-card h3{font-size:21px;letter-spacing:-.5px;margin:16px 0 5px}
+.tool-card p{color:#687c8b;font-size:14px;margin:0 0 16px;line-height:1.6}
+.tool-card a{margin-top:auto;color:#125c86;font-size:14px;font-weight:750;text-decoration:none}
+.tool-card a:hover{text-decoration:underline}
+.case{background:#102538;color:#fff}
+.case .section-head h2{color:#fff}
+.case .section-head p{color:#c0d3e0}
+.case-grid{display:grid;grid-template-columns:.9fr 1.1fr;border:1px solid #547080;border-radius:15px;overflow:hidden}
+.case-source{padding:34px;background:#183c54}
+.case-source small{font-size:11px;letter-spacing:1px;color:#a8d8d2;font-weight:850}
+.case-source h3{font-size:29px;line-height:1.25;letter-spacing:-.8px;margin:11px 0 17px}
+.case-source p{color:#c8d9e4;font-size:14px}
+.case-source a{color:#ccf0e9;font-size:13px;font-weight:750}
+.case-output{padding:34px;background:#f9fbfb;color:#193449}
+.case-output .case-item{display:grid;grid-template-columns:86px 1fr;gap:12px;border-bottom:1px solid #e1e9eb;padding:15px 0;font-size:14px}
+.case-output .case-item:first-child{padding-top:0}
+.case-output .case-item:last-child{border-bottom:0}
+.case-output strong{font-size:12px;text-transform:uppercase;color:#188278;letter-spacing:.5px}
+.case-output p{margin:0;color:#607485;line-height:1.6}
+.foot-cta{padding:80px 0;background:#fff}
+.foot-cta .container{display:flex;justify-content:space-between;align-items:center;gap:30px}
+.foot-cta h2{font-size:32px;line-height:1.2;letter-spacing:-.9px;margin:0 0 8px}
+.foot-cta p{color:#708293;margin:0;max-width:600px;font-size:14px}
+.foot-cta .btn{background:#102538;color:white;white-space:nowrap}
+footer{background:#0b2030;color:#b6c9d3;padding:34px 0}
+footer .container{display:flex;gap:20px;align-items:center;justify-content:space-between;font-size:12px}
+footer a{color:#d7ecf4;text-decoration:none}
+@media(max-width:940px){.hero-inner{grid-template-columns:1fr;min-height:auto;gap:28px}.showcase{max-width:610px;padding:0}.four{grid-template-columns:repeat(2,1fr)}.hero h1{max-width:790px}.menu{gap:16px}}
+@media(max-width:650px){.container{width:min(100% - 32px,1160px)}.topbar{height:69px}.menu>a:not(.nav-action){display:none}.brand{font-size:21px}.brand img{width:38px;height:38px}.hero-inner{padding:54px 0}.hero h1{letter-spacing:-2px}.hero .lede{font-size:16px}.preview{transform:none}.four,.tool-grid,.case-grid{grid-template-columns:1fr}.step{min-height:unset}.step-num{margin-bottom:15px}.section{padding:60px 0}.case-source,.case-output{padding:24px}.foot-cta .container{display:block}.foot-cta .btn{margin-top:25px}footer .container{align-items:flex-start;flex-direction:column}}
 </style>
 </head>
 <body>
-<header><div class="wrap"><a class="brand" href="landing.html"><img class="brand-icon" src="brand/lexsignal-sphere-approved.webp" width="39" height="39" alt="">LexSignal</a><div style="display:flex;align-items:center;gap:20px"><a class="navlink" href="agent-access.html">For AI agents</a><a class="navlink" href="index.html">Open dashboard →</a></div></div></header>
+<header class="container topbar">
+  <a class="brand" href="index.html"><img src="brand/lexsignal-sphere-approved.webp" width="43" height="43" alt="">LexSignal</a>
+  <nav class="menu" aria-label="Main navigation">
+    <a href="#workflow">How it works</a>
+    <a href="#tools">Tools</a>
+    <a href="documents.html">Documents</a>
+    <a href="agent-access.html">For developers</a>
+    <a class="nav-action" href="workspace.html">Open workspace →</a>
+  </nav>
+</header>
 <main>
-<section class="hero"><div class="wrap"><div><div class="label">EU + IRELAND · RESEARCH PREVIEW</div><h1>Regulatory change, ready for review.</h1><p>Monitor official EU and Irish publications, investigate their relevance, record decisions and build source-linked working briefs. Designed for legal, compliance and regulatory research teams.</p><div class="actions"><a class="button primary" href="index.html">Open dashboard →</a><a class="button secondary" href="#how-it-works">Explore the workflow</a><a class="button secondary" href="#case-example">See a real example</a><a class="button secondary" href="https://github.com/lexsignal-eu/lexsignal/blob/main/examples/irish-fintech-brief-2026-11-09.md" target="_blank" rel="noopener noreferrer">View sample compliance brief ↗</a></div><div class="disclaimer">Independent research preview · Source-linked data · Reviewer-controlled inclusion · No client information required.</div></div><div class="preview" aria-label="Illustrative LexSignal interface"><div class="preview-head"><span>Regulatory review queue</span><span>Sources → Review → Brief</span></div><div class="preview-main"><div class="pre-item"><small>ESMA · FINANCIAL REGULATION</small><strong>New regulatory publication</strong><p>Source-linked summary with a proposed area for review.</p><span class="tag">Review required</span></div><div class="pre-item"><small>EDPB · DATA PROTECTION</small><strong>Privacy guidance or decision</strong><p>Identify relevance before adding to a client briefing.</p><span class="tag">Review required</span></div><div class="pre-item"><small>EUROPEAN COMMISSION · DIGITAL</small><strong>Developments in EU digital policy</strong><p>Keep publication details and working notes together.</p><span class="tag">Review required</span></div></div></div></div></section>
-<section class="example-case" id="case-example"><div class="wrap">
-  <div class="section-h"><div class="label">A REAL REGULATORY EXAMPLE</div><h2>From an ESMA announcement to an actionable review.</h2><p>See how one source can become a tracked assessment rather than another news item in an inbox.</p></div>
-  <div class="case-shell">
-    <div class="case-left"><div class="label">ESMA · POST-TRADE MARKETS</div>
-      <h3>EU transition to T+1 securities settlement</h3>
-      <p>ESMA's 16 October 2026 publication confirms the transition date of <strong>11 October 2027</strong> and describes an earlier requirement for allocations and confirmations from <strong>7 December 2026</strong>.</p>
-      <a href="https://www.esma.europa.eu/press-news/esma-news/one-year-go-t1-settlement-regulatory-framework-complete-now-lets-make-it" target="_blank" rel="noopener noreferrer">Read the ESMA publication ↗</a>
+<section class="hero">
+  <div class="container hero-inner">
+    <div>
+      <div class="eyebrow">European regulatory intelligence · Ireland &amp; EU</div>
+      <h1>Know what changed.<br>Decide what matters.</h1>
+      <p class="lede">Follow official regulatory developments, examine the original sources and turn your research into clear, traceable next steps. A focused workspace for legal and compliance teams.</p>
+      <div class="hero-actions">
+        <a class="btn light" href="workspace.html">Explore the workspace →</a>
+        <a class="btn outline" href="documents.html">Try document review</a>
+      </div>
+      <div class="hint">Free research preview · No account required · Human review remains essential</div>
     </div>
-    <div class="case-right">
-      <div class="case-step"><strong>01 · Source</strong><p>Identify the authority, original publication date, applicable legal instrument and distinct operational milestones.</p></div>
-      <div class="case-step"><strong>02 · Assess</strong><p>Consider whether the organisation handles securities settlement, allocations or confirmations; review the exact ESMA guidance.</p></div>
-      <div class="case-step"><strong>03 · Track</strong><p>Record the reviewer decision, action owner, next step and internal follow-up date in the LexSignal workbench.</p></div>
-      <div class="case-step"><strong>04 · Brief</strong><p>Include the item in a source-linked draft. An analyst remains responsible for checking applicability and finalising conclusions.</p></div>
-      <a class="case-action" href="index.html">Try the review workflow in LexSignal →</a>
-    </div>
-  </div>
-</div></section>
-<section id="how-it-works"><div class="wrap"><div class="section-h"><div class="label">THE WORKFLOW</div><h2>Designed around the work behind a regulatory briefing.</h2><p>The aim is to reduce time spent collecting and organising official publications while keeping professional judgment in the review process.</p></div><div class="cards"><div class="card"><div class="n">01 / COLLECT</div><h3>Bring official updates into one place</h3><p>Read EU and Irish RSS publications alongside selected sourced examples; search, filter and follow the primary links.</p></div><div class="card"><div class="n">02 / REVIEW</div><h3>Check context before deciding</h3><p>Separate publication dates from compliance milestones, read the primary source, then approve or exclude an item.</p></div><div class="card"><div class="n">03 / BRIEF</div><h3>Turn reviews into traceable action</h3><p>Override automatic screening, assign an owner and due date, and export a brief containing the reviewer’s decision and source link.</p></div></div></div></section>
-<section id="agent-access" style="padding-top:22px;padding-bottom:35px"><div class="wrap"><div class="section-h"><div class="label">HUMAN + AGENT INTERFACE</div><h2>Readable by specialists. Structured for software and AI agents.</h2><p>LexSignal now provides static machine-readable regulatory feeds alongside the visual workspace. Each entry includes its original authority, publication date, source link and an explicit <strong>unreviewed</strong> status. Agents can read the dataset directly and verify the linked regulator publication.</p></div><div class="cards"><div class="card"><div class="n">01 / STRUCTURED JSON</div><h3>Read updates without parsing the interface</h3><p>Fetch a compact read-only JSON snapshot with stable fields and primary-source URLs.</p><a href="api/v1/updates.json">Open JSON feed →</a></div><div class="card"><div class="n">02 / MACHINE DISCOVERY</div><h3>Discover formats and field meanings</h3><p>OpenAPI, JSON-LD, and an optional llms.txt discovery file describe the public data surface.</p><a href="llms.txt">Read llms.txt →</a></div><div class="card"><div class="n">03 / SOURCE-BASED REVIEW</div><h3>Make uncertainty explicit</h3><p>Automated signal ranking is provisional. There is no live legal-advice API or verified regulatory classification.</p><a href="agent-access.html">Developer and agent guide →</a></div></div></div></section>
-<section style="padding-top:15px"><div class="wrap"><div class="pane"><div class="note"><h3>Who might use it?</h3><ul><li>Boutique compliance and regulatory consultancies</li><li>Financial services and fintech advisory teams</li><li>Small legal teams preparing regulatory client updates</li><li>Professional associations and research teams</li></ul></div><div class="note"><h3>Current boundaries</h3><p>The research preview has scheduled collection, a review-and-action workbench and machine-readable exports. Source coverage remains selective and screening is provisional. Review decisions and assignments are currently saved only in the user's browser. Collaborative accounts, comprehensive source coverage, live query processing and commercial support are not yet available.</p><p>We are examining whether a narrowly scoped, reviewed briefing service would solve a sufficiently important problem for a specific customer segment.</p></div></div></div></section>
-<section class="curiosity-section" id="beyond-the-signal">
-<div class="wrap">
-  <div class="curiosity-card" aria-label="Beyond the Signal: a curated curiosity">
-    <div class="curiosity-art" aria-hidden="true"><span class="curiosity-overline">BEYOND THE SIGNAL</span><span class="curiosity-number" id="curiosity-number">€</span></div>
-    <div class="curiosity-body">
-      <div class="curiosity-kicker" id="curiosity-kicker">CURIOSITY · EUROPE</div>
-      <h3 id="curiosity-heading">The bridges on euro banknotes don't exist.</h3>
-      <p id="curiosity-description">The ECB intentionally shows imagined bridges rather than real landmarks. They stand for communication and cooperation across Europe.</p>
-      <div class="curiosity-bottom">
-        <a id="curiosity-source" href="https://www.ecb.europa.eu/euro/banknotes/current/design/html/index.en.html" target="_blank" rel="noopener noreferrer">Explore the original source ↗</a>
-        <button class="curiosity-next" type="button" id="curiosity-next">Another curiosity →</button>
+    <div class="showcase">
+      <div class="preview" aria-label="Illustrative regulatory record">
+        <div class="preview-top"><span>REGULATORY RESEARCH</span><span class="preview-indicator">Source linked</span></div>
+        <div class="preview-content">
+          <div class="preview-label">ESMA · MARKET INFRASTRUCTURE</div>
+          <h3>EU moves towards T+1 securities settlement</h3>
+          <p>One original source. Two distinct milestones. A practical route from reading to assessment.</p>
+          <div class="preview-divider"></div>
+          <div class="preview-row"><span>Publication</span><span class="value">16 October 2026</span></div>
+          <div class="preview-row"><span>Preparation milestone</span><span class="value">7 December 2026</span></div>
+          <div class="preview-row"><span>Transition milestone</span><span class="value">11 October 2027</span></div>
+          <div class="preview-row"><span>Review</span><span class="chip">Source check required</span></div>
+        </div>
+        <div class="preview-bottom">Source → Assess → Assign → Brief</div>
       </div>
     </div>
   </div>
-</div>
 </section>
-<section class="banner"><div class="wrap"><div><h2>Evaluate the workflow with a public research preview.</h2><p>Explore filters, source records, review flags and draft client briefings. No login required.</p></div><a class="button" href="index.html">Open LexSignal demo →</a></div></section>
-</main><footer><div class="wrap"><span>LexSignal · public research preview</span><span>Not legal advice · no client data required for demonstration</span></div></footer>
-<script>
-(function () {
-  "use strict";
-  // Curated, evergreen facts checked against primary EU institutional sources.
-  // Rotates once per UTC day and can also be browsed manually; no network API.
-  const facts = [
-    {visual:"€",category:"DESIGN · EUROPE",title:"The bridges on euro banknotes don't exist.",
-      description:"The ECB intentionally uses imagined bridges rather than real landmarks. They symbolise communication and cooperation across Europe.",
-      url:"https://www.ecb.europa.eu/euro/banknotes/current/design/html/index.en.html"},
-    {visual:"24",category:"LANGUAGES · EUROPE",title:"The EU works in 24 official languages.",
-      description:"Those languages use three alphabets — Latin, Cyrillic and Greek. Linguistic diversity is part of the Union's institutional design.",
-      url:"https://translation.ec.europa.eu/languages-eu-why-multilingualism-matters/linguistic-diversity-eu_en"},
-    {visual:"2013",category:"LAW · DIGITAL",title:"The authentic EU Official Journal went digital.",
-      description:"Since 1 July 2013, the electronic edition has been legally authentic, with special arrangements for exceptional system disruptions.",
-      url:"https://eur-lex.europa.eu/content/help/oj/authenticity-eOJ.html?locale=en"},
-    {visual:"EN",category:"LANGUAGES · EU LAW",title:"English remained an EU official language after Brexit.",
-      description:"Its status is governed by the EU's language regulation; it also remains an official language in Ireland and Malta.",
-      url:"https://european-union.europa.eu/principles-countries-history/languages_en"},
-    {visual:"1952",category:"LEGAL HISTORY",title:"The Court of Justice began in 1952.",
-      description:"Its task is to ensure that EU law is interpreted consistently, including by answering questions referred by national courts.",
-      url:"https://curia.europa.eu/site/jcms/d2_5390/en/about-the-court-of-justice-of-the-eu"},
-    {visual:"2023",category:"PUBLICATIONS · EU LAW",title:"EU legal acts are now published individually.",
-      description:"Since October 2023, each act appears as its own authentic Official Journal publication rather than as part of a collected issue.",
-      url:"https://eur-lex.europa.eu/content/help/oj/about-oj.html?locale=en"}
-  ];
-  const nodes = {
-    visual:document.getElementById("curiosity-number"),
-    category:document.getElementById("curiosity-kicker"),
-    title:document.getElementById("curiosity-heading"),
-    text:document.getElementById("curiosity-description"),
-    source:document.getElementById("curiosity-source")
-  };
-  if (!Object.values(nodes).every(Boolean)) return;
-  let index=Math.floor(Date.now()/86400000)%facts.length;
-  function render(){
-    const fact=facts[index];
-    nodes.visual.textContent=fact.visual;
-    nodes.category.textContent=fact.category;
-    nodes.title.textContent=fact.title;
-    nodes.text.textContent=fact.description;
-    nodes.source.href=fact.url;
-  }
-  document.getElementById("curiosity-next")?.addEventListener("click",function(){
-    index=(index+1)%facts.length;render();
-  });
-  render();
-})();
-</script>
+<div class="band"><div class="container"><strong>Research inputs</strong><span>European Securities and Markets Authority</span><span>European Data Protection Board</span><span>European Commission</span><span>Central Bank of Ireland</span></div></div>
+<section class="section" id="workflow"><div class="container">
+  <div class="section-head"><div class="tag">A clearer working process</div><h2>From a regulator’s publication to a decision you can explain.</h2><p>Research becomes useful when the source, the assessment and the next action stay connected.</p></div>
+  <div class="four">
+    <div class="step"><span class="step-num">01 / DISCOVER</span><h3>Find the source</h3><p>Browse monitored regulatory publications and identify the subjects relevant to your organisation.</p></div>
+    <div class="step"><span class="step-num">02 / VERIFY</span><h3>Check the context</h3><p>Open the original source, distinguish proposals from obligations and record what has been reviewed.</p></div>
+    <div class="step"><span class="step-num">03 / ASSIGN</span><h3>Track the response</h3><p>Record a responsible person, a next step and an internal follow-up date.</p></div>
+    <div class="step"><span class="step-num">04 / BRIEF</span><h3>Prepare an update</h3><p>Generate a source-linked working brief, with transparent review decisions and remaining questions.</p></div>
+  </div>
+</div></section>
+<section class="section tools" id="tools"><div class="container">
+  <div class="section-head"><div class="tag">Tools you can use now</div><h2>Start with a task, not a technical manual.</h2><p>Choose what you want to do. Each tool has a specific purpose and makes its limitations clear.</p></div>
+  <div class="tool-grid">
+    <div class="tool-card"><div class="tool-top"><span class="tool-symbol" aria-hidden="true">◎</span><span class="tool-status">Available</span></div><h3>Regulatory workspace</h3><p>Filter official publications, review their relevance, set follow-ups and create exportable briefs.</p><a href="workspace.html">Open research workspace →</a></div>
+    <div class="tool-card"><div class="tool-top"><span class="tool-symbol" aria-hidden="true">▤</span><span class="tool-status">Available</span></div><h3>Document review</h3><p>Inspect text, CSV, JSON and saved email files privately in your browser; extract source links and turn findings into research entries.</p><a href="documents.html">Review a document →</a></div>
+    <div class="tool-card"><div class="tool-top"><span class="tool-symbol" aria-hidden="true">⇄</span><span class="tool-status">Manual import</span></div><h3>Mail &amp; integrations</h3><p>Start with saved .eml messages. Secure Gmail and Microsoft 365 account connections require the forthcoming authenticated service.</p><a href="documents.html#mail">Explore mail import →</a></div>
+    <div class="tool-card"><div class="tool-top"><span class="tool-symbol" aria-hidden="true">{ }</span><span class="tool-status">Available</span></div><h3>Data for AI agents</h3><p>Read the same official-source entries as structured JSON with timestamps, original links and review flags.</p><a href="agent-access.html">Explore agent access →</a></div>
+  </div>
+</div></section>
+<section class="section case" id="example"><div class="container">
+  <div class="section-head"><div class="tag" style="color:#a5dad2">A source-based example</div><h2>See the difference between an announcement and an action.</h2><p>An actual ESMA publication, displayed as a research workflow. No invented customer outcomes.</p></div>
+  <div class="case-grid">
+    <div class="case-source">
+      <small>EU SECURITIES SETTLEMENT · ESMA</small>
+      <h3>The T+1 transition</h3>
+      <p>ESMA's 16 October 2026 announcement sets out preparations for the EU's move to T+1 settlement. The operational and transition dates are different from the publication date.</p>
+      <a href="https://www.esma.europa.eu/press-news/esma-news/one-year-go-t1-settlement-regulatory-framework-complete-now-lets-make-it" target="_blank" rel="noopener noreferrer">Read ESMA's original publication ↗</a>
+    </div>
+    <div class="case-output">
+      <div class="case-item"><strong>Source</strong><p>Identify the publication and the standards that support its claims.</p></div>
+      <div class="case-item"><strong>Assessment</strong><p>Determine whether the firm's settlement, allocation and confirmation processes are affected.</p></div>
+      <div class="case-item"><strong>Action</strong><p>Assign a responsible person to assess readiness against the relevant requirements.</p></div>
+      <div class="case-item"><strong>Evidence</strong><p>Keep the original link and the reviewer decision in the exported briefing.</p></div>
+    </div>
+  </div>
+</div></section>
+<section class="foot-cta"><div class="container"><div><h2>Explore the product before committing to a pilot.</h2><p>This is an independent research preview. Source coverage is selective, team accounts and billing are not active, and the final regulatory interpretation remains a professional responsibility.</p></div><a class="btn" href="workspace.html">Open LexSignal →</a></div></section>
+</main>
+<footer><div class="container"><span>© LexSignal · Independent regulatory research preview</span><span><a href="agent-access.html">Developer information</a> · <a href="https://github.com/lexsignal-eu/lexsignal">GitHub</a></span></div></footer>
 </body>
 </html>

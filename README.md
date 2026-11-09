@@ -50,3 +50,7 @@ The dashboard's primary purpose is now to support the cycle **source → assess 
 - Add a documented customer-facing example to the overview.
 
 **Limits:** Review decisions, notes and action assignments are browser-local, not shared across devices or accounts. A manual review flag only records the user's action; it does not certify the legal correctness of the classification. Sourcing remains selective. Outreach is paused while the product is being strengthened.
+
+
+## Product experience v0.6
+The root page is now a human-first product overview, and the prior application moved to workspace.html. A new documents.html Document Lab processes TXT, MD, CSV, JSON, saved EML and HTML in-browser (2 MB limit); users can explicitly save short, unreviewed sourced records to the workspace. Uploaded file contents are not transmitted or stored by LexSignal. Live Gmail/Outlook connections, shared accounts, PDF/DOCX parsing and payments are not yet deployed. A separate secure backend and provider configuration are required. See docs/PRODUCT_INFRASTRUCTURE.md. The approved sphere mark is unchanged.
