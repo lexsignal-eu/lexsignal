@@ -60,6 +60,32 @@ def iso(value):
     try: return datetime.fromisoformat(value.replace("Z","+00:00")).date().isoformat()
     except (ValueError,TypeError): return None
 
+
+def classify_signal(title, summary, authority):
+    """First-pass headline triage; not legal or human editorial review."""
+    t=title.lower()
+    if re.search(r"commemorative coin|anniversary coin|collectors? coin|launches? .*coin\b",t):
+        return "background","press/news"
+    if re.search(r"unauthorised firm|unauthorized firm|\(clone\)|clone firm",t):
+        return "monitor","firm warning"
+    if re.search(r"\bspeech\b|opening remarks|\bremarks\b|keynote|fireside chat",t):
+        return "background","speech"
+    if re.search(r"hosts? .*conference|annual conference|helps? kids|celebrat|appointment of|commemorat",t):
+        return "background","general news"
+    if re.search(r"enforcement action|\bfines?\b|\bfined\b|\bpenalt|administrative sanction|breach of .*obligations",t):
+        return "high","enforcement"
+    if re.search(r"consultation|call for evidence|feedback on draft",t):
+        return "high","consultation"
+    if re.search(r"guidelines?|guidance|supervisory expectations|\bq&as?\b|technical standards?|regulatory technical",t):
+        return "high","guidance"
+    if re.search(r"enters? into force|takes? effect|new rules?|deadline|application date|implementation date",t):
+        return "high","rule or deadline"
+    if re.search(r"adopts? .*rules?|publishes? .*regulation|regulatory priorities|enforcement priorities",t):
+        return "high","regulatory development"
+    if re.search(r"strategy|annual report|research report|statement|opinion|decision",t):
+        return "monitor","supervisory context"
+    return "background","general news"
+
 def parse(xml,authority,now):
     root=ET.fromstring(xml)
     entries=root.findall(".//item")
@@ -85,7 +111,9 @@ def parse(xml,authority,now):
         sectors=[sector for sector,keywords in KEYWORDS.items()
                  if any(re.search(r"(?<![a-z])"+re.escape(k)+r"(?![a-z])",terms) for k in keywords)]
         if authority=="EDPB" and "privacy" not in sectors: sectors.append("privacy")
+        if authority=="ESMA" and "fin" not in sectors: sectors.append("fin")
         if not sectors: continue
+        signal, event_type=classify_signal(title,summary,authority)
         category="AI / digital regulation" if "ai" in sectors else "Data protection" if "privacy" in sectors else "Financial regulation"
         kind=("consultation" if re.search("consultation|call for evidence",terms) else
               "enforcement" if re.search("fine|penalty|enforcement",terms) else
@@ -97,7 +125,9 @@ def parse(xml,authority,now):
           "title":title,"summary":summary or "See primary source.",
           "impact":"Automatically collected summary; relevance and applicability have not been checked.",
           "actions":["Verify the original publication and date.","Assess applicability to the client."],
-          "url":link,"sectors":sectors,"priority":"unassessed","sourceType":"rss","needsReview":True
+          "url":link,"sectors":sectors,"priority":"unassessed","sourceType":"rss","needsReview":True,
+          "signalTier":signal,"eventType":event_type,
+          "triageMethod":"headline rules; not human-reviewed"
         })
     return records
 
@@ -108,7 +138,7 @@ def main():
     successes=0
     for name,url in SOURCES:
         try:
-            req=urllib.request.Request(url,headers={"User-Agent":"LexSignal/0.2 public source monitoring","Accept":"application/rss+xml,application/atom+xml,text/xml,application/xml,*/*;q=0.5"})
+            req=urllib.request.Request(url,headers={"User-Agent":"LexSignal/0.3 research-preview aggregator","Accept":"application/rss+xml,application/atom+xml,text/xml,application/xml,*/*;q=0.5"})
             with urllib.request.urlopen(req,timeout=20) as reply:
                 if reply.status!=200: raise ValueError("HTTP "+str(reply.status))
                 xml=reply.read(2_000_001)

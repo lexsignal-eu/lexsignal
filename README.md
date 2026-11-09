@@ -1,6 +1,6 @@
 # LexSignal — EU Regulatory Intelligence (prototype)
 
-Experimental public demonstration of a source-linked EU regulatory monitoring dashboard. Includes a browser-based briefing generator and an RSS collection pipeline.
+Public research-preview demonstration of a source-linked EU regulatory monitoring dashboard. Includes a browser-based briefing generator and an RSS collection pipeline.
 
 - Dashboard: [Open after Pages activation](https://lexsignal-eu.github.io/lexsignal/)
 - Landing page: [Project overview](https://lexsignal-eu.github.io/lexsignal/landing.html)
@@ -16,3 +16,6 @@ Experimental public demonstration of a source-linked EU regulatory monitoring da
 3. Check action logs and open the Pages URL when it reports success.
 
 Scheduled updates run at approximately 07:17 UTC on weekdays. GitHub may delay scheduled jobs; data availability depends on source feeds. This prototype requires editorial review before any commercial delivery.
+
+## Signal triage (v0.3)
+RSS items are automatically labelled high, monitor or background, and an indicative event type is assigned from headline patterns. The Priority signals view shows high-priority matches by default; All updates shows every collected record. These classifications are **unverified**. Client briefs omit unreviewed RSS items and background news.
