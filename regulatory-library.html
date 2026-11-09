@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102538">
+<meta name="description" content="Explore EU regulation by topic, follow official legal texts, check key application dates and export important milestones to your calendar.">
+<title>Regulatory Library & Calendar — LexSignal</title>
+<link rel="icon" type="image/webp" href="brand/lexsignal-sphere-approved.webp">
+<style>
+:root{--ink:#19364a;--navy:#102538;--muted:#647b8b;--teal:#087e74;--line:#dce6e8;--bg:#f4f7f7;--white:#fff}
+*{box-sizing:border-box}
+body{font:15px/1.56 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Arial,sans-serif;margin:0;background:var(--bg);color:var(--ink)}
+button,input,select{font:inherit}button{cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #30ada7;outline-offset:3px}
+a{color:#17628b}
+.wrap{width:min(1190px,calc(100% - 44px));margin:0 auto}
+nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;font-size:22px;font-weight:800;letter-spacing:-.8px;text-decoration:none;color:var(--ink)}.brand img{width:42px;height:42px;border-radius:50%;background:#fff}
+.links{display:flex;gap:22px;align-items:center;font-size:13px;font-weight:740}.links a{color:#526b7d;text-decoration:none;white-space:nowrap}.links a[aria-current=page],.links a:hover{color:#067e73}
+.hero{background:#102c42;color:white;padding:57px 0 60px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;right:-160px;top:-230px;width:600px;height:600px;background:radial-gradient(circle,#327f8655,transparent 66%);pointer-events:none}
+.hero .wrap{position:relative}
+.kicker{font-size:11px;letter-spacing:1.7px;text-transform:uppercase;color:#a7d8ce;font-weight:850}
+h1{font-size:clamp(39px,4.6vw,58px);line-height:1.12;letter-spacing:-2px;margin:13px 0 17px;max-width:890px}
+.hero p{color:#cbdae5;max-width:780px;margin:0;font-size:16px;line-height:1.72}
+.hero-row{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:24px}
+.hero-row span{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:#d0e2e6}
+.hero-row span:before{content:"";width:8px;height:8px;background:#72c9b5;border-radius:50%}
+main{padding:28px 0 75px}
+.filterbar{background:white;border:1px solid var(--line);border-radius:14px;padding:17px 19px;display:flex;align-items:end;gap:17px;justify-content:space-between;flex-wrap:wrap}
+.field{display:grid;gap:5px;color:#5a7484;font-size:12px;font-weight:750}
+.field select,.field input{border:1px solid #ccdce1;border-radius:8px;padding:11px 13px;background:white;color:#18354c;font-size:14px;min-width:220px;font-weight:400}
+.field.search input{width:min(340px,76vw)}
+.controls{display:flex;gap:11px;align-items:end;flex-wrap:wrap}
+.switch{display:flex;align-items:center;gap:8px;font-size:13px;color:#547083;font-weight:700;padding:10px 4px}
+.switch input{width:17px;height:17px;accent-color:#0f8175}
+.numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:16px 0 22px}
+.metric{background:white;border:1px solid var(--line);border-radius:12px;padding:17px 21px}
+.metric strong{display:block;font-size:28px;line-height:1.2;letter-spacing:-1px;color:#173e50}
+.metric small{display:block;color:#748998;font-size:12px;margin-top:4px}
+.columns{display:grid;grid-template-columns:1.18fr .82fr;gap:18px;align-items:start}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 12px}
+.section-head h2{font-size:22px;letter-spacing:-.7px;margin:0}
+.section-head small{font-size:12px;color:#6d8291}
+.catalog{display:grid;gap:11px}
+.legal-card{background:white;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.legal-card[open]{border-color:#b4d4d1;box-shadow:0 8px 24px #0c43530b}
+.legal-card summary{list-style:none;cursor:pointer;padding:20px 23px;display:block}
+.legal-card summary::-webkit-details-marker{display:none}
+.card-head{display:flex;align-items:start;justify-content:space-between;gap:13px}
+.card-head .act-name{display:block;font-size:18px;font-weight:790;letter-spacing:-.4px;line-height:1.3}
+.card-head .citation{display:block;color:#718494;font-size:11px;margin-top:3px}
+.expand{width:27px;height:27px;border:1px solid #d3e1e3;border-radius:7px;display:grid;place-items:center;color:#2b7780;flex:none;font-weight:900}
+.legal-card[open] .expand{transform:rotate(45deg)}
+.summary{color:#5e7484;font-size:13px;margin:11px 0 0;line-height:1.62}
+.pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px}
+.pill{font-size:10px;color:#2a7c73;background:#e9f4ef;padding:4px 7px;border-radius:5px;font-weight:800}
+.detail{padding:0 23px 21px;border-top:1px solid #e7eeee}
+.detail h3{font-size:12px;color:#235a66;text-transform:uppercase;letter-spacing:.6px;margin:17px 0 5px}
+.detail p{margin:0;color:#536c7e;font-size:13px;line-height:1.7}
+.detail .notice{padding:10px 13px;border-radius:8px;background:#fff6e8;border:1px solid #f0dec4;color:#795d39;margin-top:14px;font-size:12px}
+.card-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}
+.action{border:1px solid #cadbdc;background:white;color:#254b62;border-radius:8px;font-size:12px;font-weight:780;padding:9px 12px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.action:hover{background:#eff5f4}
+.action.primary{background:#113649;color:#fff;border-color:#113649}.action.primary:hover{background:#23586e}
+.action.saved{background:#d9f0e8;color:#186d5d;border-color:#c8dfd6}
+.timeline-box{background:white;border:1px solid var(--line);border-radius:13px;overflow:hidden;position:sticky;top:16px}
+.timeline-top{background:#eaf2f1;padding:20px 22px}
+.timeline-top h2{font-size:21px;letter-spacing:-.65px;margin:0 0 5px}
+.timeline-top p{margin:0;font-size:12px;color:#6a7d8b}
+.timeline-buttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.timeline-body{padding:18px 22px;max-height:810px;overflow:auto}
+.milestone{display:grid;grid-template-columns:80px 1fr;gap:13px;padding:15px 0;border-bottom:1px solid #e9eef0}
+.milestone:first-child{padding-top:0}.milestone:last-child{border:0}
+.date-block{display:grid;align-content:start;gap:3px}
+.date-block strong{color:#17364b;font-size:17px;line-height:1.1}
+.date-block small{font-size:11px;color:#78909a}
+.milestone h3{font-size:14px;line-height:1.4;letter-spacing:-.1px;margin:0 0 5px}
+.milestone p{font-size:12px;color:#677f8c;line-height:1.58;margin:0 0 7px}
+.milestone a{font-size:11px;font-weight:800;text-decoration:none}
+.milestone a:hover{text-decoration:underline}
+.status{font-size:10px;font-weight:850;text-transform:uppercase;letter-spacing:.45px;display:inline-block;padding:3px 7px;border-radius:5px;margin-bottom:7px;background:#e5f5ee;color:#13715e}
+.status.past{background:#edf1f2;color:#74828d}
+.source-list{background:#fff;border:1px solid var(--line);border-radius:13px;padding:22px;margin-top:20px}
+.source-list h2{font-size:20px;letter-spacing:-.5px;margin:0 0 5px}
+.source-list p{font-size:12px;color:#6e8292;margin:0 0 14px}
+.source-items{display:grid;gap:9px}
+.source-items a{display:block;border:1px solid #e4ebee;padding:11px 13px;border-radius:8px;text-decoration:none;font-size:12px}
+.source-items a strong{display:block;font-size:13px;color:#1e485a}
+.source-items a span{display:block;color:#81939e;margin-top:3px}
+.source-items a:hover{background:#f4faf9}
+.empty{padding:27px 18px;color:#718495;font-size:13px;text-align:center}
+.disclaimer{border-left:3px solid #268c7f;background:#e7f3f0;border-radius:0 10px 10px 0;margin-top:22px;padding:14px 19px;color:#476779;font-size:12px;line-height:1.7}
+footer{background:#102b3c;color:#bdd0da;font-size:12px;padding:27px 0}
+footer a{color:#e4f2f4;text-decoration:none}
+@media(max-width:920px){.columns{grid-template-columns:1fr}.timeline-box{position:static}.timeline-body{max-height:unset}.links{gap:12px}}
+@media(max-width:630px){.wrap{width:calc(100% - 28px)}nav{min-height:66px}.links{gap:9px;font-size:11px}.links a:nth-child(1),.links a:nth-child(3){display:none}.brand{font-size:19px}.brand img{width:36px;height:36px}.hero{padding:43px 0}.hero p{font-size:14px}.numbers{grid-template-columns:1fr 1fr}.numbers .metric:last-child{grid-column:1/-1}.metric{padding:13px}.metric strong{font-size:24px}.field select,.field input{min-width:unset;width:100%}.field.search input{width:100%}.controls{width:100%}.filterbar .field{flex:1;min-width:140px}.card-head .act-name{font-size:16px}.legal-card summary,.detail{padding-left:17px;padding-right:17px}.timeline-top,.timeline-body{padding-left:18px;padding-right:18px}}
+</style>
+</head>
+<body>
+<header class="wrap"><nav>
+ <a class="brand" href="index.html"><img src="brand/lexsignal-sphere-approved.webp" alt="">LexSignal</a>
+ <div class="links">
+  <a href="index.html">Home</a>
+  <a href="workspace.html">Research workspace</a>
+  <a href="documents.html">Documents</a>
+  <a href="regulatory-library.html" aria-current="page">Regulatory Library</a>
+  <a href="global-signals.html">World map</a>
+ </div>
+</nav></header>
+<section class="hero"><div class="wrap">
+ <div class="kicker">Regulatory Library · EU & Ireland</div>
+ <h1>Explore the law.<br>Keep the dates in view.</h1>
+ <p>Selected EU regulations and official guidance in plain language, with key dates and direct legal sources. Filter by your area of work, build a personal reading list and export upcoming milestones to your calendar.</p>
+ <div class="hero-row"><span>Original EU legal texts</span><span>Regulatory milestones</span><span>Works without an account</span></div>
+</div></section>
+<main class="wrap">
+ <div class="filterbar">
+  <div class="controls">
+   <label class="field">Relevant to
+    <select id="sector"><option value="all">All subjects</option><option value="finance">Financial services / fintech</option><option value="ai">AI and AI governance</option><option value="tech">Technology / SaaS</option><option value="privacy">Privacy and personal data</option><option value="cyber">Cybersecurity</option></select>
+   </label>
+   <label class="field search">Search by law, topic or keyword
+    <input id="search" type="search" placeholder="e.g. MiCA, cyber, transparency" autocomplete="off">
+   </label>
+  </div>
+  <label class="switch"><input type="checkbox" id="watch-only"> Only my saved laws</label>
+ </div>
+ <div class="numbers" aria-live="polite">
+  <div class="metric"><strong id="count-laws">—</strong><small>Legal instruments and initiatives</small></div>
+  <div class="metric"><strong id="count-future">—</strong><small>Upcoming milestones in view</small></div>
+  <div class="metric"><strong id="count-saved">—</strong><small>Saved to your reading list</small></div>
+ </div>
+ <div class="columns">
+  <section aria-label="EU regulatory library">
+   <div class="section-head"><h2>Browse official frameworks</h2><small id="curation-note">Checking the catalogue…</small></div>
+   <div class="catalog" id="catalog"><div class="empty">Loading official-source records…</div></div>
+   <div class="source-list" id="feed-box">
+    <h2>Recently collected publications</h2>
+    <p>Live from the existing LexSignal RSS snapshot. These headlines are automatically collected and have not been independently reviewed.</p>
+    <div id="recent" class="source-items"><div class="empty">Loading available updates…</div></div>
+   </div>
+  </section>
+  <aside class="timeline-box" aria-label="Regulatory milestone calendar">
+   <div class="timeline-top">
+    <h2>Regulatory calendar</h2>
+    <p>Application dates, implementation stages and one national transposition deadline. These are not automatically deadlines for your organisation.</p>
+    <div class="timeline-buttons">
+      <button id="export-ics" class="action primary" type="button">Download calendar (.ics)</button>
+      <button id="show-past" class="action" type="button" aria-pressed="false">Show past milestones</button>
+    </div>
+   </div>
+   <div class="timeline-body" id="timeline"><div class="empty">Loading milestones…</div></div>
+  </aside>
+ </div>
+ <div class="disclaimer" id="disclaimer"><strong>Research scope:</strong> The catalogue is a selected starting point, not a complete register of binding obligations. Dates and source records were curated on 9 November 2026. Official texts may be amended later. Check the current consolidated text and your entity's scope before treating a date as an obligation. Your saved reading list stays in this browser.</div>
+</main>
+<footer><div class="wrap">LexSignal · <a href="index.html">Home</a> · <a href="https://eur-lex.europa.eu/" target="_blank" rel="noopener noreferrer">EUR-Lex</a> · <a href="agent-access.html">Machine-readable feeds</a></div></footer>
+<script>
+(function(){
+'use strict';
+const el=id=>document.getElementById(id);
+const TODAY=new Date().toISOString().slice(0,10);
+const STORE='lexsignal.library.v1';
+let library=null,selected=new Set(),showPast=false;
+try{const stored=JSON.parse(localStorage.getItem(STORE)||'[]');if(Array.isArray(stored))selected=new Set(stored.filter(x=>typeof x==='string').slice(0,100));}catch(e){}
+const fmt=iso=>/^\d{4}-\d{2}-\d{2}$/.test(iso)?iso.slice(8,10)+'.'+iso.slice(5,7)+'.'+iso.slice(0,4):iso;
+const slug=id=>String(id||'').replace(/[^a-z0-9-]/gi,'');
+function save(){try{localStorage.setItem(STORE,JSON.stringify([...selected]));}catch(e){}}
+function item(tag,cls,text){
+ const n=document.createElement(tag);
+ if(cls)n.className=cls;
+ if(text!==undefined)n.textContent=String(text);
+ return n;
+}
+function officialLink(url,label,kind){
+ const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.className=kind||'action';a.textContent=label;return a;
+}
+function isVisible(act){
+ const sector=el('sector').value,q=el('search').value.toLowerCase().trim();
+ return (sector==='all'||act.sectors.includes(sector))&&(!el('watch-only').checked||selected.has(act.id))&&
+ (!q||[act.short,act.title,act.citation,act.summary,act.check,...act.topics].join(' ').toLowerCase().includes(q));
+}
+function visibleActs(){return library?library.acts.filter(isVisible):[]}
+function visibleMilestones(onlyFuture=false){
+ if(!library)return [];
+ const ids=new Set(visibleActs().map(a=>a.id));
+ return library.milestones.filter(m=>ids.has(m.act)&&(!onlyFuture||m.date>=TODAY)&&(showPast||onlyFuture||m.date>=TODAY))
+  .sort((a,b)=>a.date.localeCompare(b.date));
+}
+function renderCatalog(){
+ const root=el('catalog');root.replaceChildren();
+ const acts=visibleActs();
+ if(!acts.length){root.append(item('div','empty','No laws match these filters. Try another sector or clear the search.'));return;}
+ for(const act of acts){
+  const card=document.createElement('details');card.className='legal-card';card.id='act-'+slug(act.id);
+  const summary=document.createElement('summary');
+  const head=item('div','card-head');const left=item('div');
+  left.append(item('span','act-name',act.short+' — '+act.title),item('span','citation',act.citation));
+  head.append(left,item('span','expand','+'));
+  summary.append(head,item('p','summary',act.summary));
+  const pills=item('div','pills');for(const tag of act.topics.slice(0,3))pills.append(item('span','pill',tag));summary.append(pills);
+  card.append(summary);
+  const detail=item('div','detail');
+  detail.append(item('h3','','What to check'),item('p','',act.check));
+  detail.append(item('h3','','Legal instrument'),item('p','',act.citation+' · '+act.type));
+  if(act.special){
+   const caution=item('div','notice',act.special);
+   if(act.specialSource)caution.append(' ',officialLink(act.specialSource,'Commission evidence ↗'));
+   detail.append(caution);
+  }
+  const actions=item('div','card-actions');
+  const watch=item('button','action'+(selected.has(act.id)?' saved':''),selected.has(act.id)?'★ Saved to reading list':'☆ Save for later');
+  watch.type='button';watch.setAttribute('aria-pressed',String(selected.has(act.id)));
+  watch.addEventListener('click',ev=>{ev.preventDefault();if(selected.has(act.id))selected.delete(act.id);else selected.add(act.id);save();render();});
+  actions.append(watch,officialLink(act.source,'Read official legal text ↗'),officialLink(act.guide,'Read authority guidance ↗'));
+  detail.append(actions);
+  const related=library.milestones.filter(m=>m.act===act.id).sort((a,b)=>a.date.localeCompare(b.date));
+  if(related.length){
+   detail.append(item('h3','','Milestone overview'));
+   const p=item('p','',related.map(m=>fmt(m.date)+' — '+m.title).join(' · '));detail.append(p);
+  }
+  card.append(detail);root.append(card);
+ }
+}
+function renderTimeline(){
+ const root=el('timeline');root.replaceChildren();
+ const rows=visibleMilestones();
+ if(!rows.length){root.append(item('div','empty',showPast?'No matching milestone records.':'No upcoming milestones for the selected laws. Turn on “Show past milestones” to review history.'));return;}
+ const actNames=new Map(library.acts.map(a=>[a.id,a.short]));
+ for(const m of rows){
+  const block=item('div','milestone'),date=item('div','date-block');
+  date.append(item('strong','',fmt(m.date).slice(0,5)),item('small','',m.date.slice(0,4)));
+  const main=item('div');
+  main.append(item('span','status'+(m.date<TODAY?' past':''),m.date<TODAY?'Past milestone':m.kind));
+  main.append(item('h3','',m.title));
+  main.append(item('p','',actNames.get(m.act)+' · '+m.scope));
+  main.append(officialLink(m.url,'Official source ↗',''));
+  block.append(date,main);root.append(block);
+ }
+}
+function render(){
+ if(!library)return;
+ renderCatalog();renderTimeline();
+ el('count-laws').textContent=visibleActs().length;
+ el('count-future').textContent=visibleMilestones(true).length;
+ el('count-saved').textContent=selected.size;
+ el('curation-note').textContent='Curated '+fmt(library.curatedAt)+' · '+library.acts.length+' sources';
+ el('show-past').textContent=showPast?'Hide past milestones':'Show past milestones';
+ el('show-past').setAttribute('aria-pressed',String(showPast));
+ el('export-ics').disabled=visibleMilestones(true).length===0;
+}
+function escICS(s){
+ return String(s||'').replace(/\\/g,'\\\\').replace(/\r?\n/g,'\\n').replace(/,/g,'\\,').replace(/;/g,'\\;');
+}
+function nextDate(iso){
+ const d=new Date(iso+'T00:00:00Z');d.setUTCDate(d.getUTCDate()+1);return d.toISOString().slice(0,10).replace(/-/g,'');
+}
+function calendarText(rows){
+ const head=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//LexSignal//Regulatory Milestone Calendar//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH','X-WR-CALNAME:LexSignal regulatory milestones'];
+ const now=new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z');
+ const acts=new Map(library.acts.map(a=>[a.id,a]));
+ for(const m of rows){
+  const a=acts.get(m.act);
+  head.push('BEGIN:VEVENT','UID:'+slug(m.id)+'@lexsignal-eu.github.io','DTSTAMP:'+now,
+    'DTSTART;VALUE=DATE:'+m.date.replace(/-/g,''),'DTEND;VALUE=DATE:'+nextDate(m.date),
+    'SUMMARY:'+escICS(a.short+': '+m.title),
+    'DESCRIPTION:'+escICS(m.scope+' | Key date only; check scope and updated official law. Source: '+m.url),
+    'URL:'+m.url,'STATUS:CONFIRMED','TRANSP:TRANSPARENT','END:VEVENT');
+ }
+ head.push('END:VCALENDAR');
+ // Fold UTF-8 lines at 75 bytes maximum, as required by RFC 5545.
+ const folded=[];
+ for(const line of head){
+  let part='',bytes=0;
+  for(const c of line){
+   const n=new TextEncoder().encode(c).length;
+   if(bytes+n>75){folded.push(part);part=' '+c;bytes=1+n;}else{part+=c;bytes+=n;}
+  }
+  folded.push(part);
+ }
+ return folded.join('\r\n')+'\r\n';
+}
+el('sector').addEventListener('change',render);
+el('search').addEventListener('input',render);
+el('watch-only').addEventListener('change',render);
+el('show-past').addEventListener('click',()=>{showPast=!showPast;render();});
+el('export-ics').addEventListener('click',()=>{
+ const rows=visibleMilestones(true);if(!rows.length)return;
+ const blob=new Blob([calendarText(rows)],{type:'text/calendar;charset=utf-8'});
+ const url=URL.createObjectURL(blob),a=document.createElement('a');
+ a.href=url;a.download='lexsignal-regulatory-milestones.ics';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+async function loadData(){
+ try{
+  const response=await fetch('data/regulatory_library.json',{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);
+  const data=await response.json();
+  if(data.schema!=='lexsignal-regulatory-library-v1'||!Array.isArray(data.acts)||!Array.isArray(data.milestones))throw Error('Unexpected library format');
+  library=data;render();
+ }catch(error){
+  el('catalog').replaceChildren(item('div','empty','Could not load the curated library. Try refreshing the page.'));
+  el('timeline').replaceChildren(item('div','empty','Milestone data unavailable.'));
+  el('curation-note').textContent='Library temporarily unavailable';
+  el('export-ics').disabled=true;
+ }
+}
+async function loadRecent(){
+ const root=el('recent');
+ try{
+  const response=await fetch('api/v1/updates.json',{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);
+  const doc=await response.json();
+  if(!Array.isArray(doc.items))throw Error('Unexpected feed');
+  root.replaceChildren();
+  for(const row of doc.items.filter(x=>typeof x.sourceUrl==='string'&&/^https:\/\//.test(x.sourceUrl)&&typeof x.title==='string').slice(0,6)){
+   const a=document.createElement('a');a.href=row.sourceUrl;a.target='_blank';a.rel='noopener noreferrer';
+   a.append(item('strong','',row.title),item('span','',row.authority+' · '+fmt(row.publishedOn||'')+' · Unreviewed RSS'));
+   root.append(a);
+  }
+  if(!root.children.length)root.append(item('div','empty','No recent items in the published feed.'));
+ }catch(error){root.replaceChildren(item('div','empty','Latest RSS headlines temporarily unavailable. The curated legal library remains usable.'));}
+}
+loadData();loadRecent();
+})();
+</script>
+</body></html>
