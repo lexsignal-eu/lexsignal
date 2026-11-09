@@ -153,6 +153,7 @@ def main():
                         print("ESMA sample:",clean(node(sample,"title",ATOM+"title"),120),
                               "date",node(sample,"pubDate",DC+"date",ATOM+"published",ATOM+"updated"),
                               "link",node(sample,"link")[:120])
+                        print("ESMA fields:", [(child.tag,clean("".join(child.itertext()),85)) for child in sample][:14])
                 except Exception as diagnostic_error:
                     print("ESMA diagnostic error:",type(diagnostic_error).__name__)
             successes+=1
