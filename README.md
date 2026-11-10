@@ -96,3 +96,8 @@ The Regulatory Library now joins cards to the canonical `act:...` records from t
 ## M4 tenant security foundation (no login deployment)
 
 A standalone backend authorization contract checks database membership for every organizational action, enforces reader/analyst/admin policy and tenant-scoped queries, and rejects context forgery. Draft SQLite/D1 schema has tenant membership foreign keys for reviewers, document uploaders and mail connector owners. These are **offline tests and source files only**: the public website has no accounts, private API or customer storage. See `docs/TENANT_SECURITY.md`.
+
+
+## M5 illustrative organization lens
+
+The Regulatory Library now offers **synthetic** example profiles, initially an Irish payment institution and an EU AI-enabled SaaS provider. Selecting a profile narrows the curated legal catalogue and attaches research rationales and unanswered verification questions to the displayed acts. Data are static, published in `data/example_profile_lenses.json`; no user or client profile data are collected and no legal applicability is asserted. Real tenant-scoped personalized watchlists require M4 authentication and storage.
