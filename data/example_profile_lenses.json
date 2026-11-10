@@ -1,0 +1,83 @@
+{
+  "schema": "lexsignal-example-profile-lenses-v1",
+  "curatedAt": "2026-11-10",
+  "description": "Two synthetic, non-client profiles for transparent research screening. Candidate lists are illustrative and do not establish legal applicability, national implementation, or legal advice.",
+  "profiles": [
+    {
+      "id": "irish-payment-institution",
+      "name": "Irish payment institution (illustrative)",
+      "jurisdiction": "Ireland / EU",
+      "assumedActivities": [
+        "Regulated payment services",
+        "Processing customers' personal data",
+        "Reliance on ICT and service providers"
+      ],
+      "note": "Illustrative assumptions only. Actual permissions, group exemptions, size, services, outsourcing and Irish implementing rules require individual verification.",
+      "candidates": [
+        {
+          "actId": "dora",
+          "why": "ICT operational-resilience and third-party arrangements warrant review for financial entities.",
+          "verify": "Confirm licensing category, applicable DORA perimeter, service providers and exemptions."
+        },
+        {
+          "actId": "gdpr",
+          "why": "Payment and staff data processing creates questions about data protection roles and safeguards.",
+          "verify": "Map personal data, controller/processor roles and lawful processing grounds."
+        },
+        {
+          "actId": "nis2",
+          "why": "Cybersecurity rules and Irish transposition may create questions depending on entity classification and sector.",
+          "verify": "Check the current Irish implementing law, sector coverage, size and any DORA overlap before treating it as an obligation."
+        },
+        {
+          "actId": "ai-act",
+          "why": "Some payment providers use fraud or customer-support AI; the EU AI Act may be worth screening if such systems are used.",
+          "verify": "Determine whether AI systems are used and the actual operator roles and covered use categories."
+        }
+      ]
+    },
+    {
+      "id": "eu-ai-saas",
+      "name": "EU AI-enabled SaaS provider (illustrative)",
+      "jurisdiction": "European Union",
+      "assumedActivities": [
+        "Software-as-a-service",
+        "Possible AI functionality",
+        "Customer and employee data processing"
+      ],
+      "note": "Illustrative assumptions only. Classification as an AI-system provider, cloud service or digital product depends on the actual product and legal definitions.",
+      "candidates": [
+        {
+          "actId": "ai-act",
+          "why": "Potential AI-related provider or deployer roles require an initial legal classification.",
+          "verify": "Identify the systems, actors, risk classes and applicable provisions and dates."
+        },
+        {
+          "actId": "ai-omnibus",
+          "why": "Amendments to AI Act timing may affect planning where the underlying AI Act applies.",
+          "verify": "Check original provisions, subsequent amendments and current application dates."
+        },
+        {
+          "actId": "gdpr",
+          "why": "SaaS processing of customer or staff data merits a controller/processor and data-flow assessment.",
+          "verify": "Identify processing activities, roles, legal bases, transfer arrangements and contracts."
+        },
+        {
+          "actId": "cra",
+          "why": "The EU Cyber Resilience Act may warrant screening for certain products with digital elements.",
+          "verify": "Determine whether the specific software/product model falls within product scope and its phased obligations."
+        },
+        {
+          "actId": "data-act",
+          "why": "Cloud service and data access rules may matter for some covered services or product relationships.",
+          "verify": "Identify the type of cloud/data processing service and whether specific chapters are relevant."
+        },
+        {
+          "actId": "dsa",
+          "why": "Digital Services Act questions arise only for particular intermediary or platform functions.",
+          "verify": "Check whether the service actually falls within DSA intermediary-service definitions."
+        }
+      ]
+    }
+  ]
+}
