@@ -22,8 +22,6 @@ class KnowledgeValidationError(ValueError):
 KNOWN_SCHEMA = "lexsignal-knowledge-v1"
 ACT_ID = re.compile(r"^[a-z0-9][a-z0-9-]{1,70}$")
 RSS_ID = re.compile(r"^rss-[0-9a-f]{16}$")
-# The /oj suffix identifies the original Official Journal text, not a consolidated version.
-ELI_OJ_URL = re.compile(r"^https://eur-lex\.europa\.eu/eli/(?:reg|dir)/[0-9]{4}/[0-9]{1,5}/oj$")
 
 
 def _required(obj, field, typ=str):
@@ -174,11 +172,6 @@ def build_index(library, snapshot, registry):
             "sectors": sorted(set(sectors)), "topics": sorted(set(topics)),
             "jurisdiction": "EU",
         }
-        if ELI_OJ_URL.fullmatch(canonical["officialSourceUrl"]):
-            canonical["eliUri"] = canonical["officialSourceUrl"]
-            canonical["sourceEdition"] = "original_official_journal"
-        else:
-            canonical["sourceEdition"] = "official_reference_no_eli_recorded"
         entities.append(_entity(id_, "legal_instrument", canonical,
             "editorial_library", reviewStatus="curated_reference_metadata",
             curatedAt=curated_at))
