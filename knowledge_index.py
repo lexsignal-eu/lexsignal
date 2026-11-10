@@ -81,6 +81,42 @@ def _url(obj, key):
     return value
 
 
+
+def _explicit_eu_legal_identifiers(citation, source_url):
+    """Expose only identifiers grounded in a curated EUR-Lex OJ URI.
+
+    A CELEX candidate is derived mechanically from the EU act type/year/number.
+    Neither the candidate nor an OJ link proves the latest consolidated text,
+    an amendment, or applicability to any organisation.
+    """
+    source = urlsplit(source_url)
+    if source.hostname != "eur-lex.europa.eu":
+        return {"legalIdentifiers": {"status": "not_available_from_curated_source"}}
+    match = re.fullmatch(r"/eli/(reg|dir)/([0-9]{4})/([0-9]{1,4})/oj/?", source.path)
+    if not match or source.query or source.fragment:
+        return {"legalIdentifiers": {"status": "unresolved_eurlex_source_uri"}}
+
+    kind, year, number = match.groups()
+    cited = re.match(
+        r"^(Regulation|Directive)\s+\(EU\)\s+([0-9]{4})/([0-9]{1,4})(?=\b|,)",
+        citation,
+    )
+    kind_label = "Regulation" if kind == "reg" else "Directive"
+    if not cited or cited.group(1) != kind_label or cited.group(2) != year or int(cited.group(3)) != int(number):
+        raise KnowledgeValidationError(
+            "Citation and official EUR-Lex ELI identifier disagree"
+        )
+
+    celex_kind = "R" if kind == "reg" else "L"
+    return {"legalIdentifiers": {
+        "status": "parsed_from_curated_eli_original_journal_uri",
+        "eli": source_url,
+        "celexCandidate": f"3{year}{celex_kind}{int(number):04d}",
+        "celexVerification": "algorithmic_candidate_not_independently_resolved",
+        "textVersion": "original_official_journal_not_consolidated_current_text",
+    }}
+
+
 def _fingerprint(payload):
     """Stable 24-char SHA-256 fingerprint of editorial/source content only.
 
@@ -163,10 +199,13 @@ def build_index(library, snapshot, registry):
         topics = _required(row, "topics", list)
         if not all(isinstance(x, str) and x for x in topics):
             raise KnowledgeValidationError(f"Invalid topics in {id_}")
+        citation = _required(row, "citation")
+        source_url = _url(row, "source")
         canonical = {
             "name": _required(row, "title"), "shortName": _required(row, "short"),
-            "citation": _required(row, "citation"), "instrumentType": _required(row, "type"),
-            "officialSourceUrl": _url(row, "source"),
+            "citation": citation, "instrumentType": _required(row, "type"),
+            "officialSourceUrl": source_url,
+            **_explicit_eu_legal_identifiers(citation, source_url),
             "summary": _required(row, "summary"),
             "assessmentQuestion": _required(row, "check"),
             "sectors": sorted(set(sectors)), "topics": sorted(set(topics)),
