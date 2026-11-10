@@ -65,6 +65,51 @@ class KnowledgeIndexTests(unittest.TestCase):
         self.assertEqual(act["reviewStatus"], "curated_reference_metadata")
         self.assertNotEqual(act["reviewStatus"], "verified_legal_conclusion")
 
+    def test_eli_oj_and_celex_candidates_are_explicit_and_cautious(self):
+        index = self.built()
+        acts = {e["id"]: e for e in index["entities"] if e["type"] == "legal_instrument"}
+        self.assertEqual(acts["act:gdpr"]["legalIdentifiers"]["celexCandidate"], "32016R0679")
+        self.assertEqual(acts["act:nis2"]["legalIdentifiers"]["celexCandidate"], "32022L2555")
+        self.assertEqual(
+            acts["act:ai-act"]["legalIdentifiers"]["eli"],
+            "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+        )
+        self.assertEqual(
+            acts["act:ai-act"]["legalIdentifiers"]["textVersion"],
+            "original_official_journal_not_consolidated_current_text",
+        )
+        self.assertEqual(
+            acts["act:ai-act"]["legalIdentifiers"]["celexVerification"],
+            "algorithmic_candidate_not_independently_resolved",
+        )
+        self.assertEqual(
+            acts["act:t1"]["legalIdentifiers"]["status"],
+            "not_available_from_curated_source",
+        )
+        self.assertEqual(
+            sum("celexCandidate" in a["legalIdentifiers"] for a in acts.values()), 9
+        )
+
+    def test_mismatched_curated_eli_and_citation_are_rejected(self):
+        lib = copy.deepcopy(self.library)
+        lib["acts"][0]["citation"] = "Regulation (EU) 2024/1690"
+        with self.assertRaisesRegex(KnowledgeValidationError, "disagree"):
+            build_index(lib, self.snapshot, self.registry)
+        lib = copy.deepcopy(self.library)
+        lib["acts"][0]["source"] = "https://eur-lex.europa.eu/eli/dir/2024/1689/oj"
+        with self.assertRaisesRegex(KnowledgeValidationError, "disagree"):
+            build_index(lib, self.snapshot, self.registry)
+
+    def test_non_oj_eurlex_source_does_not_claim_current_consolidation(self):
+        lib = copy.deepcopy(self.library)
+        lib["acts"][0]["source"] = "https://eur-lex.europa.eu/legal-content/EN/TXT/"
+        index = build_index(lib, self.snapshot, self.registry)
+        act = next(e for e in index["entities"] if e["id"] == "act:ai-act")
+        self.assertEqual(
+            act["legalIdentifiers"]["status"], "unresolved_eurlex_source_uri"
+        )
+        self.assertNotIn("celexCandidate", act["legalIdentifiers"])
+
     def test_reproducible_fingerprint_across_timestamp_updates(self):
         base = self.built()
         changed = copy.deepcopy(self.snapshot)
