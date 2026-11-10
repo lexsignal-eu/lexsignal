@@ -13,10 +13,11 @@ const PERMISSIONS = Object.freeze({
   'billing:manage': ['admin']
 });
 const TENANT_TABLES = Object.freeze({
-  review_decisions: 'research:read',
-  stored_documents: 'research:read',
-  connector_accounts: 'connector:manage'
+  review_decisions: ['research:read', 'review:write'],
+  stored_documents: ['research:read', 'document:write'],
+  connector_accounts: ['connector:manage']
 });
+const CONTEXT_AUTHORIZED = Symbol('request_scoped_membership_check');
 export class AccessError extends Error {
   constructor(status, code) {
     super(code);
@@ -59,7 +60,8 @@ export async function requireOrganizationAccess(db, trustedSession, organization
     organizationId,
     actorUserId: trustedSession.userId,
     role: row.role,
-    permission
+    permission,
+    [CONTEXT_AUTHORIZED]: true
   });
 }
 export async function requireTenantRecord(db, context, table, recordId) {
@@ -67,8 +69,9 @@ export async function requireTenantRecord(db, context, table, recordId) {
   if (!Object.hasOwn(TENANT_TABLES, table)) {
     throw new Error('Unapproved tenant-scoped resource type');
   }
-  if (!context || !safeId(context.organizationId) || !safeId(context.actorUserId) ||
-      context.permission !== TENANT_TABLES[table]) {
+  if (!context || context[CONTEXT_AUTHORIZED] !== true ||
+      !safeId(context.organizationId) || !safeId(context.actorUserId) ||
+      !TENANT_TABLES[table].includes(context.permission)) {
     throw new AccessError(403, 'missing_authorized_context');
   }
   if (!safeId(recordId)) {
