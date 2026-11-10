@@ -15,6 +15,7 @@ on:
       - 'build_knowledge_index.py'
       - 'build_agent_feed.py'
       - 'build_site.py'
+      - 'backend/**'
       - '.github/workflows/publish.yml'
       - 'brand/**'
       - 'data/regulatory_snapshot.json'
