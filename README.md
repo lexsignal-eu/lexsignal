@@ -105,3 +105,7 @@ The Regulatory Library now offers **synthetic** example profiles, initially an I
 ## Source-linked example research worksheet (M6/M7 initial increment)
 
 `/research-brief.html` is a public, no-login research demonstration using the existing **synthetic** organization profiles. Its example JSON is compiled at build time by `research_demo.py`, which requires matching canonical sources and preserves unverified applicability. The user may inspect official citations and open questions, manually select records after checking sources, then download a markdown **research worksheet**. No client data are submitted or stored, and no AI legal conclusions or automatically verified obligations are generated. This is not the finished AI research engine or an authenticated customer workflow; see `docs/RELEASE_MILESTONES.md`.
+
+## M8 future document backend (not deployed)
+
+`backend/document_extract.py` contains a bounded in-memory DOCX-only text extraction library with paragraph evidence ordinals, ZIP/macro/entity safety checks and SHA-256 digest for future authenticated services. No server upload endpoint, private data storage, PDF parsing or Gmail/Microsoft OAuth is deployed. See `docs/DOCUMENT_PIPELINE.md`.
