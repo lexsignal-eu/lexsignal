@@ -18,8 +18,8 @@ Deliver a secure, evidence-grounded regulatory intelligence application for smal
 | **M6 — Evidence-grounded AI research** | P1 · #19 | Retrieve exact verified provisions and versions; citation checks, abstention, 30+ annotated evaluation cases, prompt-injection tests, human acceptance | **In progress.** Deterministic source-joined research worksheet and 30 mutated fail-closed fixtures; no AI inference, provision text or verified applicability yet |
 | **M7 — Unified research workflow and UX** | P1 · #20 | One responsive accessible route: import → validate → instrument → assess → assign → approved cited brief/export; empty/error states and human usability test | **In progress.** Synthetic source-to-reviewed-worksheet route with user-selected export; cross-product import/action continuity and actual usability test pending |
 | **M8 — Private documents and consented integrations** | P2 · #9, #10 | Private PDF/DOCX extraction with per-page evidence, malware/size limits, storage policies; permission-scoped read-only Gmail and Microsoft Graph OAuth with revoke/delete | **In progress.** Tested DOCX-only in-memory extraction contract; no public API, private tenant storage, PDF or OAuth yet |
-| **M9 — Pilot readiness and external acceptance** | Cross-cutting · #1, #2 | Production-like demo and documented accuracy; 3–5 consented discovery/user tests, issue resolution, customer pilot terms, support process; no unverified legal guarantees | External feedback and acceptance gaps remain |
-| **M10 — Commercial release and operations** | P3 · #11 | Verified seller and lawful tax/welfare setup; payment test/refund/webhooks, privacy and terms, security sign-off, support and incident process, monitored stable release | Billing not implemented |
+| **M9 — Pilot readiness and external acceptance** | Cross-cutting · #1, #2 | Production-like demo and documented accuracy; 3–5 consented discovery/user tests, issue resolution, customer pilot terms, support process; no unverified legal guarantees | **In progress.** Measurable test protocol and no-go gates documented; no real external tests or signed-off accuracy yet |
+| **M10 — Commercial release and operations** | P3 · #11 | Verified seller and lawful tax/welfare setup; payment test/refund/webhooks, privacy and terms, security sign-off, support and incident process, monitored stable release | **In progress.** Offline test-only signature and event dedup contract; no seller, checkout, live payment or verified commercial launch |
 
 ## Execution order and dependencies
 
@@ -80,3 +80,9 @@ Remaining: exact provision retrieval and versioned text, verified legal assessme
 ## M8 initial private document component
 
 `backend/document_extract.py` and tests implement conservative OOXML DOCX paragraph extraction with integrity digests, bounds, macro/ZIP-traversal/DTD rejection and explicit unverified evidence locators. It is only a library, **not deployed** as an upload service. No PDF support, customer data, OAuth or storage is provided yet. See [DOCUMENT_PIPELINE.md](DOCUMENT_PIPELINE.md) for the full security and deployment gates.
+
+## M9/M10 initial external and payment gates
+
+M9: [PILOT_ACCEPTANCE.md](PILOT_ACCEPTANCE.md) defines specific source-to-brief user test tasks, accuracy/safety acceptance targets, failure reporting and no-go criteria. No 3–5 real testers or customer agreements have been obtained.
+
+M10: `backend/payment_webhook.py` provides a strictly **test-mode-only** Stripe snapshot event signature checker and idempotent event-ID ledger, covered by offline malformed/hostile-event tests. No endpoint, merchant, Stripe credentials, subscriptions, charges or entitlement granting are active. See [BILLING_REVIEW.md](BILLING_REVIEW.md) for mandatory business, legal, security and live-activation gates. These milestones are not commercially complete.

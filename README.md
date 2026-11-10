@@ -109,3 +109,7 @@ The Regulatory Library now offers **synthetic** example profiles, initially an I
 ## M8 future document backend (not deployed)
 
 `backend/document_extract.py` contains a bounded in-memory DOCX-only text extraction library with paragraph evidence ordinals, ZIP/macro/entity safety checks and SHA-256 digest for future authenticated services. No server upload endpoint, private data storage, PDF parsing or Gmail/Microsoft OAuth is deployed. See `docs/DOCUMENT_PIPELINE.md`.
+
+## Pilot acceptance and future billing gates (M9/M10)
+
+`docs/PILOT_ACCEPTANCE.md` defines a consent-based 3–5-user synthetic pilot protocol and acceptance criteria, **not actual pilot results**. `backend/payment_webhook.py` verifies Stripe-style raw-body signatures and records test event IDs idempotently in SQLite, but explicitly refuses live-mode events. There is no merchant account, publicly deployed endpoint, checkout, subscription or customer charge. See `docs/BILLING_REVIEW.md`.
