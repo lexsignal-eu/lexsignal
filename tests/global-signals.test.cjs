@@ -40,9 +40,11 @@ test('map is reachable from the product overview and deployment',()=>{
  const home=fs.readFileSync(path.join(root,'index.html'),'utf8');
  const publish=fs.readFileSync(path.join(root,'.github/workflows/publish.yml'),'utf8');
  assert.match(home,/global-signals\.html/);
- assert.match(publish,/global-signals\.html/);
- assert.match(publish,/global_signals\.json/);
- assert.match(publish,/ne_110m_land\.geojson/);
+ const builder=fs.readFileSync(path.join(root,'build_site.py'),'utf8');
+ assert.match(publish,/build_site\.py --out _site/);
+ assert.match(builder,/global-signals\.html/);
+ assert.match(builder,/data\/global_signals\.json/);
+ assert.match(builder,/ASSET_DIRS/);
 });
 test('map preserves the approved brand asset and distinguishes institution hubs',()=>{
  assert.match(html,/lexsignal-sphere-approved\.webp/);
