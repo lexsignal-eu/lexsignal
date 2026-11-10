@@ -28,6 +28,7 @@ PAGES = (
     "documents.html",
     "global-signals.html",
     "regulatory-library.html",
+    "research-brief.html",
     "agent-access.html",
     "llms.txt",
 )
