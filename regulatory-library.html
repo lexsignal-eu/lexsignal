@@ -89,6 +89,21 @@ main{padding:28px 0 75px}
 .source-items a strong{display:block;font-size:13px;color:#1e485a}
 .source-items a span{display:block;color:#81939e;margin-top:3px}
 .source-items a:hover{background:#f4faf9}
+.source-health{background:#fff;border:1px solid var(--line);border-radius:13px;padding:21px 23px;margin-bottom:19px}
+.source-health-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.source-health h2{font-size:20px;letter-spacing:-.5px;margin:0 0 5px}
+.source-health p{margin:0;color:#627b8b;font-size:12px;line-height:1.65}
+.source-health .health-summary{margin:13px 0 10px;color:#274c5c;font-weight:700}
+.source-health-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.source-health-source{border:1px solid #e0e9eb;background:#f8fbfa;border-radius:9px;padding:12px;min-width:0}
+.source-health-source strong{display:block;font-size:13px;color:#204257}
+.source-health-source small{display:block;color:#66818e;margin-top:5px;line-height:1.5;font-size:11px}
+.source-health-state{display:inline-block;margin-top:6px;font-size:11px;font-weight:800;color:#247365}
+.source-health-state.error{color:#9a4e35}
+.source-health-state.unknown{color:#667a86}
+.source-health .health-footnote{margin-top:11px}
+@media(max-width:820px){.source-health-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:450px){.source-health{padding:17px}.source-health-grid{grid-template-columns:1fr}}
 .empty{padding:27px 18px;color:#718495;font-size:13px;text-align:center}
 .disclaimer{border-left:3px solid #268c7f;background:#e7f3f0;border-radius:0 10px 10px 0;margin-top:22px;padding:14px 19px;color:#476779;font-size:12px;line-height:1.7}
 footer{background:#102b3c;color:#bdd0da;font-size:12px;padding:27px 0}
@@ -131,6 +146,16 @@ footer a{color:#e4f2f4;text-decoration:none}
   <div class="metric"><strong id="count-future">—</strong><small>Upcoming milestones in view</small></div>
   <div class="metric"><strong id="count-saved">—</strong><small>Saved to your reading list</small></div>
  </div>
+ <section class="source-health" aria-labelledby="source-health-title">
+  <div class="source-health-head">
+    <div><h2 id="source-health-title">Source collection &amp; provenance</h2>
+      <p>See when LexSignal last collected official publications and whether any records are cached.</p></div>
+    <a class="action" href="api/v1/knowledge.json" target="_blank" rel="noopener noreferrer">Inspect source index</a>
+  </div>
+  <p class="health-summary" id="source-health-summary" role="status" aria-live="polite">Checking the published knowledge index…</p>
+  <div class="source-health-grid" id="source-health-grid" aria-label="Regulator collection status"></div>
+  <p class="health-footnote">These are collection diagnostics. RSS entries remain unreviewed, and feed status does not establish legal completeness, amendments or obligations for any organisation.</p>
+ </section>
  <div class="columns">
   <section aria-label="EU regulatory library">
    <div class="section-head"><h2>Browse official frameworks</h2><small id="curation-note">Checking the catalogue…</small></div>
@@ -291,6 +316,53 @@ el('export-ics').addEventListener('click',()=>{
  const url=URL.createObjectURL(blob),a=document.createElement('a');
  a.href=url;a.download='lexsignal-regulatory-milestones.ics';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
 });
+function sourceHealthModel(index,now=new Date()){
+ if(!index||index.schema!=='lexsignal-knowledge-v1'||!index.provenance||
+    !index.counts||!Array.isArray(index.provenance.sourceStatus))throw Error('Unknown knowledge index format');
+ const when=new Date(index.provenance.rssSnapshotGeneratedAt);
+ if(!Number.isFinite(when.getTime()))throw Error('Invalid collection time');
+ const age=now.getTime()-when.getTime();
+ const freshness=age< -300000?'Timestamp is in the future; check collection clock':
+   age>48*60*60*1000?'Snapshot older than 48 hours; check official sources':'Snapshot age within 48 hours';
+ const counts=index.counts;
+ if(!Number.isSafeInteger(counts.legalInstruments)||!Number.isSafeInteger(counts.rssPublications)||
+    counts.legalInstruments<0||counts.rssPublications<0)throw Error('Invalid index counts');
+ const sources=index.provenance.sourceStatus.map(row=>{
+  if(!row||typeof row.authority!=='string'||!['ok','error','unknown'].includes(row.state)||
+     !Number.isSafeInteger(row.observedRecordCount)||row.observedRecordCount<0||
+     !Number.isSafeInteger(row.cachedRecordCount)||row.cachedRecordCount<0)throw Error('Invalid source status');
+  return {name:row.authority,state:row.state,
+   label:row.state==='ok'?'Last collection: OK':row.state==='error'?'Last collection: error':'Collection status unknown',
+   details:row.observedRecordCount+' observed · '+row.cachedRecordCount+' cached'};
+ });
+ if(!sources.length)throw Error('No source status records');
+ return {summary:'Last snapshot: '+when.toISOString().slice(0,16).replace('T',' ')+' UTC · '+freshness+
+   '. '+counts.legalInstruments+' curated references; '+counts.rssPublications+' unreviewed RSS publications.',
+   sources};
+}
+function renderSourceHealth(index){
+ const root=el('source-health-grid');
+ try{
+  const view=sourceHealthModel(index);
+  el('source-health-summary').textContent=view.summary;root.replaceChildren();
+  for(const source of view.sources){
+   const card=item('div','source-health-source');
+   card.append(item('strong','',source.name),item('span','source-health-state'+(source.state==='ok'?'':source.state==='error'?' error':' unknown'),source.label),
+    item('small','',source.details));
+   root.append(card);
+  }
+ }catch(error){
+  el('source-health-summary').textContent='Source diagnostics unavailable. Check the published knowledge index or official regulators directly.';
+  root.replaceChildren();
+ }
+}
+async function loadKnowledge(){
+ try{
+  const response=await fetch('api/v1/knowledge.json',{cache:'no-store'});
+  if(!response.ok)throw Error('HTTP '+response.status);
+  renderSourceHealth(await response.json());
+ }catch(error){renderSourceHealth(null);}
+}
 async function loadData(){
  try{
   const response=await fetch('data/regulatory_library.json',{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);
@@ -319,7 +391,7 @@ async function loadRecent(){
   if(!root.children.length)root.append(item('div','empty','No recent items in the published feed.'));
  }catch(error){root.replaceChildren(item('div','empty','Latest RSS headlines temporarily unavailable. The curated legal library remains usable.'));}
 }
-loadData();loadRecent();
+loadData();loadRecent();loadKnowledge();
 })();
 </script>
 </body></html>
