@@ -50,20 +50,13 @@ jobs:
               git push origin HEAD:main
             fi
           fi
-      - name: Prepare site
+      - name: Validate release source and frontend
         run: |
-          mkdir -p _site/data
-          cp index.html landing.html workspace.html documents.html global-signals.html regulatory-library.html agent-access.html llms.txt _site/
-          mkdir -p _site/geo
-          cp geo/ne_110m_land.geojson _site/geo/
-          cp -R brand _site/
-          python build_agent_feed.py --input data/regulatory_snapshot.json --out _site/api/v1
-          python build_knowledge_index.py --out _site/api/v1/knowledge.json
-          if [ -f data/regulatory_snapshot.json ]; then
-            cp data/regulatory_snapshot.json _site/data/
-            cp data/global_signals.json _site/data/
-            cp data/regulatory_library.json _site/data/
-          fi
+          python -m unittest discover -s tests -p 'test_*.py'
+          node --test tests/*.test.cjs
+      - name: Prepare and validate one release artifact
+        run: |
+          python build_site.py --out _site --revision "$(git rev-parse HEAD)"
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact
