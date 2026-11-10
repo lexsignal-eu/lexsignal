@@ -84,3 +84,34 @@ test('site exposes library from main navigation and publishes its data to Pages'
   assert.match(workflow,/data\/regulatory_library\.json/);
   assert.match(page,/lexsignal-sphere-approved\.webp/);
 });
+
+test('source health shows collection failures, cached records and stale snapshots without overstating legal status', () => {
+  assert.match(page, /id="source-health-summary"/);
+  assert.match(page, /id="source-health-grid"/);
+  assert.match(page, /api\/v1\/knowledge\.json/);
+  assert.match(page, /loadData\(\);loadRecent\(\);loadKnowledge\(\);/);
+  const start=script.indexOf('function sourceHealthModel(');
+  const end=script.indexOf('function renderSourceHealth(',start);
+  assert.ok(start>0&&end>start);
+  const ctx=vm.createContext({Date,Number});
+  vm.runInContext(script.slice(start,end),ctx);
+  ctx.doc={
+    schema:'lexsignal-knowledge-v1',
+    provenance:{
+      rssSnapshotGeneratedAt:'2026-11-08T07:00:00Z',
+      sourceStatus:[
+        {authority:'ESMA',state:'error',observedRecordCount:0,cachedRecordCount:7},
+        {authority:'EDPB',state:'ok',observedRecordCount:12,cachedRecordCount:3}
+      ]
+    },
+    counts:{legalInstruments:10,rssPublications:22}
+  };
+  const view=vm.runInContext('sourceHealthModel(doc,new Date("2026-11-10T10:00:00Z"))',ctx);
+  assert.match(view.summary,/older than 48 hours/);
+  assert.match(view.summary,/unreviewed RSS publications/);
+  assert.equal(view.sources[0].label,'Last collection: error');
+  assert.equal(view.sources[0].details,'0 observed · 7 cached');
+  assert.equal(view.sources[1].label,'Last collection: OK');
+  assert.throws(()=>vm.runInContext('sourceHealthModel({...doc,schema:"incorrect"})',ctx));
+  assert.throws(()=>vm.runInContext('sourceHealthModel({...doc,provenance:{...doc.provenance,sourceStatus:[]}})',ctx));
+});
