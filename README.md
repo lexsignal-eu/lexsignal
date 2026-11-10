@@ -101,3 +101,7 @@ A standalone backend authorization contract checks database membership for every
 ## M5 illustrative organization lens
 
 The Regulatory Library now offers **synthetic** example profiles, initially an Irish payment institution and an EU AI-enabled SaaS provider. Selecting a profile narrows the curated legal catalogue and attaches research rationales and unanswered verification questions to the displayed acts. Data are static, published in `data/example_profile_lenses.json`; no user or client profile data are collected and no legal applicability is asserted. Real tenant-scoped personalized watchlists require M4 authentication and storage.
+
+## Source-linked example research worksheet (M6/M7 initial increment)
+
+`/research-brief.html` is a public, no-login research demonstration using the existing **synthetic** organization profiles. Its example JSON is compiled at build time by `research_demo.py`, which requires matching canonical sources and preserves unverified applicability. The user may inspect official citations and open questions, manually select records after checking sources, then download a markdown **research worksheet**. No client data are submitted or stored, and no AI legal conclusions or automatically verified obligations are generated. This is not the finished AI research engine or an authenticated customer workflow; see `docs/RELEASE_MILESTONES.md`.
