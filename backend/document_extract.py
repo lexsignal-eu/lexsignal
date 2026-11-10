@@ -30,7 +30,7 @@ class DocumentRejected(ValueError):
 def _safe_filename(value):
     if not isinstance(value, str) or len(value) > 150:
         raise DocumentRejected("Invalid document name")
-    if not re.fullmatch(r"[A-Za-z0-9 _.,()+-]+\\.docx", value, re.IGNORECASE):
+    if not re.fullmatch(r"[A-Za-z0-9 _.,()+-]+\.docx", value, re.IGNORECASE):
         raise DocumentRejected("Only simple DOCX filenames are accepted")
     return value
 
@@ -55,7 +55,7 @@ def extract_docx(data, filename, declared_mime=DOCX_MIME):
         raise DocumentRejected("Invalid DOCX declared media type")
     if not isinstance(data, bytes) or not 0 < len(data) <= MAX_INPUT_BYTES:
         raise DocumentRejected("Document size or byte type rejected")
-    if not data.startswith(b"PK\\x03\\x04"):
+    if not data.startswith(b"PK\x03\x04"):
         raise DocumentRejected("DOCX must have an OOXML ZIP signature")
     try:
         with zipfile.ZipFile(io.BytesIO(data)) as z:
