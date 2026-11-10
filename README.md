@@ -81,3 +81,8 @@ Run: `python build_knowledge_index.py --out /tmp/knowledge.json`. Optionally com
 The Regulatory Library now reads the existing generated `/api/v1/knowledge.json` index to display per-authority collection success/failure, observed vs cached publication counts and the published UTC snapshot timestamp, with a warning when that snapshot is older than 48 hours. Failures leave an explicit unavailable status; the page does not silently claim that a stale or failed feed is up to date. Records remain unreviewed unless explicitly curated and human checked. The generated source index is publicly inspectable, but it is not a legal-text version or proof of a regulatory obligation.
 
 For the ten-step engineering and commercial release plan, dependencies and acceptance gates, see [docs/RELEASE_MILESTONES.md](docs/RELEASE_MILESTONES.md). M1–M10 are newly defined release milestones mapped to the existing P0–P3 engineering programme. A milestone is not complete until its acceptance criteria have been tested; a merged PR alone does not imply a customer-ready product.
+
+
+## Legal ELI source traceability (M2 initial increment)
+
+The knowledge index preserves exact existing EUR-Lex ELI links to original Official Journal texts as `eliUri` with `sourceEdition: original_official_journal`, and explicitly marks the T+1 initiative reference as lacking a standalone ELI identifier in this catalogue. Regulatory Library law cards show the canonical source record and edition note when the index loads. This does **not** provide consolidated legislation, CELEX verification, provision citations, automatic legal amendment detection or advice; all remain in M2's release gates.
