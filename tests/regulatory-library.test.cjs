@@ -80,8 +80,10 @@ test('site exposes library from main navigation and publishes its data to Pages'
   const workflow=fs.readFileSync(path.join(root,'.github/workflows/publish.yml'),'utf8');
   assert.match(home,/regulatory-library\.html/);
   assert.match(home,/Browse official EU laws/);
-  assert.match(workflow,/regulatory-library\.html/);
-  assert.match(workflow,/data\/regulatory_library\.json/);
+  const builder=fs.readFileSync(path.join(root,'build_site.py'),'utf8');
+  assert.match(workflow,/build_site\.py --out _site/);
+  assert.match(builder,/regulatory-library\.html/);
+  assert.match(builder,/data\/regulatory_library\.json/);
   assert.match(page,/lexsignal-sphere-approved\.webp/);
 });
 
