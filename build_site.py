@@ -34,6 +34,7 @@ DATA_FILES = (
     "data/regulatory_snapshot.json",
     "data/global_signals.json",
     "data/regulatory_library.json",
+    "data/example_profile_lenses.json",
 )
 ASSET_DIRS = ("brand", "geo")
 RELEASE_SCHEMA = "lexsignal-static-release-v1"
