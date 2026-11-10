@@ -235,12 +235,21 @@ function renderCatalog(){
   if(record){
    detail.append(item('h3','','Source traceability'),
     item('p','','Index: '+record.id+' · '+(record.reviewStatus==='curated_reference_metadata'?'Curated reference metadata':'Review status: '+String(record.reviewStatus||'unknown'))));
-   if(record.sourceEdition==='original_official_journal'&&record.eliUri===act.source){
-    const info=item('p','','ELI (original Official Journal): ');
-    info.append(officialLink(record.eliUri,record.eliUri,'record-link'));
+   const matchesIndex=record.officialSourceUrl===act.source;
+   const eliSource=matchesIndex&&act.source.startsWith('https://eur-lex.europa.eu/eli/')&&act.source.endsWith('/oj');
+   if(eliSource){
+    const info=item('p','','Curated ELI link (original Official Journal): ');
+    info.append(officialLink(act.source,act.source,'record-link'));
     detail.append(info,item('p','','Check subsequent amendments and the current consolidated text separately.'));
+    const identifier=record.legalIdentifiers;
+    if(identifier&&identifier.celexCandidate){
+     detail.append(item('p','','CELEX candidate: '+identifier.celexCandidate+
+       ' · Algorithmic identifier; not independently verified against EUR-Lex.'));
+    }
+   }else if(matchesIndex){
+    detail.append(item('p','','Official initiative or guidance reference. No original-OJ ELI act URI is recorded.'));
    }else{
-    detail.append(item('p','','Official initiative or guidance reference. No standalone ELI act identifier is recorded.'));
+    detail.append(item('p','','Source mismatch between the catalogue and index; verify before use.'));
    }
   }
   if(act.special){
