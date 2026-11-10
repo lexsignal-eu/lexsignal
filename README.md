@@ -74,3 +74,10 @@ Use industry and text filters, bookmark laws locally, show past/upcoming milesto
 The independent module `knowledge_index.py` validates and combines `data/source_registry.json`, `data/regulatory_library.json` and the existing official RSS snapshot. `build_knowledge_index.py` generates a static `/api/v1/knowledge.json` feed with typed authority, legal-instrument, milestone and publication records, explicit grounded relationships, stable metadata fingerprints and timestamp/review provenance. There is no provision-level legal-text parsing yet and no AI-inferred linking.
 
 Run: `python build_knowledge_index.py --out /tmp/knowledge.json`. Optionally compare two generated files with `--previous old.json --changes-out changes.json`; the resulting events describe **metadata differences only**, not real legal amendments or repeal. Python tests validate source domain allowlists, identity uniqueness, valid calendar dates, entity relations and source flags. See `docs/adr/001-knowledge-index.md` and `docs/ENGINEERING_PLAN.md` for the next system stages.
+
+
+## Source collection transparency (M1 release increment)
+
+The Regulatory Library now reads the existing generated `/api/v1/knowledge.json` index to display per-authority collection success/failure, observed vs cached publication counts and the published UTC snapshot timestamp, with a warning when that snapshot is older than 48 hours. Failures leave an explicit unavailable status; the page does not silently claim that a stale or failed feed is up to date. Records remain unreviewed unless explicitly curated and human checked. The generated source index is publicly inspectable, but it is not a legal-text version or proof of a regulatory obligation.
+
+For the ten-step engineering and commercial release plan, dependencies and acceptance gates, see [docs/RELEASE_MILESTONES.md](docs/RELEASE_MILESTONES.md). M1–M10 are newly defined release milestones mapped to the existing P0–P3 engineering programme. A milestone is not complete until its acceptance criteria have been tested; a merged PR alone does not imply a customer-ready product.
