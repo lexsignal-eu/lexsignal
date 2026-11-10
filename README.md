@@ -91,3 +91,8 @@ The Regulatory Library now joins cards to the canonical `act:...` records from t
 ## Release artifact verification (M3 first increment)
 
 `python build_site.py --out /tmp/lexsignal-preview --revision YOUR_COMMIT_SHA` builds the public site and generated API data with an integrity manifest at `/api/v1/build-manifest.json`. Pull requests run the same builder and upload an isolated, downloadable preview artifact; Pages publication requires Python and Node tests plus the offline link, schema and provenance checks. The preview is **not a hosted staging environment**. Remote browser acceptance, alerts and rollback rehearsal remain pending. See `docs/RELEASE_OPERATIONS.md`.
+
+
+## M4 tenant security foundation (no login deployment)
+
+A standalone backend authorization contract checks database membership for every organizational action, enforces reader/analyst/admin policy and tenant-scoped queries, and rejects context forgery. Draft SQLite/D1 schema has tenant membership foreign keys for reviewers, document uploaders and mail connector owners. These are **offline tests and source files only**: the public website has no accounts, private API or customer storage. See `docs/TENANT_SECURITY.md`.
