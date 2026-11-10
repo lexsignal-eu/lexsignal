@@ -86,7 +86,7 @@ test('cross-tenant records cannot be fetched even when their ID is known', async
     {status:404,code:'record_not_found'});
   const record=await requireTenantRecord(db,ctx,'review_decisions','review-2');
   assert.equal(record.organizationId,'org-a');
-  assert.deepEqual(db.calls[2].params,['review-1','org-a']);
+  assert.deepEqual(db.calls[1].params,['review-1','org-a']);
 });
 
 test('a forged context, table, or permission cannot bypass the scoped query', async () => {
