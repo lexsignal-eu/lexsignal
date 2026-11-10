@@ -44,6 +44,23 @@ class KnowledgeIndexTests(unittest.TestCase):
             self.assertIn(relation["from"], ids)
             self.assertIn(relation["to"], ids)
 
+    def test_original_eli_identifiers_are_traceable_but_not_consolidated(self):
+        index = self.built()
+        acts = {row["id"]: row for row in index["entities"] if row["type"] == "legal_instrument"}
+        self.assertEqual(len(acts), 10)
+        eli = [row for row in acts.values() if "eliUri" in row]
+        self.assertEqual(len(eli), 9)
+        for record in eli:
+            self.assertEqual(record["eliUri"], record["officialSourceUrl"])
+            self.assertTrue(record["eliUri"].startswith("https://eur-lex.europa.eu/eli/"))
+            self.assertEqual(record["sourceEdition"], "original_official_journal")
+            self.assertNotIn("consolidatedText", record)
+            self.assertNotIn("celexId", record)  # Not asserted without primary-source verification.
+        self.assertEqual(acts["act:nis2"]["eliUri"],
+                         "https://eur-lex.europa.eu/eli/dir/2022/2555/oj")
+        self.assertEqual(acts["act:t1"]["sourceEdition"], "official_reference_no_eli_recorded")
+        self.assertNotIn("eliUri", acts["act:t1"])
+
     def test_strictly_grounded_links_only(self):
         index = self.built()
         for relation in index["relationships"]:
