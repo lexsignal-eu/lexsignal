@@ -78,3 +78,7 @@ Reference: https://github.com/stripe/ai/blob/main/skills/stripe-best-practices/r
 6. Organization subscriptions, billing webhook processing and optional agent integrations.
 
 No customer communications or commercial commitments are created by this architecture file.
+
+## M4 first access-control contract (10 November 2026)
+
+Backend source now contains a small authorization module (`backend/access_control.mjs`) and tenant membership constraints in the draft SQL schema. They have synthetic tests for role and organization isolation. They are not exposed publicly. Before deployment: verified identity sessions, real D1 binding, scoped HTTP operations, migrations, retention, token encryption, CSRF/session controls, audit and customer-data privacy assessment remain mandatory. See `docs/TENANT_SECURITY.md`.

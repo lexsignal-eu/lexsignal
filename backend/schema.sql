@@ -39,7 +39,13 @@ CREATE TABLE IF NOT EXISTS review_decisions (
   owner_user_id TEXT REFERENCES users(id),
   internal_due_date TEXT,
   updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  UNIQUE(organization_id,source_id)
+  UNIQUE(organization_id,source_id),
+  -- Reviewer and optional action owner must belong to this same organization.
+  -- Membership departure requires reassignment/redaction of owned live records.
+  FOREIGN KEY (organization_id, reviewer_user_id)
+    REFERENCES memberships(organization_id,user_id) DEFERRABLE INITIALLY DEFERRED,
+  FOREIGN KEY (organization_id, owner_user_id)
+    REFERENCES memberships(organization_id,user_id) DEFERRABLE INITIALLY DEFERRED
 );
 CREATE INDEX IF NOT EXISTS idx_reviews_tenant ON review_decisions(organization_id,updated_at);
 CREATE TABLE IF NOT EXISTS connector_accounts (
@@ -52,7 +58,9 @@ CREATE TABLE IF NOT EXISTS connector_accounts (
   encrypted_tokens TEXT NOT NULL, -- application-layer encrypted; never plaintext
   revoked_at TEXT,
   created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  UNIQUE(user_id,provider,provider_account_id)
+  UNIQUE(user_id,provider,provider_account_id),
+  FOREIGN KEY (organization_id, user_id)
+    REFERENCES memberships(organization_id,user_id) DEFERRABLE INITIALLY DEFERRED
 );
 CREATE TABLE IF NOT EXISTS stored_documents (
   id TEXT PRIMARY KEY,
@@ -63,7 +71,9 @@ CREATE TABLE IF NOT EXISTS stored_documents (
   content_type TEXT NOT NULL,
   byte_length INTEGER NOT NULL CHECK(byte_length >= 0),
   created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  deletion_due_at TEXT
+  deletion_due_at TEXT,
+  FOREIGN KEY (organization_id, uploaded_by_user_id)
+    REFERENCES memberships(organization_id,user_id) DEFERRABLE INITIALLY DEFERRED
 );
 CREATE INDEX IF NOT EXISTS idx_documents_tenant ON stored_documents(organization_id,created_at);
 CREATE TABLE IF NOT EXISTS billing_accounts (
