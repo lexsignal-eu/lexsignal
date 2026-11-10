@@ -18,6 +18,7 @@ from urllib.parse import unquote, urlsplit
 
 from build_agent_feed import build_documents, openapi_spec, write_json
 from knowledge_index import build_index
+from research_demo import build_example_research
 
 
 PAGES = (
@@ -27,6 +28,7 @@ PAGES = (
     "documents.html",
     "global-signals.html",
     "regulatory-library.html",
+    "research-brief.html",
     "agent-access.html",
     "llms.txt",
 )
@@ -135,6 +137,7 @@ def build_site(repository, destination, revision="unknown"):
     snapshot = _json(root / "data/regulatory_snapshot.json")
     library = _json(root / "data/regulatory_library.json")
     registry = _json(root / "data/source_registry.json")
+    lenses = _json(root / "data/example_profile_lenses.json")
 
     feeds = build_documents(snapshot)
     index = build_index(library, snapshot, registry)
@@ -143,6 +146,8 @@ def build_site(repository, destination, revision="unknown"):
         write_json(api / name, document)
     write_json(api / "openapi.json", openapi_spec())
     write_json(api / "knowledge.json", index)
+    research = build_example_research(library, lenses, index)
+    write_json(output / "data/example_research.json", research)
 
     # Validate relationships across independently generated public exports.
     if feeds["status.json"]["recordCount"] != feeds["updates.json"]["count"]:

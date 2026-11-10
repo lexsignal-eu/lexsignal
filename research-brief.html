@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102538">
+<meta name="description" content="Prepare a cautious, source-linked example regulatory research worksheet for a synthetic company.">
+<title>Evidence Research Worksheet — LexSignal</title>
+<link rel="icon" type="image/webp" href="brand/lexsignal-sphere-approved.webp">
+<style>
+:root{--navy:#102538;--ink:#19364a;--teal:#087e74;--muted:#647b8b;--border:#dce6e8;--bg:#f4f7f7}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Arial,sans-serif}
+a{color:#136585}a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #28ada2;outline-offset:3px}
+.wrap{width:min(1080px,calc(100% - 40px));margin:auto}
+header{background:white;border-bottom:1px solid var(--border)}
+nav{display:flex;align-items:center;justify-content:space-between;min-height:73px;gap:16px;flex-wrap:wrap;padding:10px 0}
+.brand{display:flex;gap:11px;align-items:center;color:var(--ink);font-size:22px;font-weight:800;text-decoration:none}
+.brand img{width:41px;height:41px;border-radius:50%}
+.links{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;font-weight:700}
+.links a{text-decoration:none;color:#416275}
+.hero{background:#102c42;color:white;padding:48px 0}
+.kicker{font-size:11px;font-weight:850;letter-spacing:1.6px;text-transform:uppercase;color:#9acdc5}
+h1{font-size:clamp(32px,4vw,49px);line-height:1.15;letter-spacing:-1.5px;margin:11px 0}
+.hero p{color:#c4d8e2;max-width:760px;font-size:15px}
+main{padding:26px 0 65px}
+.panel{background:white;border:1px solid var(--border);border-radius:13px;padding:21px 24px;margin-bottom:18px}
+.panel h2{font-size:22px;line-height:1.3;margin:0 0 8px}
+.panel p{color:#607889;margin:0 0 11px;font-size:13px}
+.controls{display:flex;gap:17px;align-items:end;justify-content:space-between;flex-wrap:wrap}
+.field{display:grid;gap:5px;color:#446273;font-weight:700;font-size:12px}
+select{min-width:260px;max-width:100%;border:1px solid #cedfe1;background:#fff;color:#173e50;border-radius:8px;padding:10px 12px;font:inherit}
+.note{padding:12px 16px;border-left:3px solid #168578;background:#edf5f2;color:#365767;font-size:13px;line-height:1.6;margin:14px 0}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:17px;align-items:center}
+button,.button{font:inherit;font-size:13px;font-weight:760;padding:10px 14px;border-radius:8px;border:1px solid #bbd2d3;background:#fff;color:#19445a;cursor:pointer;text-decoration:none}
+button.primary{background:var(--navy);border-color:var(--navy);color:white}
+button:disabled{cursor:not-allowed;opacity:.52}
+.cards{display:grid;gap:14px}
+.card{background:white;border:1px solid var(--border);border-radius:11px;padding:19px 21px}
+.card h3{margin:0 0 5px;font-size:19px;line-height:1.3}
+.meta{font-size:12px;color:#637e8e;overflow-wrap:anywhere}
+.status{display:inline-block;font-weight:800;text-transform:uppercase;letter-spacing:.3px;color:#92612b;font-size:10px;border:1px solid #eedbc6;padding:3px 7px;border-radius:5px;background:#fcf7ee}
+.group{margin-top:13px}
+.group strong{color:#285363;font-size:12px}
+.group p{margin:3px 0;font-size:13px;color:#516e7f}
+.source{font-size:12px;word-break:break-word}
+.review{display:flex;align-items:flex-start;gap:10px;background:#f3f8f8;border:1px solid #d9e8e7;border-radius:9px;padding:11px 12px;margin-top:17px;font-size:12px;color:#335a65}
+.review input{margin-top:4px;width:17px;height:17px;accent-color:#087e74}
+.empty{padding:26px;color:#607889;text-align:center}
+footer{background:#0b2333;color:#c3d3db;padding:25px 0;font-size:12px}
+footer a{color:white}
+@media(max-width:650px){.wrap{width:calc(100% - 28px)}.panel{padding:18px}.card{padding:16px}.links{gap:10px}select{min-width:0;width:100%}.field{width:100%}.hero{padding:35px 0}}
+</style>
+</head>
+<body>
+<header><nav class="wrap">
+<a class="brand" href="index.html"><img src="brand/lexsignal-sphere-approved.webp" alt="">LexSignal</a>
+<div class="links"><a href="index.html">Home</a><a href="regulatory-library.html">Regulatory Library</a><a href="workspace.html">Workspace</a><a href="documents.html">Documents</a><a href="global-signals.html">World map</a></div>
+</nav></header>
+<section class="hero"><div class="wrap">
+<div class="kicker">Example research · Source to draft</div>
+<h1>Evidence research worksheet</h1>
+<p>Choose a synthetic organisation. Inspect the original legal references, check open questions and explicitly select which items to include in an exportable working draft.</p>
+</div></section>
+<main class="wrap">
+<section class="panel" aria-labelledby="intro-title">
+<div class="controls">
+<div><h2 id="intro-title">Research scenario</h2><p>Public demonstration profiles. No customer data, account or server storage.</p></div>
+<label class="field">Illustrative organisation
+<select id="profile" disabled><option value="">Loading research examples…</option></select></label>
+</div>
+<p id="summary" role="status" aria-live="polite">Retrieving curated references…</p>
+<div id="assumptions"></div>
+<div class="note">Each entry is an editorial research candidate. An original Official Journal link is not necessarily consolidated/current law. An unanswered applicability question cannot be presented as a legal obligation.</div>
+<div class="actions">
+<button id="export" type="button" class="primary" disabled>Download reviewed draft (.md)</button>
+<a class="button" href="workspace.html">Open research workspace</a>
+<span id="export-status" role="status" aria-live="polite" class="meta"></span>
+</div>
+</section>
+<section aria-labelledby="candidate-title">
+<div class="controls"><h2 id="candidate-title">Candidate references</h2><span id="counter" class="meta">0 reviewed items selected</span></div>
+<div id="candidates" class="cards"><div class="panel empty">Loading evidence worksheet…</div></div>
+</section>
+</main>
+<footer><div class="wrap">LexSignal · <a href="regulatory-library.html">Browse legal sources</a> · Research preview only; no independent assessment of legal applicability.</div></footer>
+<script>
+(function(){
+'use strict';
+const el=id=>document.getElementById(id);
+const make=(tag,cls,value)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(value!==undefined)e.textContent=String(value);return e;};
+const APPROVED='https://';
+let documentData=null,selected=new Set();
+function validWorksheet(doc){
+ if(!doc||doc.schema!=='lexsignal-example-research-v1'||!Array.isArray(doc.profiles)||!doc.profiles.length||doc.profiles.length>10)return false;
+ const seen=new Set();
+ return doc.profiles.every(p=>{
+  if(!p||typeof p.id!=='string'||seen.has(p.id)||!Array.isArray(p.items)||!p.items.length||p.items.length>20)return false;
+  seen.add(p.id);
+  const ids=new Set();
+  return p.items.every(x=>{
+   if(!x||typeof x.actId!=='string'||ids.has(x.actId)||x.evidenceStatus!=='reference_only_provision_not_verified'||
+      x.applicabilityStatus!=='not_assessed'||x.humanReviewRequired!==true||
+      !x.sourceUrl||!x.sourceUrl.startsWith(APPROVED)||typeof x.verificationQuestion!=='string')return false;
+   const url=new URL(x.sourceUrl);
+   if(!(url.hostname==='eur-lex.europa.eu'||url.hostname.endsWith('.europa.eu')||url.hostname==='centralbank.ie'||url.hostname.endsWith('.centralbank.ie')||
+         url.hostname==='gov.ie'||url.hostname.endsWith('.gov.ie')||url.hostname==='dataprotection.ie'||url.hostname.endsWith('.dataprotection.ie')))return false;
+   ids.add(x.actId);return true;
+  });
+ });
+}
+function currentProfile(){
+ return documentData&&documentData.profiles.find(p=>p.id===el('profile').value);
+}
+function selectedKey(item){const profile=currentProfile();return profile?profile.id+':'+item.actId:'';}
+function showCounter(){
+ el('counter').textContent=selected.size+' checked items selected';
+ el('export').disabled=!selected.size;
+}
+function render(){
+ const p=currentProfile(),root=el('candidates');root.replaceChildren();selected.clear();
+ if(!p){
+  el('summary').textContent='No research scenario available.';
+  el('assumptions').replaceChildren();root.append(make('div','panel empty','Select an example organisation.'));showCounter();return;
+ }
+ el('summary').textContent=p.name+' · '+p.jurisdiction+' · '+p.items.length+' possible research references.';
+ const assumptions=el('assumptions');assumptions.replaceChildren();
+ assumptions.append(make('p','meta','Assumed activities: '+p.assumptions.join(' · ')),
+                    make('p','meta',p.limitations));
+ for(const row of p.items){
+  const card=make('article','card');
+  card.append(make('span','status','Requires human source review'),make('h3','',row.shortName+' — '+row.name),
+    make('div','meta',row.citation+' · '+row.sourceClass.replaceAll('_',' ')));
+  const why=make('div','group');why.append(make('strong','','Reason for initial screening'),make('p','',row.screeningRationale));card.append(why);
+  const question=make('div','group');question.append(make('strong','','Unresolved applicability question'),make('p','',row.verificationQuestion));card.append(question);
+  const link=make('a','source','Open primary reference · '+row.sourceUrl);link.href=row.sourceUrl;link.target='_blank';link.rel='noopener noreferrer';card.append(link);
+  if(row.milestones.length){
+   const dates=make('div','group');dates.append(make('strong','','Selected dated milestones (verify scope and changes)'));
+   for(const m of row.milestones)dates.append(make('p','',m.date+' · '+m.name+' · '+m.type));
+   card.append(dates);
+  }
+  const label=make('label','review');
+  const control=make('input');control.type='checkbox';
+  control.setAttribute('aria-label','I checked the original source and want '+row.shortName+' in my working draft');
+  control.addEventListener('change',()=>{
+   const k=selectedKey(row);if(control.checked)selected.add(k);else selected.delete(k);showCounter();
+  });
+  label.append(control,make('span','','I have checked the original source and choose to include this research candidate in my working draft. This selection is not a legal approval.'));
+  card.append(label);root.append(card);
+ }
+ showCounter();
+}
+function buildMarkdown(profile,items,createdAt){
+ const out=[
+  '# LexSignal — Illustrative Regulatory Research Worksheet',
+  '',
+  'Scenario: '+profile.name,
+  'Jurisdiction: '+profile.jurisdiction,
+  'Draft exported: '+createdAt,
+  '',
+  'STATUS: SYNTHETIC EXAMPLE. RESEARCH CANDIDATES ONLY. NO DETERMINATION OF LEGAL APPLICABILITY.',
+  'This document links to curated references, not independently verified provisions or current consolidated law.',
+  '',
+  'Assumed activities: '+profile.assumptions.join('; '),
+  'Limitations: '+profile.limitations,''
+ ];
+ for(const row of items){
+  out.push('## '+row.shortName+' — '+row.name,
+   'Reference: '+row.citation,
+   'Original source: '+row.sourceUrl,
+   'Reason for screening: '+row.screeningRationale,
+   'Question requiring legal verification: '+row.verificationQuestion,
+   'Review status: selected by researcher for working draft; legal correctness and applicability not assessed.');
+  for(const m of row.milestones)out.push('Milestone to verify: '+m.date+' — '+m.name+' ('+m.sourceUrl+')');
+  out.push('');
+ }
+ out.push('Before external use: confirm current legal text, relevant provisions, effective dates, jurisdiction and reviewer approval.','');
+ return out.join('\n');
+}
+el('profile').addEventListener('change',render);
+el('export').addEventListener('click',()=>{
+ const p=currentProfile();if(!p||!selected.size)return;
+ const rows=p.items.filter(item=>selected.has(selectedKey(item)));
+ if(!rows.length)return;
+ const markdown=buildMarkdown(p,rows,new Date().toISOString());
+ const url=URL.createObjectURL(new Blob([markdown],{type:'text/markdown;charset=utf-8'}));
+ const a=make('a');a.href=url;a.download='lexsignal-example-research-'+p.id+'.md';
+ a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+ el('export-status').textContent='Downloaded a research worksheet for '+rows.length+' selected reference(s).';
+});
+async function load(){
+ try{
+  const response=await fetch('data/example_research.json',{cache:'no-store'});
+  if(!response.ok)throw Error('HTTP '+response.status);
+  const doc=await response.json();
+  if(!validWorksheet(doc))throw Error('Unrecognised or unsafe research data');
+  documentData=doc;
+  const select=el('profile');select.replaceChildren();
+  for(const p of doc.profiles){const option=make('option','',p.name);option.value=p.id;select.append(option);}
+  select.disabled=false;render();
+ }catch(error){
+  el('summary').textContent='Research examples unavailable. The Regulatory Library remains accessible.';
+  el('candidates').replaceChildren(make('div','panel empty','Could not load the source-linked research examples.'));
+  el('profile').disabled=true;
+  el('export').disabled=true;
+ }
+}
+load();
+})();
+</script>
+</body>
+</html>
