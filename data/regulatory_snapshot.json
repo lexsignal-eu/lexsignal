@@ -1,6 +1,6 @@
 {
   "schema": "lexsignal-snapshot-v1",
-  "generatedAt": "2026-11-10T08:23:50+00:00",
+  "generatedAt": "2026-11-10T11:11:17+00:00",
   "disclaimer": "Automatically classified RSS extracts, not human-reviewed. Cached records may no longer be in the latest RSS feed. See collectionState and lastObservedAt.",
   "sources": [
     {
@@ -32,11 +32,38 @@
       "url": "https://www.centralbank.ie/feeds/news-media-feed",
       "status": "ok",
       "matched": 19,
-      "cachedRecordCount": 0,
+      "cachedRecordCount": 1,
       "observedRecordCount": 19
     }
   ],
   "records": [
+    {
+      "id": "rss-384503851fdf8a00",
+      "date": "2026-11-10",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "Building foundations for innovative and resilient capital markets",
+      "summary": "Tokenisation is system-wide evolution and requires strong foundations Done well, it can support further integration of European capital markets Europe needs to strengthen foundations for resilient non-bank finance Central Bank of Ireland Deputy Governor Vasileios Madouros today told the European Capital Markets Institute's annual conference that Europe's shift to tokenised finance and the continued expansion of non-banks are two defining shifts in finance. Both call",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/press-release-building-foundations-for-innovative-and-resilient-capital-markets-10-november-2026",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true,
+      "signalTier": "background",
+      "eventType": "general news",
+      "triageMethod": "headline rules; not human-reviewed",
+      "firstSeenAt": "2026-11-10T11:11:17+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
+      "collectionState": "observed"
+    },
     {
       "id": "rss-cdea0a7b3a56ec1e",
       "date": "2026-11-09",
@@ -61,7 +88,7 @@
       "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -88,7 +115,7 @@
       "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -115,7 +142,7 @@
       "eventType": "firm warning",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -142,7 +169,7 @@
       "eventType": "firm warning",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -169,7 +196,7 @@
       "eventType": "supervisory context",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -196,7 +223,7 @@
       "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -223,7 +250,7 @@
       "eventType": "speech",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -250,7 +277,7 @@
       "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -277,7 +304,7 @@
       "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -304,7 +331,7 @@
       "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -331,7 +358,7 @@
       "eventType": "speech",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -358,7 +385,7 @@
       "eventType": "firm warning",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -385,7 +412,7 @@
       "eventType": "firm warning",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -412,7 +439,7 @@
       "eventType": "speech",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -439,7 +466,7 @@
       "eventType": "enforcement",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -466,7 +493,7 @@
       "eventType": "guidance",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -493,7 +520,7 @@
       "eventType": "firm warning",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -520,7 +547,7 @@
       "eventType": "supervisory context",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -547,7 +574,7 @@
       "eventType": "speech",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -574,7 +601,7 @@
       "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -601,7 +628,7 @@
       "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -628,7 +655,7 @@
       "eventType": "enforcement",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -655,7 +682,7 @@
       "eventType": "firm warning",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -682,7 +709,7 @@
       "eventType": "guidance",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -709,7 +736,7 @@
       "eventType": "guidance",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -736,7 +763,7 @@
       "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -763,7 +790,7 @@
       "eventType": "firm warning",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -790,7 +817,7 @@
       "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -817,7 +844,7 @@
       "eventType": "guidance",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -845,7 +872,7 @@
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
       "lastObservedAt": "2026-11-10T08:23:50+00:00",
-      "collectionState": "observed"
+      "collectionState": "cached"
     },
     {
       "id": "rss-9e391ec60fa9e859",
@@ -871,7 +898,7 @@
       "eventType": "supervisory context",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -898,7 +925,7 @@
       "eventType": "enforcement",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -925,7 +952,7 @@
       "eventType": "enforcement",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -952,7 +979,7 @@
       "eventType": "enforcement",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -979,7 +1006,7 @@
       "eventType": "enforcement",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -1006,7 +1033,7 @@
       "eventType": "supervisory context",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -1033,7 +1060,7 @@
       "eventType": "enforcement",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -1060,7 +1087,7 @@
       "eventType": "press/news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -1087,7 +1114,7 @@
       "eventType": "guidance",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     },
     {
@@ -1114,7 +1141,7 @@
       "eventType": "firm warning",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-10T08:23:50+00:00",
+      "lastObservedAt": "2026-11-10T11:11:17+00:00",
       "collectionState": "observed"
     }
   ]
