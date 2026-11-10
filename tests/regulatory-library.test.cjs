@@ -119,8 +119,9 @@ test('source health shows collection failures, cached records and stale snapshot
 test('regulatory cards expose their source review state and distinguish legal acts from initiatives', () => {
   assert.match(page, /Source traceability/);
   assert.match(page, /knowledgeIndex\.entities\.find/);
-  assert.match(page, /record\.sourceEdition==='original_official_journal'/);
-  assert.match(page, /record\.eliUri===act\.source/);
+  assert.match(page, /record\.officialSourceUrl===act\.source/);
+  assert.match(page, /Curated ELI link/);
+  assert.match(page, /CELEX candidate/);
   assert.match(page, /Read original EUR-Lex act/);
   assert.match(page, /Open official initiative source/);
   assert.match(page, /current consolidated text separately/);
