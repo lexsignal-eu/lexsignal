@@ -81,3 +81,8 @@ Run: `python build_knowledge_index.py --out /tmp/knowledge.json`. Optionally com
 The Regulatory Library now reads the existing generated `/api/v1/knowledge.json` index to display per-authority collection success/failure, observed vs cached publication counts and the published UTC snapshot timestamp, with a warning when that snapshot is older than 48 hours. Failures leave an explicit unavailable status; the page does not silently claim that a stale or failed feed is up to date. Records remain unreviewed unless explicitly curated and human checked. The generated source index is publicly inspectable, but it is not a legal-text version or proof of a regulatory obligation.
 
 For the ten-step engineering and commercial release plan, dependencies and acceptance gates, see [docs/RELEASE_MILESTONES.md](docs/RELEASE_MILESTONES.md). M1–M10 are newly defined release milestones mapped to the existing P0–P3 engineering programme. A milestone is not complete until its acceptance criteria have been tested; a merged PR alone does not imply a customer-ready product.
+
+
+## Legal source traceability (M2 UI increment)
+
+The Regulatory Library now joins cards to the canonical `act:...` records from the knowledge index and surfaces their curated reference status and exact ELI original Official Journal URL when matched. An initiative such as T+1 is shown as guidance-only. If the independently pending source-identifier work in draft PR #22 is merged, any mechanically derived CELEX candidate will be explicitly labelled unverified. No consolidated law, provision citations, legal-text versions or amendment detection are claimed.

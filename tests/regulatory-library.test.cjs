@@ -115,3 +115,14 @@ test('source health shows collection failures, cached records and stale snapshot
   assert.throws(()=>vm.runInContext('sourceHealthModel({...doc,schema:"incorrect"})',ctx));
   assert.throws(()=>vm.runInContext('sourceHealthModel({...doc,provenance:{...doc.provenance,sourceStatus:[]}})',ctx));
 });
+
+test('regulatory cards expose their source review state and distinguish legal acts from initiatives', () => {
+  assert.match(page, /Source traceability/);
+  assert.match(page, /knowledgeIndex\.entities\.find/);
+  assert.match(page, /record\.officialSourceUrl===act\.source/);
+  assert.match(page, /Curated ELI link/);
+  assert.match(page, /CELEX candidate/);
+  assert.match(page, /Read original EUR-Lex act/);
+  assert.match(page, /Open official initiative source/);
+  assert.match(page, /current consolidated text separately/);
+});

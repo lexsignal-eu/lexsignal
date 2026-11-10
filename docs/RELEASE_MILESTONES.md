@@ -11,7 +11,7 @@ Deliver a secure, evidence-grounded regulatory intelligence application for smal
 | Milestone | Phase / links | Definition of done | Current state |
 | --- | --- | --- | --- |
 | **M1 — Source integrity and canonical knowledge** | P0 · #15, #16 | Registered official sources; deduplicated typed entries; strict URLs; provenance, timestamps, error and cache status; inspectable user-facing source health; tested static machine feed | **In progress.** First P0 index merged in #21; this PR adds the source transparency panel |
-| **M2 — Legal identifiers, versioning and evidence** | P0 · #16 | ELI and CELEX where applicable; law text version history; provision-specific source citations and immutable evidence; amendment vs metadata-diff distinction; test AI Act, MiCA, DORA, NIS2 | Pending; no verified amendment engine yet |
+| **M2 — Legal identifiers, versioning and evidence** | P0 · #16 | ELI and CELEX where applicable; law text version history; provision-specific source citations and immutable evidence; amendment vs metadata-diff distinction; test AI Act, MiCA, DORA, NIS2 | **In progress.** Source-linked UI traceability introduced; stricter ELI and CELEX-candidate indexing awaits review in PR #22; provision/version engine pending |
 | **M3 — Release engineering and operational quality** | P0 · #17 | Isolated staging, browser smoke tests, schema/link validation, build artifact provenance, feed-failure alerts, reproducible releases and tested rollback; deploys gated by CI | Partial CI and Pages deployment only |
 | **M4 — Accounts, organizations and security** | P0 · #8 | Authenticated organization memberships, role checks, tenant isolation, audited edits, retention/deletion/export, security testing and privacy notices | Not implemented |
 | **M5 — Organization-scoped regulatory watchlists** | P1 · #18 | Explainable sector/jurisdiction/activity profile; relevance questions; test Irish payment institution; reviewer overrides and false-positive measurements | Not implemented |
@@ -50,3 +50,9 @@ This increment exposes existing data; it does not determine legal applicability,
 ## Next implementation PR
 
 M2: validated ELI/CELEX identifiers from exact primary-source documents, provision/evidence records and version provenance. Separate metadata changes from confirmed legal-text amendments, and add offline fixtures before expanding into retrieval and summaries.
+
+## M2 first source-traceability increment
+
+The Regulatory Library cross-references each curated law card with its canonical `act:...` record from the published index, displaying explicit editorial review status and checking that its source URL matches. Where the already curated source is an original EUR-Lex ELI `/oj` link, the user can inspect that exact source. Other initiatives, such as T+1, are described as source-linked guidance rather than a standalone legal instrument. Future `legalIdentifiers.celexCandidate` metadata (if approved in draft PR #22) will be labelled unverified in the interface.
+
+**Limits:** The UI does not claim a verified current consolidated law, CELEX verification, provision-level content, legal-text version history or amendments. These remain M2 work and the pending source-identifier PR requires its own validation and review.
