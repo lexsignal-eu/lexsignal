@@ -128,3 +128,35 @@ test('regulatory cards expose their source review state and distinguish legal ac
   assert.match(page, /Open official initiative source/);
   assert.match(page, /current consolidated text separately/);
 });
+
+test('synthetic organization lenses are valid, explainable and link only to curated acts', () => {
+  const examples=JSON.parse(fs.readFileSync(path.join(root,'data/example_profile_lenses.json'),'utf8'));
+  assert.equal(examples.schema,'lexsignal-example-profile-lenses-v1');
+  assert.ok(examples.profiles.length>=2);
+  const actIds=new Set(catalog.acts.map(a=>a.id));
+  const profileIds=new Set();
+  for(const p of examples.profiles){
+    assert.ok(!profileIds.has(p.id));profileIds.add(p.id);
+    assert.match(p.note,/Illustrative|illustrative/);
+    const seen=new Set();
+    for(const c of p.candidates){
+      assert.ok(actIds.has(c.actId),'Unknown act '+c.actId);
+      assert.ok(!seen.has(c.actId),'Repeated profile candidate '+c.actId);
+      seen.add(c.actId);
+      assert.ok(c.why.length>=20);
+      assert.ok(c.verify.length>=20);
+    }
+  }
+  assert.match(page,/id="example-profile"/);
+  assert.match(page,/data\/example_profile_lenses\.json/);
+  assert.match(page,/Why this source was shortlisted/);
+  assert.match(page,/not a finding that legal duties apply/);
+  const start=script.indexOf('function validExampleProfiles(');
+  const end=script.indexOf('function isVisible(',start);
+  assert.ok(start>=0&&end>start);
+  const ctx=vm.createContext({doc:examples});
+  vm.runInContext(script.slice(start,end),ctx);
+  assert.equal(vm.runInContext('validExampleProfiles(doc)',ctx),true);
+  assert.equal(vm.runInContext('validExampleProfiles({...doc,schema:"unexpected"})',ctx),false);
+  assert.equal(vm.runInContext('validExampleProfiles({...doc,profiles:[{id:"bad",name:"Bad",note:"note",candidates:[]}]})',ctx),false);
+});
