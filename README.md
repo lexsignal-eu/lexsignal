@@ -86,3 +86,8 @@ For the ten-step engineering and commercial release plan, dependencies and accep
 ## Legal source traceability (M2 UI increment)
 
 The Regulatory Library now joins cards to the canonical `act:...` records from the knowledge index and surfaces their curated reference status and exact ELI original Official Journal URL when matched. An initiative such as T+1 is shown as guidance-only. If the independently pending source-identifier work in draft PR #22 is merged, any mechanically derived CELEX candidate will be explicitly labelled unverified. No consolidated law, provision citations, legal-text versions or amendment detection are claimed.
+
+
+## Release artifact verification (M3 first increment)
+
+`python build_site.py --out /tmp/lexsignal-preview --revision YOUR_COMMIT_SHA` builds the public site and generated API data with an integrity manifest at `/api/v1/build-manifest.json`. Pull requests run the same builder and upload an isolated, downloadable preview artifact; Pages publication requires Python and Node tests plus the offline link, schema and provenance checks. The preview is **not a hosted staging environment**. Remote browser acceptance, alerts and rollback rehearsal remain pending. See `docs/RELEASE_OPERATIONS.md`.

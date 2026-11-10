@@ -14,6 +14,10 @@ on:
       - 'knowledge_index.py'
       - 'build_knowledge_index.py'
       - 'build_agent_feed.py'
+      - 'build_site.py'
+      - '.github/workflows/publish.yml'
+      - 'brand/**'
+      - 'data/regulatory_snapshot.json'
       - 'agent-access.html'
       - 'llms.txt'
       - 'data/global_signals.json'
@@ -36,3 +40,11 @@ jobs:
         run: python build_knowledge_index.py --out /tmp/lexsignal-knowledge.json
       - name: Dashboard JS and integration tests (Node)
         run: node --test tests/*.test.cjs
+      - name: Build PR release preview with production-equivalent gate
+        run: python build_site.py --out "$RUNNER_TEMP/lexsignal-preview" --revision "$GITHUB_SHA"
+      - name: Upload private PR preview artifact (not a production deployment)
+        uses: actions/upload-artifact@v4
+        with:
+          name: lexsignal-pr-preview
+          path: ${{ runner.temp }}/lexsignal-preview/
+          retention-days: 7
