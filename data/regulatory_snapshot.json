@@ -1,6 +1,6 @@
 {
   "schema": "lexsignal-snapshot-v1",
-  "generatedAt": "2026-11-17T08:26:35+00:00",
+  "generatedAt": "2026-11-18T08:25:12+00:00",
   "disclaimer": "Automatically classified RSS extracts, not human-reviewed. Cached records may no longer be in the latest RSS feed. See collectionState and lastObservedAt.",
   "sources": [
     {
@@ -16,27 +16,162 @@
       "url": "https://www.edpb.europa.eu/rss.xml_en",
       "status": "ok",
       "matched": 10,
-      "cachedRecordCount": 5,
+      "cachedRecordCount": 6,
       "observedRecordCount": 10
     },
     {
       "authority": "European Commission",
       "url": "https://commission.europa.eu/news/feed_en",
       "status": "ok",
-      "matched": 2,
+      "matched": 3,
       "cachedRecordCount": 0,
-      "observedRecordCount": 2
+      "observedRecordCount": 3
     },
     {
       "authority": "Central Bank of Ireland",
       "url": "https://www.centralbank.ie/feeds/news-media-feed",
       "status": "ok",
-      "matched": 19,
-      "cachedRecordCount": 5,
-      "observedRecordCount": 19
+      "matched": 20,
+      "cachedRecordCount": 8,
+      "observedRecordCount": 20
     }
   ],
   "records": [
+    {
+      "id": "rss-b7cc255a73d5fa78",
+      "date": "2026-11-17",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "Governor Makhlouf Outlines Foundations for Future Growth of International Financial Services Sector",
+      "summary": "Proposes 60% reduction in number of roles that require Central Bank pre-approval. Governor Gabriel Makhlouf has outlined how Central Bank of Ireland is supporting sustainable growth and stability in Ireland’s international financial services sector, while maintaining the robust regulatory framework that underpins trust and confidence in the financial system. Speaking at the Federation of International Banks in Ireland (FIBI) this morning, Governor Makhlouf highlight",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/governor-makhlouf-outlines-foundations-for-future-growth-of-international-financial-services-sector",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true,
+      "signalTier": "background",
+      "eventType": "general news",
+      "triageMethod": "headline rules; not human-reviewed",
+      "firstSeenAt": "2026-11-18T08:25:12+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
+      "collectionState": "observed"
+    },
+    {
+      "id": "rss-93c20522e7f2f0e6",
+      "date": "2026-11-17",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "Central Bank of Ireland secures criminal conviction for unauthorised debt management services",
+      "summary": "Ms Rosaleen Grier of Granard, County Longford was convicted before Longford District Court for providing debt management services without authorisation from Central Bank of Ireland (the Central Bank) in breach of Section 29(1) of the Central Bank Act 1997 (the 1997 Act). The 1997 Act makes it a criminal offence for any person to carry on a regulated business, such as the provision of debt management services, without first obtaining authorisation from the Central Ba",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/press-release-central-bank-of-ireland-secures-criminal-conviction-for-unauthorised-debt-management-services-17-november-2026",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true,
+      "signalTier": "background",
+      "eventType": "general news",
+      "triageMethod": "headline rules; not human-reviewed",
+      "firstSeenAt": "2026-11-18T08:25:12+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
+      "collectionState": "observed"
+    },
+    {
+      "id": "rss-46ba1db6215269c4",
+      "date": "2026-11-17",
+      "authority": "EDPB",
+      "category": "Data protection",
+      "kind": "enforcement",
+      "title": "Irish Data Protection Commission fines MTCH EUR 11 million following Inquiry into Tinder users’ personal data requests",
+      "summary": "Irish Data Protection Commission fines MTCH EUR 11 million following Inquiry into Tinder users’ personal data requests ikerinar Tue, 17/11/2026 - 11:13",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.edpb.europa.eu/news/irish-data-protection-commission-fines-mtch-eur-11-million-following-inquiry-into-tinder-users_en",
+      "sectors": [
+        "privacy"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true,
+      "signalTier": "high",
+      "eventType": "enforcement",
+      "triageMethod": "headline rules; not human-reviewed",
+      "firstSeenAt": "2026-11-18T08:25:12+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
+      "collectionState": "observed"
+    },
+    {
+      "id": "rss-3f80b539ed6e42d3",
+      "date": "2026-11-17",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "Foundations for the Future: the Central Bank and the Financial System - Speech by Governor Makhlouf at Federation of International Banks in Ireland",
+      "summary": "Good morning, and thank you to FIBI for the invitation. 1 It was almost 40 years ago that a committee of public servants and private sector financial services leaders was tasked by the newly elected Government to come up with a five-year plan to build an international financial services centre on a derelict dock in Dublin. The original target was 7,500 jobs, although some committee members tried to temper expectations of significant employment growth from the so-cal",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/speech-governor-makhlouf-federation-in-international-banks-in-ireland-17-november-2026",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true,
+      "signalTier": "background",
+      "eventType": "speech",
+      "triageMethod": "headline rules; not human-reviewed",
+      "firstSeenAt": "2026-11-18T08:25:12+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
+      "collectionState": "observed"
+    },
+    {
+      "id": "rss-22ea1e8800003b40",
+      "date": "2026-11-17",
+      "authority": "European Commission",
+      "category": "Data protection",
+      "kind": "news",
+      "title": "Preliminary findings of Temu failing to counter sale of illegal products",
+      "summary": "The Commission has preliminarily found international e-commerce marketplace, Temu, in breach of the Digital Services Act, for its failure to put in place adequate measures to counter the sale of illegal products on its platform.",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2463",
+      "sectors": [
+        "privacy"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true,
+      "signalTier": "background",
+      "eventType": "general news",
+      "triageMethod": "headline rules; not human-reviewed",
+      "firstSeenAt": "2026-11-18T08:25:12+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
+      "collectionState": "observed"
+    },
     {
       "id": "rss-280c2a1b1cdb071a",
       "date": "2026-11-16",
@@ -61,7 +196,7 @@
       "eventType": "supervisory context",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-17T08:26:35+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -88,7 +223,7 @@
       "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-16T09:49:25+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -115,7 +250,7 @@
       "eventType": "speech",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-16T09:49:25+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -142,7 +277,7 @@
       "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-16T09:49:25+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -169,7 +304,7 @@
       "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-13T08:24:21+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -196,7 +331,7 @@
       "eventType": "enforcement",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-12T08:24:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -223,7 +358,7 @@
       "eventType": "firm warning",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-12T08:24:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -251,7 +386,7 @@
       "eventType": "enforcement",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-11T08:23:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -278,7 +413,7 @@
       "eventType": "enforcement",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-10T11:30:16+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -305,7 +440,7 @@
       "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-10T11:11:17+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -332,7 +467,7 @@
       "eventType": "enforcement",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-10T11:30:16+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -359,7 +494,7 @@
       "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -386,7 +521,7 @@
       "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -413,7 +548,7 @@
       "eventType": "firm warning",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -440,7 +575,7 @@
       "eventType": "firm warning",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -467,7 +602,7 @@
       "eventType": "supervisory context",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -494,7 +629,7 @@
       "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -521,7 +656,7 @@
       "eventType": "speech",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -549,6 +684,33 @@
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
       "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "collectionState": "cached"
+    },
+    {
+      "id": "rss-32271ee4ec9e3b71",
+      "date": "2026-11-02",
+      "authority": "Central Bank of Ireland",
+      "category": "Financial regulation",
+      "kind": "news",
+      "title": "Harnessing innovation benefits while managing risks – Central Bank of Ireland hosts fifth annual Financial System Conference",
+      "summary": "Central Bank of Ireland today (Monday 2 November) hosts its annual Financial System Conference at Croke Park in Dublin. It brings together c. 500 delegates including international and domestic policy experts, senior figures from the financial services industry, and stakeholders from across the financial ecosystem. Key themes will include navigating the changing geopolitical landscape and its implications for Ireland, strengthening European financial markets integrat",
+      "impact": "Automatically collected summary; relevance and applicability have not been checked.",
+      "actions": [
+        "Verify the original publication and date.",
+        "Assess applicability to the client."
+      ],
+      "url": "https://www.centralbank.ie/news/article/press-release-fifth-annual-financial-system-conference-2-november-2026",
+      "sectors": [
+        "fin"
+      ],
+      "priority": "unassessed",
+      "sourceType": "rss",
+      "needsReview": true,
+      "signalTier": "background",
+      "eventType": "general news",
+      "triageMethod": "headline rules; not human-reviewed",
+      "firstSeenAt": "2026-11-18T08:25:12+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -575,7 +737,7 @@
       "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -602,7 +764,7 @@
       "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -629,7 +791,7 @@
       "eventType": "speech",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -656,7 +818,7 @@
       "eventType": "firm warning",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -683,7 +845,7 @@
       "eventType": "firm warning",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -711,7 +873,7 @@
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
       "lastObservedAt": "2026-11-17T08:26:35+00:00",
-      "collectionState": "observed"
+      "collectionState": "cached"
     },
     {
       "id": "rss-a48ea6403c9e411a",
@@ -737,7 +899,7 @@
       "eventType": "enforcement",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -764,7 +926,7 @@
       "eventType": "guidance",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -791,7 +953,7 @@
       "eventType": "firm warning",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -818,7 +980,7 @@
       "eventType": "supervisory context",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -846,7 +1008,7 @@
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
       "lastObservedAt": "2026-11-17T08:26:35+00:00",
-      "collectionState": "observed"
+      "collectionState": "cached"
     },
     {
       "id": "rss-ba3b760bfae75eb7",
@@ -872,7 +1034,7 @@
       "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -926,7 +1088,7 @@
       "eventType": "enforcement",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -980,7 +1142,7 @@
       "eventType": "guidance",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -1007,7 +1169,7 @@
       "eventType": "guidance",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -1034,7 +1196,7 @@
       "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -1088,7 +1250,7 @@
       "eventType": "general news",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -1115,7 +1277,7 @@
       "eventType": "guidance",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -1169,7 +1331,7 @@
       "eventType": "supervisory context",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -1251,7 +1413,7 @@
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
       "lastObservedAt": "2026-11-17T08:26:35+00:00",
-      "collectionState": "observed"
+      "collectionState": "cached"
     },
     {
       "id": "rss-2babe5f4f9a93138",
@@ -1385,7 +1547,7 @@
       "eventType": "guidance",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     },
     {
@@ -1395,7 +1557,7 @@
       "category": "Financial regulation",
       "kind": "news",
       "title": "Raisin Savings Bank/ Raisin Ireland (CLONE) - Central Bank of Ireland Issues Warning on Unauthorised Firm",
-      "summary": "Updated on 08 October 2026 Warning: Unauthorised Banking Business Unauthorised Firm Name Raisin Savings Bank/ Raisin Ireland (Clone) Website www.raisin-ie.com Email address used apply@raisin-ie.com staff.member@raisin-ie.com Phone numbers used +353 1 575 9032 Authorisation in Ireland This firm is not authorised to provide banking business services or any other financial services in Ireland. This scam firm has cloned the details of the legitimate Raisin Bank AG, in o",
+      "summary": "Updated on 17 November 2026 Warning: Unauthorised Banking Business Unauthorised Firm Name Raisin Savings Bank/ Raisin Ireland (Clone) Website www.raisin-ie.com www.raisinprivate.com Email address used apply@raisin-ie.com apply@raisinie.com apply@raisininvestment.com apply@raisininvestment.eu applicants@raisinclients-ie.com staff.member@raisin-ie.com Staff.member@raisinpromotions-ie.com Phone numbers used +353 1 575 9032 Authorisation in Ireland This firm is not auth",
       "impact": "Automatically collected summary; relevance and applicability have not been checked.",
       "actions": [
         "Verify the original publication and date.",
@@ -1412,7 +1574,7 @@
       "eventType": "firm warning",
       "triageMethod": "headline rules; not human-reviewed",
       "firstSeenAt": "2026-11-09T19:06:06+00:00",
-      "lastObservedAt": "2026-11-17T08:26:35+00:00",
+      "lastObservedAt": "2026-11-18T08:25:12+00:00",
       "collectionState": "observed"
     }
   ]
